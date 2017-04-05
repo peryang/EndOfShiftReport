@@ -1,0 +1,61 @@
+{
+	"PEK7": [{
+		"Badges_Types": "SH7",
+		"Total": "10",
+		"Qty_In_Safe": ""
+	},
+	{
+		"Badges_Types": "Visitor7",
+		"Total": "5",
+		"Qty_In_Safe": ""
+	},
+	{
+		"Badges_Types": "IFMB7",
+		"Total": "6",
+		"Qty_In_Safe": ""
+	}],
+	"BJS10": [{
+		"Badges_Types": "SH7",
+		"Total": "10",
+		"Qty_In_Safe": ""
+	},
+	{
+		"Badges_Types": "Visitor7",
+		"Total": "5",
+		"Qty_In_Safe": ""
+	},
+	{
+		"Badges_Types": "IFMB7",
+		"Total": "6",
+		"Qty_In_Safe": ""
+	}],
+	"Hard_Drive_Replaced": [{
+		"Cage": "PEK50.1-1",
+		"Replace": "",
+		"DECOM": ""
+	},
+	{
+		"Cage": "GPS",
+		"Replace": "",
+		"DECOM": ""
+	}],
+	"Hand_off_TT": [{
+		"k1": "PEK50.1-1",
+		"k2": "",
+		"k3": ""
+	}],
+	"Cabling_Work": [{
+		"k1": "PEK50.1-1",
+		"k2": "",
+		"k3": ""
+	}],
+	"RMA_request": [{
+		"k1": "PEK50.1-1",
+		"k2": "",
+		"k3": "",
+		"k4": "",
+		"k5": "",
+		"k6": ""
+	}],
+	"Other_handoff": "PEK7xzxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+}

@@ -1,0 +1,46 @@
+{
+	"PEK50": [{
+		"Badges_Types": "SH",
+		"Total": "10",
+		"Qty_In_Safe": ""
+	},
+	{
+		"Badges_Types": "Visitor",
+		"Total": "5",
+		"Qty_In_Safe": ""
+	},
+	{
+		"Badges_Types": "IFMB",
+		"Total": "6",
+		"Qty_In_Safe": ""
+	}],
+	"Hard_Drive_Replaced": [{
+		"Cage": "PEK50.1-1",
+		"Replace": "",
+		"DECOM": ""
+	},
+	{
+		"Cage": "GPS",
+		"Replace": "",
+		"DECOM": ""
+	}],
+	"Hand_off_TT": [{
+		"k1": "PEK50.1-1",
+		"k2": "",
+		"k3": ""
+	}],
+	"Cabling_Work": [{
+		"k1": "PEK50.1-1",
+		"k2": "",
+		"k3": ""
+	}],
+	"RMA_request": [{
+		"k1": "PEK50.1-1",
+		"k2": "",
+		"k3": "",
+		"k4": "",
+		"k5": "",
+		"k6": ""
+	}],
+	"Other_handoff": "PEK50xzxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+}
