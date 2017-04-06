@@ -19,6 +19,9 @@
 body {
 	padding-bottom: 30px;
 }
+.table.table-bordered.table-striped{
+	clear: both;
+}
 table.table > tbody > tr > td {
 	height: 30px;
 	vertical-align: middle;
@@ -109,4 +112,15 @@ a.editable-click:hover{
 	position: absolute;
 	left: 80px;
 	top: 45px;
+}
+.footer{
+	clear: both;
+	padding-top: 10px;
+}
+.footer p{
+	text-align: center;
+}
+.action-con {
+	float: right;
+	margin-bottom: 10px;
 }
