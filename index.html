@@ -133,19 +133,34 @@
 				<p><a href="javascript:;">ditao</a> © ditao.</p>
 			</footer>
 		</div>
-		<script src="./js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
 		<!-- momentjs --> 
-		<script src="./js/moment.min.js"></script>
+		<script type="text/javascript" src="./js/moment.min.js"></script>
 		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<!-- bootstrap 3 -->
-		<script src="./js/bootstrap.js"></script>
+		<script type="text/javascript" src="./js/bootstrap.js"></script>
 		<!-- bootstrap-datetimepicker -->
-		<script src="./js/daterangepicker.js"></script>
+		<script type="text/javascript" src="./js/daterangepicker.js"></script>
 		<!-- x-editable (bootstrap 3) -->
-		<script src="./js/bootstrap-editable.js"></script>
-		<script src="./js/main.js"></script>
+		<script type="text/javascript" src="./js/bootstrap-editable.js"></script>
+		<script type="text/javascript" src="./js/main.js"></script>
+		<script type="text/javascript">
+			var ajax_url = {};
+			if(window.location.href.indexOf("dev") > -1){
+				ajax_url = {
+					"getPEK50": "/EndOfShiftReport-ditao/json/getdataPEK50.json",
+					"getPEK7": "/EndOfShiftReport-ditao/json/getdataPEK7.json",
+					"post": "/EndOfShiftReport-ditao/json/savedata.json"
+				};
+			}else{
+				ajax_url = {
+					"get": "/api/getdata",
+					"post": "api/savedata"
+				};
+			}
+		</script>
 	</body>
 </html>

@@ -41,10 +41,12 @@ var addEditEvent = function(tdObj){
 }
 
 var drawTable = function(ajaxData){
+	var key = "get";
+	if(window.location.href.indexOf("dev") > -1){key = "get"+ajaxData.type;}
 	$.ajax({
 		type: "get",
 		data: ajaxData,
-		url: "/ditao/json/getdata"+ajaxData.type+".json",
+		url: ajax_url[key],
 		success: function(json){
 			$(".table tbody").empty();
 			$("textarea").html("");
@@ -140,7 +142,7 @@ var updateDB = function(){
 	$.ajax({
 		type: "post",
 		data: postData,
-		url: "/ditao/json/savedata.json",
+		url: ajax_url.post,
 		success: function(data){
 			$(".alert-success").removeClass("hide");
 			setTimeout('$(".alert-success").addClass("hide");', 1000);
