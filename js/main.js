@@ -47,16 +47,21 @@ var drawTable = function(ajaxData){
 		type: "get",
 		data: ajaxData,
 		url: ajax_url[key],
-		success: function(json){
+		success: function(msg){
+			if(msg.code != 1){
+				console.warn("数据请求错误");
+				return false;
+			}
 			$(".table tbody").empty();
 			$("textarea").html("");
-			for(var i in json){
+			var data = JSON.parse(unescape(msg.data));
+			for(var i in data){
 				if("Other_handoff" == i){
-					$("textarea").html(json[i]);
+					$("textarea").html(data[i]);
 				}
 				var tbody = $("#"+i).find("tbody");
-				for(var j = 0; j < json[i].length; j ++){
-					var subData = json[i][j];
+				for(var j = 0; j < data[i].length; j ++){
+					var subData = data[i][j];
 					var trObj = $('<tr></tr>');
 					var column = 1;
 					for(var k in subData){
@@ -133,7 +138,7 @@ var getPostData = function(){
 	}
 	result.Other_handoff = document.getElementById('Other_handoff').value;
 	return {
-		data: JSON.stringify(result)
+		data: escape(JSON.stringify(result))
 	};
 }
 
