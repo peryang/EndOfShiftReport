@@ -144,7 +144,11 @@ var getPostData = function(){
 			var tdSonAObj = $(trObjs[j]).find("td.modify a");
 			var json = {};
 			for(var k = 0; k < tdSonAObj.length; k ++){
-				json[$(tdSonAObj[k]).data("index")] = $(tdSonAObj[k]).html();
+				var tdHtml = $(tdSonAObj[k]).html();
+				if(tdHtml == "Empty"){
+					tdHtml = "";
+				}
+				json[$(tdSonAObj[k]).data("index")] = tdHtml;
 			}
 			result[id].push(json);
 		}
