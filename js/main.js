@@ -279,13 +279,17 @@ $(function(){
 		for (var i = 0; i < tdObj.length; i++) {
 			addEditEvent($(tdObj[i]));
 		}
-		tdObj.find('.editable').editable('toggleDisabled');
+		if($(".editable-disabled").length > 0)
+			tdObj.find('.editable').editable('toggleDisabled');
 	});
 	// action del
 	$(document).delegate(".main .column-del", "click", function(ev) {
 		ev.stopPropagation();
 		ev.preventDefault();
 		var _this = this;
+		if($(_this).parents("tbody").children().length == 1){
+			$(_this).parents("tr").find(".column-add").click();
+		}
 		$(_this).parents("tr").remove();
 	});
 	// select src
