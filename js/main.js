@@ -126,7 +126,7 @@ var initDate = function(){
     $(".search-date").on('apply.daterangepicker', function(ev, picker) {
 		$(this).val(picker.startDate.format('YYYY-MM-DD'));
 		drawTable({
-			date: picker.startDate.format('YYYY-MM-DD'),
+			date: getTimeStamp(picker.startDate.format('YYYY-MM-DD')),
 			type: $(".select-src option:selected").data("value")
 		});
 	});
@@ -150,6 +150,8 @@ var getPostData = function(){
 	}
 	result.Other_handoff = document.getElementById('Other_handoff').value;
 	return {
+		type: $(".select-src option:selected").data("value"),
+		date: getTimeStamp(),
 		data: escape(JSON.stringify(result))
 	};
 }
@@ -171,10 +173,18 @@ var updateDB = function(){
 	});
 }
 
+var getTimeStamp = function(dateStr){
+	if(!dateStr){
+		return new Date($(".search-date").val()).getTime();
+	} else {
+		return new Date(dateStr).getTime();
+	}
+}
+
 $(function(){
 	initDate();
 	drawTable({
-		date: (new Date(new Date().getTime() - 86400000)).Format("yyyy-MM-dd"),
+		date: getTimeStamp((new Date(new Date().getTime() - 86400000)).Format("yyyy-MM-dd")),
 		type: "PEK50"
 	});
 	//enable / disable
@@ -222,7 +232,7 @@ $(function(){
 		$("."+srcType).removeClass("hide");
 		$("."+srcType).addClass("show");
 		drawTable({
-			date: $(".search-date").val(),
+			date: getTimeStamp(),
 			type: srcType
 		});
 	});
