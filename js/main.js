@@ -40,6 +40,51 @@ var addEditEvent = function(tdObj){
 	}
 }
 
+var completeData = function(type){
+	switch(type){
+		case "PEK50":
+		case "PEK7":
+		case "BJS10":
+			return [{
+				"Badges_Types": "",
+				"Total": "",
+				"Qty_In_Safe": ""
+			}];
+			break;
+		case "Hard_Drive_Replaced":
+			return [{
+				"Cage": "",
+				"Replace": "",
+				"DECOM": ""
+			}];
+			break;
+		case "Hand_off_TT":
+			return [{
+				"Description": "",
+				"Status": "",
+				"Details": ""
+			}];
+			break;
+		case "Cabling_Work":
+			return [{
+				"Description": "",
+				"Update": "",
+				"Comments": ""
+			}];
+			break;
+		case "RMA_request":
+			return [{
+				"Description": "",
+				"SN": "",
+				"Bin": "",
+				"Vendor": "",
+				"Status": "",
+				"Note": ""
+			}];
+			break;
+	}
+}
+
 var drawTable = function(ajaxData){
 	var key = "get";
 	if(window.location.href.indexOf("dev") > -1){key = "get"+ajaxData.type;}
@@ -72,8 +117,11 @@ var drawTable = function(ajaxData){
 					$("textarea").html(data[i]);
 				}
 				var tbody = $("#"+i).find("tbody");
-				for(var j = 0; j < data[i].length; j ++){
-					var subData = data[i][j];
+				var typeData = data[i];
+				if(data[i].length == 0)
+					typeData = completeData(i);
+				for(var j = 0; j < typeData.length; j ++){
+					var subData = typeData[j];
 					var trObj = $('<tr></tr>');
 					var column = 1;
 					for(var k in subData){
