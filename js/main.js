@@ -1,12 +1,12 @@
-Date.prototype.Format = function (fmt) { //author: meizz 
+Date.prototype.Format = function (fmt) { 
 	var o = {
-			"M+": this.getMonth() + 1, //月份 
-			"d+": this.getDate(), //日 
-			"h+": this.getHours(), //小时 
-			"m+": this.getMinutes(), //分 
-			"s+": this.getSeconds(), //秒 
-			"q+": Math.floor((this.getMonth() + 3) / 3), //季度 
-			"S": this.getMilliseconds() //毫秒 
+			"M+": this.getMonth() + 1, //month 
+			"d+": this.getDate(), //date
+			"h+": this.getHours(), //hour
+			"m+": this.getMinutes(), //min
+			"s+": this.getSeconds(), //sec
+			"q+": Math.floor((this.getMonth() + 3) / 3), 
+			"S": this.getMilliseconds() //m-sec
 	};
 	if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
 	for (var k in o)
@@ -17,7 +17,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
 var addEditEvent = function(tdObj){
 	var index = tdObj.find("a").data("index");
 	if("Qty_In_Safe" == index || "Replace" == index || "DECOM" == index || "Total" == index){
-		// 做数值校验
+		// check
 		tdObj.find("a").editable({
 			type: 'text',
 			pk: 1,
@@ -26,7 +26,7 @@ var addEditEvent = function(tdObj){
 			validate: function (value) {
 				var reg = new RegExp("^[0-9]*$");
 				if(!reg.test(value)){
-					return '请输入数字类型';
+					return 'Please enter a num';
 				}
 			}
 		});
@@ -95,7 +95,7 @@ var drawTable = function(ajaxData){
 		url: ajax_url[key],
 		success: function(msg){
 			if(msg.code != 1){
-				console.warn("数据请求错误: "+(msg.data || ("错误代码"+msg.code)));
+				console.warn("Request data error: "+(msg.data || ("Code is "+msg.code)));
 				$(".alert-warning").removeClass("hide");
 				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 				return false;
@@ -130,7 +130,7 @@ var drawTable = function(ajaxData){
 						addEditEvent(tdObj);
 						column ++;
 					}
-					trObj.append('<td><a href="javascript:;" data-action="add" class="column-add">增加</a><a href="javascript:;" data-action="add" class="column-del">删除</a></td>');
+					trObj.append('<td><a href="javascript:;" data-action="add" class="column-add">Add</a><a href="javascript:;" data-action="add" class="column-del">Del</a></td>');
 					trObj.find("td").addClass("column-"+column);
 					tbody.append(trObj);
 				}
@@ -156,12 +156,8 @@ var initDate = function(){
 		locale: {
 			"format": "YYYY-MM-DD",
 			"separator": " - ",
-			"applyLabel": "确定",
-			"cancelLabel": "取消",
 			"customRangeLabel": "Custom",
 			"weekLabel": "W",
-			"daysOfWeek": ["日","一","二","三","四","五","六"],
-			"monthNames": ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
 			"firstDay": 1
 		},
 		startDate: yestDate,
@@ -218,7 +214,7 @@ var updateDB = function(postData){
 		url: ajax_url.post,
 		success: function(msg){
 			if(msg.code != 1){
-				console.warn("数据存储错误: "+(msg.data || ("错误代码"+msg.code)));
+				console.warn("Request data error: "+(msg.data || ("Code is "+msg.code)));
 				$(".alert-warning").removeClass("hide");
 				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 				return false;
@@ -263,7 +259,7 @@ $(function(){
 		if(initData != postData.data){
 			updateDB(postData);
 		}else{
-			alert("页面没有发生改变，无需提交!");
+			alert("The page has not changed, no need to submit!");
 		}
 	});
 	// action add

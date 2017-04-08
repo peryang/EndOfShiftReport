@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="author" content="Vitaliy Potapov">
+		<meta name="author" content="Tao Di">
 		<meta http-equiv="cache-control" content="max-age=0">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
@@ -21,23 +21,23 @@
 			<div class="alert alert-success alert-dismissible hide" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span></button>
-				<strong>Well done!</strong>操作成功.
+				<strong>Well done!</strong>Successful operation.
 			</div>
 			<div class="alert alert-warning alert-dismissible hide" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span></button>
-				<strong>Wrong!</strong>操作失败，参考日志.
+				<strong>Wrong!</strong>Operation failed, reference console log.
 			</div>
 			<h1>End Of Shift Report</h1>
 			<select class="form-control select-src" type="text" readonly="readonly">
 				<option data-value="PEK50" value="PEK50" selected="true">PEK50</option>
 				<option data-value="PEK7" value="PEK7">PEK7</option>
 			</select>
-			<p>请选择表:</p>
-			<input class="form-control search-date" type="text" readonly="readonly" value="" placeholder="时间检索">
+			<p>Please select type:</p>
+			<input class="form-control search-date" type="text" readonly="readonly" value="" placeholder="date-picker">
 			<hr>
 			<div class="action-con">
-				<button id="enable" class="btn btn-default">编辑态 / 非编辑态</button>
+				<button id="enable" class="btn btn-default">enabled / disabled</button>
 			</div>
 			
 			<div class="table-container show PEK PEK50">
@@ -47,7 +47,7 @@
 						<th>Badges Types</th>
 						<th>Total</th>
 						<th>Qty In Safe</th>
-						<th>操作</th>
+						<th>operation</th>
 					</thead>
 					<tbody></tbody>
 				</table>
@@ -59,7 +59,7 @@
 						<th>Badges Types</th>
 						<th>Total</th>
 						<th>Qty In Safe</th>
-						<th>操作</th>
+						<th>operation</th>
 					</thead>
 					<tbody></tbody>
 				</table>
@@ -71,7 +71,7 @@
 						<th>Badges Types</th>
 						<th>Total</th>
 						<th>Qty In Safe</th>
-						<th>操作</th>
+						<th>operation</th>
 					</thead>
 					<tbody></tbody>
 				</table>
@@ -83,7 +83,7 @@
 						<th>Cage</th>
 						<th>Replace</th>
 						<th>DECOM</th>
-						<th>操作</th>
+						<th>operation</th>
 					</thead>
 					<tbody></tbody>
 				</table>
@@ -95,7 +95,7 @@
 						<th>TT/Description</th>
 						<th>Status</th>
 						<th>Details</th>
-						<th>操作</th>
+						<th>operation</th>
 					</thead>
 					<tbody></tbody>
 				</table>
@@ -107,7 +107,7 @@
 						<th>TT/Description</th>
 						<th>Update</th>
 						<th>Comments</th>
-						<th>操作</th>
+						<th>operation</th>
 					</thead>
 					<tbody></tbody>
 				</table>
@@ -122,7 +122,7 @@
 						<th>Vendor</th>
 						<th>Status</th>
 						<th>Note</th>
-						<th>操作</th>
+						<th>operation</th>
 					</thead>
 					<tbody></tbody>
 				</table>
@@ -131,11 +131,11 @@
 				<p class="table-title">Other handoff:</p>
 				<textarea id="Other_handoff" required></textarea>
 			</div>
-			<button id="submit" class="btn btn-primary">提交更改</button>
+			<button id="submit" class="btn btn-primary">Submit change</button>
 			
 			<footer class="footer">
 				<hr>
-				<p><a href="javascript:;">ditao</a> © ditao.</p>
+				<p><a href="javascript:;">amazon</a> © amazon.</p>
 			</footer>
 		</div>
 		<script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>
@@ -156,9 +156,9 @@
 			var ajax_url = {};
 			if(window.location.href.indexOf("dev") > -1){
 				ajax_url = {
-					"getPEK50": "/EndOfShiftReport-ditao/json/getdataPEK50.json",
-					"getPEK7": "/EndOfShiftReport-ditao/json/getdataPEK7.json",
-					"post": "/EndOfShiftReport-ditao/json/savedata.json"
+					"getPEK50": "/EndOfShiftReport/json/getdataPEK50.json",
+					"getPEK7": "/EndOfShiftReport/json/getdataPEK7.json",
+					"post": "/EndOfShiftReport/json/savedata.json"
 				};
 			}else{
 				ajax_url = {
