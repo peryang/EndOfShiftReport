@@ -202,7 +202,12 @@ $(function(){
 	$('#submit').click(function(ev) {
 		ev.stopPropagation();
 		ev.preventDefault();
-		updateDB();
+		var unsavedStatus = $(".editable-unsaved").length > 0 ? true : false;
+		if(unsavedStatus){
+			updateDB();
+		}else{
+			alert("页面没有发生改变，无需提交!");
+		}
 	});
 	// action add
 	$(document).delegate(".main .column-add", "click", function(ev) {
