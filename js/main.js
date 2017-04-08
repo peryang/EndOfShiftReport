@@ -88,6 +88,7 @@ var drawTable = function(ajaxData){
 				}
 			}
 			$('.editable').editable('toggleDisabled');
+			initData = msg.data;
 		},
 		error: function(){
 			$(".alert-warning").removeClass("hide");
@@ -161,8 +162,7 @@ var getPostData = function(){
 	};
 }
 
-var updateDB = function(){
-	var postData = getPostData();
+var updateDB = function(postData){
 	$.ajax({
 		type: "post",
 		data: postData,
@@ -192,6 +192,8 @@ var getTimeStamp = function(dateStr){
 	}
 }
 
+var initData = "";
+
 $(function(){
 	initDate();
 	drawTable({
@@ -208,9 +210,9 @@ $(function(){
 	$('#submit').click(function(ev) {
 		ev.stopPropagation();
 		ev.preventDefault();
-		var unsavedStatus = $(".editable-unsaved").length > 0 ? true : false;
-		if(unsavedStatus){
-			updateDB();
+		var postData = getPostData();
+		if(initData != postData.data){
+			updateDB(postData);
 		}else{
 			alert("页面没有发生改变，无需提交!");
 		}
