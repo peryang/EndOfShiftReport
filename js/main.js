@@ -50,7 +50,7 @@ var drawTable = function(ajaxData){
 		url: ajax_url[key],
 		success: function(msg){
 			if(msg.code != 1){
-				console.warn("数据请求错误: "+(msg.msg || ("错误代码"+msg.code)));
+				console.warn("数据请求错误: "+(msg.data || ("错误代码"+msg.code)));
 				$(".alert-warning").removeClass("hide");
 				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 				return false;
@@ -167,7 +167,13 @@ var updateDB = function(){
 		type: "post",
 		data: postData,
 		url: ajax_url.post,
-		success: function(data){
+		success: function(msg){
+			if(msg.code != 1){
+				console.warn("数据存储错误: "+(msg.data || ("错误代码"+msg.code)));
+				$(".alert-warning").removeClass("hide");
+				setTimeout('$(".alert-warning").addClass("hide");', 1000);
+				return false;
+			}
 			$(".alert-success").removeClass("hide");
 			setTimeout('$(".alert-success").addClass("hide");', 1000);
 		},
