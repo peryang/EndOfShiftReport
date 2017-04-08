@@ -46,6 +46,7 @@ var drawTable = function(ajaxData){
 	$.ajax({
 		type: "get",
 		data: ajaxData,
+		dataType: "json",
 		url: ajax_url[key],
 		success: function(msg){
 			if(msg.code != 1){
