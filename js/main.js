@@ -49,8 +49,19 @@ var drawTable = function(ajaxData){
 		url: ajax_url[key],
 		success: function(msg){
 			if(msg.code != 1){
-				console.warn("数据请求错误");
+				console.warn("数据请求错误: "+(msg.msg || ("错误代码"+msg.code)));
+				$(".alert-warning").removeClass("hide");
+				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 				return false;
+			}
+			$(".alert-success").removeClass("hide");
+			setTimeout('$(".alert-success").addClass("hide");', 1000);
+			if(msg.data == ""){
+				if("PEK50" == ajaxData.type) {
+					msg.data = "%7B%22PEK50%22%3A%5B%7B%22Badges_Types%22%3A%22SH%22%2C%22Total%22%3A%2210%22%2C%22Qty_In_Safe%22%3A%22%22%7D%2C%7B%22Badges_Types%22%3A%22Visitor%22%2C%22Total%22%3A%225%22%2C%22Qty_In_Safe%22%3A%22%22%7D%2C%7B%22Badges_Types%22%3A%22IFMB%22%2C%22Total%22%3A%226%22%2C%22Qty_In_Safe%22%3A%22%22%7D%5D%2C%22Hard_Drive_Replaced%22%3A%5B%7B%22Cage%22%3A%22PEK50.1-1%22%2C%22Replace%22%3A%22%22%2C%22DECOM%22%3A%22%22%7D%2C%7B%22Cage%22%3A%22GPS%22%2C%22Replace%22%3A%22%22%2C%22DECOM%22%3A%22%22%7D%5D%2C%22Hand_off_TT%22%3A%5B%7B%22Description%22%3A%22%22%2C%22Status%22%3A%22%22%2C%22Details%22%3A%22%22%7D%5D%2C%22Cabling_Work%22%3A%5B%7B%22Description%22%3A%22%22%2C%22Update%22%3A%22%22%2C%22Comments%22%3A%22%22%7D%5D%2C%22RMA_request%22%3A%5B%7B%22Description%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Bin%22%3A%22%22%2C%22Vendor%22%3A%22%22%2C%22Status%22%3A%22%22%2C%22Note%22%3A%22%22%7D%5D%2C%22Other_handoff%22%3A%22PEK50%22%7D";
+				} else if("PEK7" == ajaxData.type) {
+					msg.data = "%7B%22PEK7%22%3A%5B%7B%22Badges_Types%22%3A%22SH%22%2C%22Total%22%3A%2210%22%2C%22Qty_In_Safe%22%3A%22%22%7D%2C%7B%22Badges_Types%22%3A%22Visitor%22%2C%22Total%22%3A%225%22%2C%22Qty_In_Safe%22%3A%22%22%7D%2C%7B%22Badges_Types%22%3A%22IFMB%22%2C%22Total%22%3A%226%22%2C%22Qty_In_Safe%22%3A%22%22%7D%5D%2C%22BJS10%22%3A%5B%7B%22Badges_Types%22%3A%22SH%22%2C%22Total%22%3A%2210%22%2C%22Qty_In_Safe%22%3A%22%22%7D%2C%7B%22Badges_Types%22%3A%22Visitor%22%2C%22Total%22%3A%225%22%2C%22Qty_In_Safe%22%3A%22%22%7D%2C%7B%22Badges_Types%22%3A%22IFMB%22%2C%22Total%22%3A%226%22%2C%22Qty_In_Safe%22%3A%22%22%7D%5D%2C%22Hard_Drive_Replaced%22%3A%5B%7B%22Cage%22%3A%22BJS10%22%2C%22Replace%22%3A%22%22%2C%22DECOM%22%3A%22%22%7D%2C%7B%22Cage%22%3A%22PEK7%22%2C%22Replace%22%3A%22%22%2C%22DECOM%22%3A%22%22%7D%5D%2C%22Hand_off_TT%22%3A%5B%7B%22Description%22%3A%22%22%2C%22Status%22%3A%22%22%2C%22Details%22%3A%22%22%7D%5D%2C%22Cabling_Work%22%3A%5B%7B%22Description%22%3A%22%22%2C%22Update%22%3A%22%22%2C%22Comments%22%3A%22%22%7D%5D%2C%22RMA_request%22%3A%5B%7B%22Description%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Bin%22%3A%22%22%2C%22Vendor%22%3A%22%22%2C%22Status%22%3A%22%22%2C%22Note%22%3A%22%22%7D%5D%2C%22Other_handoff%22%3A%22PEK7%22%7D";
+				}
 			}
 			$(".table tbody").empty();
 			$("textarea").html("");
@@ -78,7 +89,8 @@ var drawTable = function(ajaxData){
 			$('.editable').editable('toggleDisabled');
 		},
 		error: function(){
-			
+			$(".alert-warning").removeClass("hide");
+			setTimeout('$(".alert-warning").addClass("hide");', 1000);
 		}
 	});
 	
@@ -153,7 +165,8 @@ var updateDB = function(){
 			setTimeout('$(".alert-success").addClass("hide");', 1000);
 		},
 		error: function(){
-			
+			$(".alert-warning").removeClass("hide");
+			setTimeout('$(".alert-warning").addClass("hide");', 1000);
 		}
 	});
 }
