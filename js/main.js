@@ -130,7 +130,7 @@ var drawTable = function(ajaxData){
 						addEditEvent(tdObj);
 						column ++;
 					}
-					trObj.append('<td><a href="javascript:;" data-action="add" class="column-add">Add</a><a href="javascript:;" data-action="add" class="column-del">Del</a></td>');
+					trObj.append('<td><a href="javascript:;" data-action="add" class="column-add">Add</a><a href="javascript:;" data-action="add" class="column-del">Delete</a></td>');
 					trObj.find("td").addClass("column-"+column);
 					tbody.append(trObj);
 				}
