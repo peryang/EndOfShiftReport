@@ -246,4 +246,10 @@ $(function(){
 			type: srcType
 		});
 	});
+	$(document).delegate("#Other_handoff", "keyup", function(ev) {
+		ev.stopPropagation();
+		ev.preventDefault();
+		var _this = this;
+		$(_this).addClass("editable-unsaved");
+	});
 });
