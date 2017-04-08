@@ -214,6 +214,7 @@ var updateDB = function(postData){
 	$.ajax({
 		type: "post",
 		data: postData,
+		dataType: "json",
 		url: ajax_url.post,
 		success: function(msg){
 			if(msg.code != 1){
