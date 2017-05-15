@@ -258,7 +258,9 @@ $(function(){
 		$('#submit').addClass("hide");
 		$(".column-add").addClass("hide");
 		$(".column-del").addClass("hide");
-		$(".editable-empty").addClass("hide");
+		if($(".editable-empty").length > 0){
+			$("#enable").click();
+		}
 		html2canvas(document.getElementById("main"), {
 			onrendered: function(canvas) {
 				$('#submit').removeClass("hide");
