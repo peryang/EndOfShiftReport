@@ -256,9 +256,14 @@ $(function(){
 		ev.stopPropagation();
 		ev.preventDefault();
 		$('#submit').addClass("hide");
+		$(".column-add").addClass("hide");
+		$(".column-del").addClass("hide");
+		$(".editable-empty").addClass("hide");
 		html2canvas(document.getElementById("main"), {
 			onrendered: function(canvas) {
 				$('#submit').removeClass("hide");
+				$(".column-add").removeClass("hide");
+				$(".column-del").removeClass("hide");
 				var image64 = canvas.toDataURL("image/png");
 				var postData = getPostData();
 				if(initData != postData.data){
