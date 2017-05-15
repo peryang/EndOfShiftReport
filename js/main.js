@@ -261,8 +261,10 @@ $(function(){
 		if($(".editable-empty").length > 0){
 			$("#enable").click();
 		}
+		$("#enable").addClass("hide");
 		html2canvas(document.getElementById("main"), {
 			onrendered: function(canvas) {
+				$("#enable").removeClass("hide");
 				$('#submit').removeClass("hide");
 				$(".column-add").removeClass("hide");
 				$(".column-del").removeClass("hide");
