@@ -255,12 +255,20 @@ $(function(){
 	$('#submit').click(function(ev) {
 		ev.stopPropagation();
 		ev.preventDefault();
-		var postData = getPostData();
-		if(initData != postData.data){
-			updateDB(postData);
-		}else{
-			alert("The page has not changed, no need to submit!");
-		}
+		html2canvas(document.getElementById("main"), {
+			onrendered: function(canvas) {
+				var image64 = canvas.toDataURL("image/png");
+				var postData = getPostData();
+				if(initData != postData.data){
+					postData.notifyimg = image64;
+					updateDB(postData);
+				}else{
+					alert("The page has not changed, no need to submit!");
+				}
+			}
+		});
+		
+		
 	});
 	// action add
 	$(document).delegate(".main .column-add", "click", function(ev) {
