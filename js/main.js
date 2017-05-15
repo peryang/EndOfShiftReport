@@ -255,8 +255,10 @@ $(function(){
 	$('#submit').click(function(ev) {
 		ev.stopPropagation();
 		ev.preventDefault();
+		$('#submit').addClass("hide");
 		html2canvas(document.getElementById("main"), {
 			onrendered: function(canvas) {
+				$('#submit').removeClass("hide");
 				var image64 = canvas.toDataURL("image/png");
 				var postData = getPostData();
 				if(initData != postData.data){
