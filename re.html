@@ -962,14 +962,14 @@
 				
 				if($("#rackValue").find("tr:eq("+(pos-1)+") td:eq(1)").hasClass("hide")){
 					console.log("already merge");
-					$("#gridSystemModal").modal("hide");
+					$(".merge-node").modal("hide");
 					return false;
 				}
 				
 				for (var i = len-1; i > 0 ; i--) {
 					if($("#rackValue").find("tr:eq("+(pos+i)+") td:eq(1)").hasClass("hide")){
 						console.log("already merge");
-						$("#gridSystemModal").modal("hide");
+						$(".merge-node").modal("hide");
 						return false;
 					}else{
 						break;
@@ -985,7 +985,7 @@
 					$("#rackValue").find("tr:eq("+(pos+i)+") td:eq(1)").addClass("hide");
 				}
 				
-				$("#gridSystemModal").modal("hide");
+				$(".merge-node").modal("hide");
 			});
 		</SCRIPT>
 	</body>
