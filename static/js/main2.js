@@ -393,7 +393,7 @@ $(document).delegate("#rackValue tbody tr", "mouseout", function (ev) {
 	$(".detail").addClass("hide");
 });
 
-$(document).delegate("#rackValue tbody tr", "click", function (ev) {
+$(document).delegate("#rackValue tbody tr td:eq(1)", "click", function (ev) {
 	var _this = this;
 	var dataID = $(_this).data("id");
 	$(".info-detail").data("id", dataID);
@@ -550,8 +550,37 @@ $(document).delegate(".unmerge-list li", "click", function (ev) {
 	$(_this).remove();
 	var dataID = $(_this).data("id");
 	delete rackInfoValue.value.mergeData[dataID];
-	drawMerge();
-	$(".unmerge-list").addClass("hide");
+	
+	var id = zTree.getSelectedNodes()[0].id;
+	showMask();
+	$.ajax({
+		url: ajax_url.saveRackValue,
+		type: "post",
+		async: true,
+		data: {
+			id: id,
+			value: escape(JSON.stringify(rackInfoValue.value))
+		},
+		dataType: "json",
+		timeout: 5000,
+		success: function (json) {
+			hideMask();
+			if (json.code != 1) {
+				console.warn("Request data error: Code is " + json.code);
+				$(".alert-warning").removeClass("hide");
+				setTimeout('$(".alert-warning").addClass("hide");', 1000);
+			} else if (json.code == 1) {
+				$(".alert-success").removeClass("hide");
+				setTimeout('$(".alert-success").addClass("hide");', 1000);
+				drawMerge();
+				$(".unmerge-list").addClass("hide");
+			}
+		},
+		error: function (e) {
+			hideMask();
+			console.error("请求出错(请检查相关网络状况.)", e);
+		}
+	});
 });
 
 $(document).delegate(".save-rack-info", "click", function (ev) {
