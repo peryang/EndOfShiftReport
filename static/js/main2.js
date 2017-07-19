@@ -275,6 +275,10 @@ function removeTreeNode() {
 			var msg = "要删除的节点是父节点，如果删除将连同子节点一起删掉。\n\n请确认！";
 			if (confirm(msg)==true){
 				var id = zTree.getSelectedNodes()[0].id;
+				if(id == 0){
+					alert("the root node can't delte!");
+					return false;
+				}
 				showMask();
 				$.ajax({
 					url: ajax_url.delTree,
