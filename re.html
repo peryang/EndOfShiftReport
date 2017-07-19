@@ -1106,6 +1106,13 @@
 					}
 				}
 				
+				rackInfoValue.value.mergeData[pos] = {};
+				
+				rackInfoValue.value.mergeData[pos].pos = pos;
+				rackInfoValue.value.mergeData[pos].len = len;
+				drawMerge();
+				return true;
+				
 				$("#rackValue").find("tr:eq("+(pos-1)+") td:eq(1)").attr("rowspan", len).addClass("td-merge");
 				$("#rackValue").find("tr:eq("+(pos-1)+") td:eq(1)").css({
 					"vertical-align": "middle",
