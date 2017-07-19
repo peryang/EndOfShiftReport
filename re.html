@@ -34,10 +34,10 @@
 		<style>
 			.file .m-add{display: none;}
 			.file .m-del, .file .m-modify, .fold .m-add, .fold .m-del, .fold .m-modify{display: block;}
-			.ztree li span.button.fold_ico_open{margin-right:2px; background: url('css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px -16px transparent; vertical-align:top; *vertical-align:middle}
-			.ztree li span.button.fold_ico_close{margin-right:2px; background: url('css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px 0 transparent; vertical-align:top; *vertical-align:middle}
-			.ztree li span.button.fold_ico_docu{margin-right:2px; background: url('css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px 0 transparent; vertical-align:top; *vertical-align:middle}
-			.ztree li span.button.file_ico_docu{margin-right:2px; background: url('css/zTreeStyle/img/diy/3.png') no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+			.ztree li span.button.fold_ico_open{margin-right:2px; background: url('static/css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px -16px transparent; vertical-align:top; *vertical-align:middle}
+			.ztree li span.button.fold_ico_close{margin-right:2px; background: url('static/css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px 0 transparent; vertical-align:top; *vertical-align:middle}
+			.ztree li span.button.fold_ico_docu{margin-right:2px; background: url('static/css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px 0 transparent; vertical-align:top; *vertical-align:middle}
+			.ztree li span.button.file_ico_docu{margin-right:2px; background: url('static/css/zTreeStyle/img/diy/3.png') no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
 
 		</style>
 		<style>
@@ -441,7 +441,7 @@
 			};
 			
 			function OnRightClick(event, treeId, treeNode) {
-				var type = treeNode.iconSkin || "file";
+				var type = treeNode.type || "file";
 				if (!treeNode && event.target.tagName.toLowerCase() != "button" && $(event.target).parents("a").length == 0) {
 					zTree.cancelSelectedNode();
 					showRMenu("root", event.clientX, event.clientY, type);
