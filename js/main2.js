@@ -393,7 +393,7 @@ $(document).delegate("#rackValue tbody tr", "mouseout", function (ev) {
 	$(".detail").addClass("hide");
 });
 
-$(document).delegate("#rackValue tbody tr td:eq(1)", "click", function (ev) {
+$(document).delegate("#rackValue tbody tr td:nth-child(2)", "click", function (ev) {
 	var _this = this;
 	var dataID = $(_this).parent().data("id");
 	$(".info-detail").data("id", dataID);
