@@ -275,6 +275,10 @@ function removeTreeNode() {
 			var msg = "要删除的节点是父节点，如果删除将连同子节点一起删掉。\n\n请确认！";
 			if (confirm(msg)==true){
 				var id = zTree.getSelectedNodes()[0].id;
+				if(id == 0){
+					alert("the root node can't delte!");
+					return false;
+				}
 				showMask();
 				$.ajax({
 					url: ajax_url.delTree,
@@ -663,9 +667,14 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 	}
 	
 	rackInfoValue.value.mergeData[pos] = {};
-	
 	rackInfoValue.value.mergeData[pos].pos = pos;
 	rackInfoValue.value.mergeData[pos].len = len;
+	
+	
+	for (var i = 1; i < len; i++) {
+		rackInfoValue.value.rackValue[pos+i].value = rackInfoValue.value.rackValue[pos].value;
+	}
+	
 	var id = zTree.getSelectedNodes()[0].id;
 	showMask();
 	$.ajax({
