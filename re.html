@@ -806,7 +806,7 @@
 						if (json.code == -1 && json.msg == "session-timeout") {
 							window.location.reload();
 						} else if (json.code == 1) {
-							var newNode = { name: value };
+							var newNode = { name: value, iconSkin: type };
 							if (zTree.getSelectedNodes()[0]) {
 								newNode.checked = zTree.getSelectedNodes()[0].checked;
 								zTree.addNodes(zTree.getSelectedNodes()[0], newNode);
