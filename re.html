@@ -528,10 +528,9 @@
 			}
 			
 			var rackInfoValue = {
-				rackValue: {"1": {id: 1,name: 1,value: {asset: "asset1",x2: "x2",x3: "x3"}}, "2": {id: 2,name: 2,value: {asset: "asset2",x2: "x2",x3: "x3"}}, "3": {id: 3,name: 3,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "4": {id: 4,name: 4,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "5": {id: 5,name: 5,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "6": {id: 6,name: 6,value: {asset: "asset3",x2: "x2",x3: "x3"}},"7": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "8": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}},"9": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}},"10": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}}},
-				rackInfo: {asset: "asset1",x2: "x2",x3: "x3"},
-				racnName: "name",
-				mergeData: {"1": {pos: 1,len: 2},"4": {pos: 4,len: 2}}
+				value: {rackValue:{"1": {id: 1,name: 1,value: {asset: "asset1",x2: "x2",x3: "x3"}}, "2": {id: 2,name: 2,value: {asset: "asset2",x2: "x2",x3: "x3"}}, "3": {id: 3,name: 3,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "4": {id: 4,name: 4,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "5": {id: 5,name: 5,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "6": {id: 6,name: 6,value: {asset: "asset3",x2: "x2",x3: "x3"}},"7": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "8": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}},"9": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}},"10": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}}}, mergeData: {"1": {pos: 1,len: 2},"4": {pos: 4,len: 2}}},
+				info: {asset: "asset1",x2: "x2",x3: "x3"},
+				name: "name",
 			};
 			
 			function zTreeOnClick(ev, id, obj, lev){
@@ -550,8 +549,12 @@
 						if (json.code == -1 && json.msg == "session-timeout") {
 							window.location.reload();
 						} else if (json.code == 1) {
-							drawRack(json.data);
+							rackInfoValue.value = JSON.parse(unescape(json.data.value));
+							rackInfoValue.info = JSON.parse(unescape(json.data.info));
+							rackInfoValue.name = json.data.name;
+							drawRack();
 							drawMerge();
+							$("#content .rack-name").html(rackInfoValue.name);
 						}
 					},
 					error: function (e) {
@@ -560,9 +563,10 @@
 				});
 			}
 			
-			function drawRack(data){
-				var rackValue = rackInfoValue.rackValue;
-				var rackInfo = rackInfoValue.rackInfo;
+			function drawRack(){
+				
+				var rackValue = rackInfoValue.value.rackValue;
+				var rackInfo = rackInfoValue.info;
 				$("#rackValue").empty();
 				for (var i in rackValue) {
 					$("#rackValue").append(
@@ -583,7 +587,7 @@
 				}
 			}
 			function drawMerge(){
-				var mergeData = rackInfoValue.mergeData;
+				var mergeData = rackInfoValue.value.mergeData;
 				$("#rackValue").find("td").removeAttr("rowspan").removeClass("hide");
 				$("#rackValue").find(".td-merge").removeClass("td-merge");
 				for(var i in mergeData){
@@ -696,7 +700,7 @@
 			$(document).delegate("#rackValue tbody tr", "mousemove", function (ev) {
 				var _this = this;
 				var dataID = $(_this).data("id");
-				var selVal = rackInfoValue.rackValue[dataID].value;
+				var selVal = rackInfoValue.value.rackValue[dataID].value;
 				$(".detail ul").empty();
 				for(var i in selVal){
 					$(".detail ul").append(
@@ -718,7 +722,7 @@
 			$(document).delegate("#rackValue tbody tr", "click", function (ev) {
 				var _this = this;
 				var dataID = $(_this).data("id");
-				var selVal = rackInfoValue.rackValue[dataID].value;
+				var selVal = rackInfoValue.value.rackValue[dataID].value;
 				$(".info-detail ul").empty();
 				for(var i in selVal){
 					$(".info-detail ul").append(
@@ -875,9 +879,61 @@
 				var _this = this;
 				$(_this).remove();
 				var dataID = $(_this).data("id");
-				delete rackInfoValue.mergeData[dataID];
+				delete rackInfoValue.value.mergeData[dataID];
 				drawMerge();
 				$(".unmerge-list").addClass("hide");
+			});
+			
+			$(document).delegate(".save-rack-info", "click", function (ev) {
+				ev.stopPropagation();
+				ev.preventDefault();
+				$.ajax({
+					url: ajax_url.saveRackInfo,
+					type: "post",
+					async: true,
+					data: {
+						id: id,
+						info: "someString"
+					},
+					dataType: "json",
+					timeout: 5000,
+					success: function (json) {
+						if (json.code == -1 && json.msg == "session-timeout") {
+							window.location.reload();
+						} else if (json.code == 1) {
+							
+						}
+					},
+					error: function (e) {
+						console.error("请求出错(请检查相关网络状况.)", e);
+					}
+				});
+			});
+			
+			$(document).delegate(".save-rack-value", "click", function (ev) {
+				ev.stopPropagation();
+				ev.preventDefault();
+				$.ajax({
+					url: ajax_url.saveRackValue,
+					type: "post",
+					async: true,
+					data: {
+						id: id,
+						value: "someString"
+					},
+					dataType: "json",
+					timeout: 5000,
+					success: function (json) {
+						if (json.code == -1 && json.msg == "session-timeout") {
+							window.location.reload();
+						} else if (json.code == 1) {
+							
+						}
+					},
+					error: function (e) {
+						console.error("请求出错(请检查相关网络状况.)", e);
+					}
+				});
 			});
 			
 			$(document).bind('click',function(ev){
