@@ -1,0 +1,11 @@
+{
+	"code": 1,
+	"data": [
+		{ "id":"xxxxxxid", "pId":"aa", "name":"rack fold1", "open":false, "iconSkin":"fold", "type": "fold"},
+		{ "id":"xx", "pId":"xxxxxxi", "name":"rack fold1", "iconSkin":"fold", "type": "fold"},
+		{ "id":"fda", "pId":"xxxxxxid", "name":"rack file", "iconSkin":"file", "type": "file"},
+		{ "id":"fdasfdsfds", "pId":"xxxxxxid", "name":"rack file", "iconSkin":"file", "type": "file"},
+		{ "id":13, "pId":"xxxxxxid", "name":"rack fold1", "iconSkin":"fold", "type": "fold"}
+	],
+	"msg": "success"
+}

@@ -1,0 +1,126 @@
+#frm select {
+    width: auto;
+}
+#user > tbody > tr > td {
+    height: 45px;
+    padding: 4px 8px;  
+}
+.muted {
+   color: #999999;
+}
+.notready {
+   color: #999999;
+   font-style: italic;
+}
+#comments:hover {
+	background-color: #FFFFC0;
+	cursor: text;
+}
+body {
+	padding-bottom: 30px;
+}
+.table.table-bordered.table-striped{
+	clear: both;
+}
+table.table > tbody > tr > td {
+	height: 30px;
+	vertical-align: middle;
+}
+table.table > thead{
+	background-color: #6dbff2;
+}
+.main{
+	width: 80%;
+	margin: auto;
+	position: relative;
+}
+.main .search-date{
+	position: absolute;
+	width: 120px;
+	right: 120px;
+	top: 30px;
+	cursor: default;
+}
+.table-title{
+	font-weight: bold;
+}
+.column-1{
+	width: 100%;
+}
+.column-2{
+	width: 50%;
+}
+.column-3{
+	width: 33%;
+}
+.column-4{
+	width: 25%;
+}
+.column-5{
+	width: 20%;
+}
+.column-6{
+	width: 16%;
+}
+.column-7{
+	width: 14%;
+}
+.column-8{
+	width: 12%;
+}
+.column-9{
+	width: 11%;
+}
+.column-10{
+	width: 10%;
+}
+.editable-click,
+a.editable-click,
+a.editable-click:hover{
+	border-bottom: dashed 1px red;
+}
+.main textarea{
+	width: 100%;
+	height: 100px;
+	resize: none;
+	border: solid 1px #6dbff2;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 4px 10px;
+}
+#submit{
+	float: right;
+	margin-right: 20px;
+	margin-top: 20px;
+}
+.alert{
+	position: fixed;
+    top: 0px;
+    width: 80%;
+    text-align: center;
+	z-index: 1000;
+}
+.hide{
+	display: none;
+}
+.column-del{
+	margin-left: 10px;
+}
+.main .select-src{
+	cursor: default;
+	width: 100px;
+	position: absolute;
+	left: 130px;
+	top: 45px;
+}
+.footer{
+	clear: both;
+	padding-top: 10px;
+}
+.footer p{
+	text-align: center;
+}
+.action-con {
+	float: right;
+	margin-bottom: 10px;
+}

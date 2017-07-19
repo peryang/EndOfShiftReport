@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="author" content="Tao Di">
+		<meta http-equiv="cache-control" content="max-age=0">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+		<meta http-equiv="pragma" content="no-cache">
+		<title>End Of Shift Report</title>
+		<!-- bootstrap 3 -->
+		<link href="static/css/bootstrap.css" rel="stylesheet">
+		<!-- bootstrap-datetimepicker -->
+		<link href="static/css/daterangepicker.css" rel="stylesheet">
+		<!-- x-editable (bootstrap 3) -->
+		<link href="static/css/bootstrap-editable.css" rel="stylesheet">
+		<link href="static/css/main.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="main" id="main">
+			<div class="alert alert-success alert-dismissible hide" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span></button>
+				<strong>Well done!</strong>Successful operation.
+			</div>
+			<div class="alert alert-warning alert-dismissible hide" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span></button>
+				<strong>Wrong!</strong>Operation failed, reference console log.
+			</div>
+			<h1>End Of Shift Report</h1>
+			<hr>
+			<div class="action-con">
+				<button id="enable" class="btn btn-default">enabled / disabled</button>
+			</div>
+			
+			<div class="table-container show PEK PEK50">
+				<p class="table-title">PEK50 Badge Management:</p>
+				<table id="PEK50" class="table table-bordered table-striped">
+					<thead>
+						<th>Badges Types</th>
+						<th>Total</th>
+						<th>Qty In Safe</th>
+						<th>operation</th>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			
+			<button id="submit" class="btn btn-primary">Submit change</button>
+			
+			<footer class="footer">
+				<hr>
+				<p><a href="javascript:;">amazon</a> © amazon.</p>
+			</footer>
+		</div>
+		<script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>
+		<!-- momentjs --> 
+		<script type="text/javascript" src="static/js/moment.min.js"></script>
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- bootstrap 3 -->
+		<script type="text/javascript" src="static/js/bootstrap.js"></script>
+		<!-- bootstrap-datetimepicker -->
+		<script type="text/javascript" src="static/js/daterangepicker.js"></script>
+		<!-- x-editable (bootstrap 3) -->
+		<script type="text/javascript" src="static/js/bootstrap-editable.js"></script>
+		<script type="text/javascript" src="static/js/html2canvas.js"></script>
+		<script type="text/javascript" src="static/js/main2.js"></script>
+		<script type="text/javascript">
+			var ajax_url = {};
+			if(window.location.href.indexOf("dev") > -1){
+				ajax_url = {
+					"getTree": "/api/getTree.json",
+					"addTree": "/api/addTree.json",
+					"delTree": "/api/delTree.json",
+					"modifyTree": "/api/modifyTree.json",
+					"getdata": "/api/getdata.json",
+					"savedata": "",
+					"getPEK50": "/EndOfShiftReport/json/getdataPEK50.json",
+					"getPEK7": "/EndOfShiftReport/json/getdataPEK7.json",
+					"post": "/EndOfShiftReport/json/savedata.json"
+				};
+			}else{
+				ajax_url = {
+					"getTree": "/api/getTree",
+					"addTree": "/api/addTree",
+					"delTree": "/api/delTree",
+					"modifyTree": "/api/modifyTree",
+					"getdata": "/api/getdata",
+					"savedata": "/api/savedata"
+				};
+			}
+		</script>
+	</body>
+</html>
