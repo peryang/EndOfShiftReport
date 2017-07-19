@@ -582,7 +582,13 @@
 			};
 			
 			function zTreeOnClick(ev, id, obj, lev){
-				if(obj.type == "fold") return false;
+				if(obj.type == "fold"){
+					$("#content").addClass("hide");
+					$("#right_side").addClass("hide");
+				}else if(obj.type == "file"){
+					$("#content").removeClass("hide");
+					$("#right_side").removeClass("hide");
+				}
 				showMask();
 				$.ajax({
 					url: ajax_url.getRack,
@@ -990,6 +996,7 @@
 			$(document).delegate(".save-rack-info", "click", function (ev) {
 				ev.stopPropagation();
 				ev.preventDefault();
+				var id = zTree.getSelectedNodes()[0].id;
 				showMask();
 				$.ajax({
 					url: ajax_url.saveRackInfo,
@@ -1022,6 +1029,7 @@
 			$(document).delegate(".save-rack-value", "click", function (ev) {
 				ev.stopPropagation();
 				ev.preventDefault();
+				var id = zTree.getSelectedNodes()[0].id;
 				showMask();
 				$.ajax({
 					url: ajax_url.saveRackValue,
