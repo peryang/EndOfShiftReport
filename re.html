@@ -28,10 +28,10 @@
 	<body>
 		<div id="wrap">
 	        <div id="header">
-	        	<h1>Rack elevation</h1>
+	        	<h1 id="projectName">Rack Elevation</h1>
 	        	<div class="noty-c">
 	        		<span class="noty">noty:</span>
-	        		<span class="noty-info">this place noty!</span>
+	        		<span class="noty-info">this is a noty!</span>
 	        	</div>
 	        </div>
 	        <div id="container">
@@ -51,15 +51,15 @@
 	            <div id="right_side">
 	            	<div class="tool-bar">
 						<div class="tool-bar-btns">
-							<button type="button" class="modify btn btn-default" data-toggle="modal" >modify</button>
-							<button type="button" class="merge btn btn-default" data-toggle="modal" data-target=".merge-node">merge</button>
-							<button type="button" class="unmerge btn btn-default">unmerge</button>
+							<button type="button" id="modifyBtn" class="modify btn btn-default" data-toggle="modal" >modify</button>
+							<button type="button" id="mergeBtn" class="merge btn btn-default" data-toggle="modal" data-target=".merge-node">merge</button>
+							<button type="button" id="unmergeBtn" class="unmerge btn btn-default">unmerge</button>
 							<div class="unmerge-list hide">
 								<ul class="list-group"></ul>
 							</div>
 						</div>
 						<div class="info-detail">
-							<span>Device information（<span class="device-id">rack</span>）</span>
+							<span id="deveceInfo">Device information（<span class="device-id">rack</span>）</span>
 							<ul class="list-group">
 								<!--<li class="list-group-item">
 									<div class="key">name</div>
@@ -227,6 +227,7 @@
 		<script type="text/javascript" src="static/js/bootstrap.js"></script>
 		<!-- x-editable (bootstrap 3) -->
 		<script type="text/javascript" src="static/js/bootstrap-editable.js"></script>
+		<script type="text/javascript" src="static/js/config.js"></script>
 		<script type="text/javascript" src="static/js/main2.js"></script>
 		<script type="text/javascript">
 			var ajax_url = {};

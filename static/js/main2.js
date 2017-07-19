@@ -37,6 +37,14 @@ var rackInfoValue = {
 
 var zTree, rMenu;
 $(document).ready(function(){
+	$("#projectName").html(config.projectName);
+	$(".noty-info").html(config.noty);
+	$("#modifyBtn").html(config.modifyBtn);
+	$("#mergeBtn").html(config.mergeBtn);
+	$("#unmergeBtn").html(config.unmergeBtn);
+	$("#deveceInfo").html(config.deveceInfo);
+	$(".save-info").html(config.saveRackInfo);
+	$("#searchNode").html(config.search);
 	showMask();
 	$.ajax({
 		url: ajax_url.getTree,
@@ -215,7 +223,7 @@ function zTreeOnClick(ev, id, obj, lev){
 				drawMerge();
 				$("#content .rack-name").html(rackInfoValue.name);
 				$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
-				$(".save-info").html("save rack info");
+				$(".save-info").html(config.saveRackInfo);
 				$(".device-id").html("rack");
 			}
 		},
@@ -371,7 +379,7 @@ $(document).delegate("#content .rack-name", "click", function (ev) {
 	ev.preventDefault();
 	drawRackInfo();
 	$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
-	$(".save-info").html("save rack info");
+	$(".save-info").html(config.saveRackInfo);
 	$(".device-id").html("rack");
 });
 
@@ -413,7 +421,7 @@ $(document).delegate("#rackValue tbody tr td:nth-child(2)", "click", function (e
 				'</li>'].join(""));
 	}
 	$(".save-info").removeClass("save-rack-info").addClass("save-rack-value");
-	$(".save-info").html("save rack U info");
+	$(".save-info").html(config.saveRackValue);
 });
 
 $(document).delegate(".modify.btn", "click", function (ev) {
