@@ -232,7 +232,7 @@ function drawRack(){
 		$("#rackValue").append(
 					['<tr data-id="'+rackValue[i].id+'">',
 			            '<td>'+rackValue[i].id+'</td>',
-			            '<td>name：'+(rackValue[i].value.name || "U Name")+'</td>',  
+			            '<td>name：'+(rackValue[i].value.Name || "U Name")+'</td>',  
 			            '<td>'+rackValue[i].id+'</td>',
 			        '</tr>'].join(""));
 	}
