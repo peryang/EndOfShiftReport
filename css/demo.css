@@ -56,3 +56,7 @@ div.ruler div.cursor {height:20px; width:30px; background-color:#3C6E31; color:w
 	color: #000000;
 	border: 0px;
 }
+#rackValue tr{
+	height: 30px;
+	line-height: 30px;
+}

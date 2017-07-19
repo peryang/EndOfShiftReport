@@ -75,15 +75,14 @@
 			    border-right: 1px solid #EEEEEE;
 			}  
 			#content{  
-			    margin:0px 270px 0px 270px;  
-			      
+			    margin:0px 470px 0px 270px;  
 			    height:100%;  
 			}  
 			#right_side{  
 			    position:absolute;  
 			    top:0px;  
 			    right:0px;
-			    width:250px;  
+			    width:450px;  
 			    height:100%;
 			    padding-left: 20px;
 			    border-left: 1px solid #EEEEEE;
@@ -163,13 +162,12 @@
 						width: 230px;
 						margin: 10px auto;
 					}
-					#right_side .save-rack-info{
+					#right_side .save-info{
 						width: 230px;
 					}
-					.detail .key,
 					.info-detail .key{
 						float: left;
-						width: 50px;
+						width: 110px;
 						text-overflow: ellipsis;
 						overflow: hidden;
 						white-space: nowrap;
@@ -181,9 +179,26 @@
 						float: left;
 						font-size: 14px;
 					}
-					.detail .value,
 					.info-detail .value{
-						width: 130px;
+						width: 260px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						white-space: nowrap;
+						font-size: 14px;
+						border: 0px;
+					}
+					
+					.detail .key{
+						float: left;
+						width: 60px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						white-space: nowrap;
+						font-size: 14px;
+						font-weight: bold;
+					}
+					.detail .value{
+						width: 200px;
 						text-overflow: ellipsis;
 						overflow: hidden;
 						white-space: nowrap;
@@ -226,7 +241,7 @@
 								</li>-->
 							</ul>
 						</div>
-						<button type="button" class="save-rack-info btn btn-default">save rack info</button>
+						<button type="button" class="save-info save-rack-info btn btn-default">save rack info</button>
 					</div>
 	            </div>
 	        </div>
@@ -237,6 +252,9 @@
 		<style>
 			.detail{
 				position: absolute;
+			}
+			.detail li{
+			    height: 40px;
 			}
 		</style>
 		
@@ -528,14 +546,13 @@
 			}
 			
 			var rackInfoValue = {
-				value: {rackValue:{"1": {id: 1,name: 1,value: {asset: "asset1",x2: "x2",x3: "x3"}}, "2": {id: 2,name: 2,value: {asset: "asset2",x2: "x2",x3: "x3"}}, "3": {id: 3,name: 3,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "4": {id: 4,name: 4,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "5": {id: 5,name: 5,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "6": {id: 6,name: 6,value: {asset: "asset3",x2: "x2",x3: "x3"}},"7": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}}, "8": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}},"9": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}},"10": {id: 7,name: 7,value: {asset: "asset3",x2: "x2",x3: "x3"}}}, mergeData: {"1": {pos: 1,len: 2},"4": {pos: 4,len: 2}}},
-				info: {asset: "asset1",x2: "x2",x3: "x3"},
-				name: "name",
+				value: {rackValue:{"1":{id:1,name:1,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"2":{id:2,name:2,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"3":{id:3,name:3,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"4":{id:4,name:4,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"5":{id:5,name:5,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"6":{id:6,name:6,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"7":{id:7,name:7,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"8":{id:8,name:8,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"9":{id:9,name:9,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"10":{id:10,name:10,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"11":{id:11,name:11,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"12":{id:12,name:12,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"13":{id:13,name:13,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"14":{id:14,name:14,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"15":{id:15,name:15,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"16":{id:16,name:16,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"17":{id:17,name:17,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"18":{id:18,name:18,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"19":{id:19,name:19,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"20":{id:20,name:20,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"21":{id:21,name:21,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"22":{id:22,name:22,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"23":{id:23,name:23,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"24":{id:24,name:24,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"25":{id:25,name:25,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"26":{id:26,name:26,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"27":{id:27,name:27,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"28":{id:28,name:28,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"29":{id:29,name:29,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"30":{id:30,name:30,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"31":{id:31,name:31,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"32":{id:32,name:32,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"33":{id:33,name:33,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"34":{id:34,name:34,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"35":{id:35,name:35,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"36":{id:36,name:36,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"37":{id:37,name:37,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"38":{id:38,name:38,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"39":{id:39,name:39,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"40":{id:40,name:40,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"41":{id:41,name:41,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"42":{id:42,name:42,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"43":{id:43,name:43,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"44":{id:44,name:44,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"45":{id:45,name:45,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"46":{id:46,name:46,value:{"Name":"","Model":"","SN":"","Asset ID":""}},},mergeData:{}},
+				info: {"Rack Location": "","Rack Asset ID": ""},
+				name: "Rack Name",
 			};
 			
 			function zTreeOnClick(ev, id, obj, lev){
 				if(obj.type == "fold") return false;
-				console.log(obj.id);
 				$.ajax({
 					url: ajax_url.getRack,
 					type: "get",
@@ -553,8 +570,11 @@
 							rackInfoValue.info = JSON.parse(unescape(json.data.info));
 							rackInfoValue.name = json.data.name;
 							drawRack();
+							drawRackInfo();
 							drawMerge();
 							$("#content .rack-name").html(rackInfoValue.name);
+							$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
+							$(".save-info").html("save rack info");
 						}
 					},
 					error: function (e) {
@@ -564,18 +584,19 @@
 			}
 			
 			function drawRack(){
-				
 				var rackValue = rackInfoValue.value.rackValue;
-				var rackInfo = rackInfoValue.info;
 				$("#rackValue").empty();
 				for (var i in rackValue) {
 					$("#rackValue").append(
 								['<tr data-id="'+rackValue[i].id+'">',
 						            '<td>'+rackValue[i].id+'</td>',
-						            '<td>name:'+rackValue[i].name+'<br />asset:'+rackValue[i].value.asset+'<br />x1:'+rackValue[i].value.x2+'<br /></td>',  
+						            '<td>name：'+(rackValue[i].value.name || "U Name")+'</td>',  
 						            '<td>'+rackValue[i].id+'</td>',
 						        '</tr>'].join(""));
 				}
+			}
+			function drawRackInfo(){
+				var rackInfo = rackInfoValue.info;
 				$(".info-detail ul").empty();
 				for (var i in rackInfo) {
 					$(".info-detail ul").append(
@@ -697,6 +718,14 @@
 			});
 			//-->
 			
+			$(document).delegate("#content .rack-name", "click", function (ev) {
+				ev.stopPropagation();
+				ev.preventDefault();
+				drawRackInfo();
+				$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
+				$(".save-info").html("save rack info");
+			});
+			
 			$(document).delegate("#rackValue tbody tr", "mousemove", function (ev) {
 				var _this = this;
 				var dataID = $(_this).data("id");
@@ -729,9 +758,11 @@
 							['<li class="list-group-item">',
 								'<div class="key">'+i+'</div>',
 								'<div class="oper">： </div>',
-								'<input type="text" class="form-control value" value="'+selVal[i]+'" placeholder="name" title="'+selVal[i]+'">',
+								'<input type="text" class="form-control value" value="'+selVal[i]+'" placeholder="'+i+'" title="'+selVal[i]+'">',
 							'</li>'].join(""));
 				}
+				$(".save-info").removeClass("save-rack-info").addClass("save-rack-value");
+				$(".save-info").html("save rack U info");
 			});
 			
 			$(document).delegate(".modify.btn", "click", function (ev) {
@@ -801,8 +832,8 @@
 						pId: id,
 						type: type,
 						rackName: value,
-						info: "%7B%22asset%22%3A%22asset1%22%2C%22x2%22%3A%22x2%22%2C%22x3%22%3A%22x3%22%7D",
-						value: "%7B%22rackValue%22%3A%7B%221%22%3A%7B%22id%22%3A1%2C%22name%22%3A1%2C%22value%22%3A%7B%22asset%22%3A%22asset1%22%2C%22x2%22%3A%22x2%22%2C%22x3%22%3A%22x3%22%7D%7D%2C%222%22%3A%7B%22id%22%3A2%2C%22name%22%3A2%2C%22value%22%3A%7B%22asset%22%3A%22asset2%22%2C%22x2%22%3A%22x2%22%2C%22x3%22%3A%22x3%22%7D%7D%7D%2C%22mergeData%22%3A%7B%221%22%3A%7B%22pos%22%3A1%2C%22len%22%3A2%7D%2C%224%22%3A%7B%22pos%22%3A4%2C%22len%22%3A2%7D%7D%7D"
+						info: "%7B%22Rack%20Location%22%3A%22%22%2C%22Rack%20Asset%20ID%22%3A%22%22%7D",
+						value: "%7B%22rackValue%22%3A%7B%221%22%3A%7B%22id%22%3A1%2C%22name%22%3A1%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%222%22%3A%7B%22id%22%3A2%2C%22name%22%3A2%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%223%22%3A%7B%22id%22%3A3%2C%22name%22%3A3%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%224%22%3A%7B%22id%22%3A4%2C%22name%22%3A4%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%225%22%3A%7B%22id%22%3A5%2C%22name%22%3A5%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%226%22%3A%7B%22id%22%3A6%2C%22name%22%3A6%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%227%22%3A%7B%22id%22%3A7%2C%22name%22%3A7%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%228%22%3A%7B%22id%22%3A8%2C%22name%22%3A8%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%229%22%3A%7B%22id%22%3A9%2C%22name%22%3A9%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2210%22%3A%7B%22id%22%3A10%2C%22name%22%3A10%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2211%22%3A%7B%22id%22%3A11%2C%22name%22%3A11%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2212%22%3A%7B%22id%22%3A12%2C%22name%22%3A12%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2213%22%3A%7B%22id%22%3A13%2C%22name%22%3A13%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2214%22%3A%7B%22id%22%3A14%2C%22name%22%3A14%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2215%22%3A%7B%22id%22%3A15%2C%22name%22%3A15%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2216%22%3A%7B%22id%22%3A16%2C%22name%22%3A16%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2217%22%3A%7B%22id%22%3A17%2C%22name%22%3A17%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2218%22%3A%7B%22id%22%3A18%2C%22name%22%3A18%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2219%22%3A%7B%22id%22%3A19%2C%22name%22%3A19%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2220%22%3A%7B%22id%22%3A20%2C%22name%22%3A20%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2221%22%3A%7B%22id%22%3A21%2C%22name%22%3A21%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2222%22%3A%7B%22id%22%3A22%2C%22name%22%3A22%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2223%22%3A%7B%22id%22%3A23%2C%22name%22%3A23%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2224%22%3A%7B%22id%22%3A24%2C%22name%22%3A24%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2225%22%3A%7B%22id%22%3A25%2C%22name%22%3A25%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2226%22%3A%7B%22id%22%3A26%2C%22name%22%3A26%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2227%22%3A%7B%22id%22%3A27%2C%22name%22%3A27%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2228%22%3A%7B%22id%22%3A28%2C%22name%22%3A28%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2229%22%3A%7B%22id%22%3A29%2C%22name%22%3A29%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2230%22%3A%7B%22id%22%3A30%2C%22name%22%3A30%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2231%22%3A%7B%22id%22%3A31%2C%22name%22%3A31%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2232%22%3A%7B%22id%22%3A32%2C%22name%22%3A32%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2233%22%3A%7B%22id%22%3A33%2C%22name%22%3A33%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2234%22%3A%7B%22id%22%3A34%2C%22name%22%3A34%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2235%22%3A%7B%22id%22%3A35%2C%22name%22%3A35%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2236%22%3A%7B%22id%22%3A36%2C%22name%22%3A36%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2237%22%3A%7B%22id%22%3A37%2C%22name%22%3A37%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2238%22%3A%7B%22id%22%3A38%2C%22name%22%3A38%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2239%22%3A%7B%22id%22%3A39%2C%22name%22%3A39%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2240%22%3A%7B%22id%22%3A40%2C%22name%22%3A40%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2241%22%3A%7B%22id%22%3A41%2C%22name%22%3A41%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2242%22%3A%7B%22id%22%3A42%2C%22name%22%3A42%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2243%22%3A%7B%22id%22%3A43%2C%22name%22%3A43%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2244%22%3A%7B%22id%22%3A44%2C%22name%22%3A44%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2245%22%3A%7B%22id%22%3A45%2C%22name%22%3A45%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2246%22%3A%7B%22id%22%3A46%2C%22name%22%3A46%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%7D%2C%22mergeData%22%3A%7B%7D%7D"
 					},
 					dataType: "json",
 					timeout: 5000,
@@ -893,7 +924,7 @@
 					async: true,
 					data: {
 						id: id,
-						info: "%7B%22asset%22%3A%22asset1%22%2C%22x2%22%3A%22x2%22%2C%22x3%22%3A%22x3%22%7D"
+						info: "%7B%22Rack%20Location%22%3A%22%22%2C%22Rack%20Asset%20ID%22%3A%22%22%7D"
 					},
 					dataType: "json",
 					timeout: 5000,
@@ -919,7 +950,7 @@
 					async: true,
 					data: {
 						id: id,
-						value: "%7B%22rackValue%22%3A%7B%221%22%3A%7B%22id%22%3A1%2C%22name%22%3A1%2C%22value%22%3A%7B%22asset%22%3A%22asset1%22%2C%22x2%22%3A%22x2%22%2C%22x3%22%3A%22x3%22%7D%7D%2C%222%22%3A%7B%22id%22%3A2%2C%22name%22%3A2%2C%22value%22%3A%7B%22asset%22%3A%22asset2%22%2C%22x2%22%3A%22x2%22%2C%22x3%22%3A%22x3%22%7D%7D%7D%2C%22mergeData%22%3A%7B%221%22%3A%7B%22pos%22%3A1%2C%22len%22%3A2%7D%2C%224%22%3A%7B%22pos%22%3A4%2C%22len%22%3A2%7D%7D%7D"
+						value: "%7B%22rackValue%22%3A%7B%221%22%3A%7B%22id%22%3A1%2C%22name%22%3A1%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%222%22%3A%7B%22id%22%3A2%2C%22name%22%3A2%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%223%22%3A%7B%22id%22%3A3%2C%22name%22%3A3%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%224%22%3A%7B%22id%22%3A4%2C%22name%22%3A4%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%225%22%3A%7B%22id%22%3A5%2C%22name%22%3A5%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%226%22%3A%7B%22id%22%3A6%2C%22name%22%3A6%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%227%22%3A%7B%22id%22%3A7%2C%22name%22%3A7%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%228%22%3A%7B%22id%22%3A8%2C%22name%22%3A8%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%229%22%3A%7B%22id%22%3A9%2C%22name%22%3A9%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2210%22%3A%7B%22id%22%3A10%2C%22name%22%3A10%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2211%22%3A%7B%22id%22%3A11%2C%22name%22%3A11%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2212%22%3A%7B%22id%22%3A12%2C%22name%22%3A12%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2213%22%3A%7B%22id%22%3A13%2C%22name%22%3A13%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2214%22%3A%7B%22id%22%3A14%2C%22name%22%3A14%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2215%22%3A%7B%22id%22%3A15%2C%22name%22%3A15%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2216%22%3A%7B%22id%22%3A16%2C%22name%22%3A16%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2217%22%3A%7B%22id%22%3A17%2C%22name%22%3A17%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2218%22%3A%7B%22id%22%3A18%2C%22name%22%3A18%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2219%22%3A%7B%22id%22%3A19%2C%22name%22%3A19%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2220%22%3A%7B%22id%22%3A20%2C%22name%22%3A20%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2221%22%3A%7B%22id%22%3A21%2C%22name%22%3A21%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2222%22%3A%7B%22id%22%3A22%2C%22name%22%3A22%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2223%22%3A%7B%22id%22%3A23%2C%22name%22%3A23%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2224%22%3A%7B%22id%22%3A24%2C%22name%22%3A24%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2225%22%3A%7B%22id%22%3A25%2C%22name%22%3A25%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2226%22%3A%7B%22id%22%3A26%2C%22name%22%3A26%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2227%22%3A%7B%22id%22%3A27%2C%22name%22%3A27%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2228%22%3A%7B%22id%22%3A28%2C%22name%22%3A28%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2229%22%3A%7B%22id%22%3A29%2C%22name%22%3A29%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2230%22%3A%7B%22id%22%3A30%2C%22name%22%3A30%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2231%22%3A%7B%22id%22%3A31%2C%22name%22%3A31%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2232%22%3A%7B%22id%22%3A32%2C%22name%22%3A32%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2233%22%3A%7B%22id%22%3A33%2C%22name%22%3A33%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2234%22%3A%7B%22id%22%3A34%2C%22name%22%3A34%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2235%22%3A%7B%22id%22%3A35%2C%22name%22%3A35%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2236%22%3A%7B%22id%22%3A36%2C%22name%22%3A36%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2237%22%3A%7B%22id%22%3A37%2C%22name%22%3A37%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2238%22%3A%7B%22id%22%3A38%2C%22name%22%3A38%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2239%22%3A%7B%22id%22%3A39%2C%22name%22%3A39%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2240%22%3A%7B%22id%22%3A40%2C%22name%22%3A40%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2241%22%3A%7B%22id%22%3A41%2C%22name%22%3A41%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2242%22%3A%7B%22id%22%3A42%2C%22name%22%3A42%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2243%22%3A%7B%22id%22%3A43%2C%22name%22%3A43%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2244%22%3A%7B%22id%22%3A44%2C%22name%22%3A44%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2245%22%3A%7B%22id%22%3A45%2C%22name%22%3A45%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2246%22%3A%7B%22id%22%3A46%2C%22name%22%3A46%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%7D%2C%22mergeData%22%3A%7B%7D%7D"
 					},
 					dataType: "json",
 					timeout: 5000,
