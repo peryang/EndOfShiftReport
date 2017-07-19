@@ -1110,7 +1110,37 @@
 				
 				rackInfoValue.value.mergeData[pos].pos = pos;
 				rackInfoValue.value.mergeData[pos].len = len;
-				drawMerge();
+				var id = zTree.getSelectedNodes()[0].id;
+				showMask();
+				$.ajax({
+					url: ajax_url.saveRackValue,
+					type: "post",
+					async: true,
+					data: {
+						id: id,
+						value: escape(JSON.stringify(rackInfoValue.value))
+					},
+					dataType: "json",
+					timeout: 5000,
+					success: function (json) {
+						hideMask();
+						if (json.code != 1) {
+							console.warn("Request data error: Code is " + json.code);
+							$(".alert-warning").removeClass("hide");
+							setTimeout('$(".alert-warning").addClass("hide");', 1000);
+						} else if (json.code == 1) {
+							$(".alert-success").removeClass("hide");
+							setTimeout('$(".alert-success").addClass("hide");', 1000);
+							drawMerge();
+							$(".merge-node").modal("hide");
+						}
+					},
+					error: function (e) {
+						hideMask();
+						console.error("请求出错(请检查相关网络状况.)", e);
+					}
+				});
+				
 				return true;
 				
 				$("#rackValue").find("tr:eq("+(pos-1)+") td:eq(1)").attr("rowspan", len).addClass("td-merge");
