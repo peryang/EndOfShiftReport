@@ -567,6 +567,7 @@ $(document).delegate(".info-detail li .change-Name", "keyup", function (ev) {
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
 	$("#rackValue tr[data-id='"+dataID+"'] td:eq(1)").html("name："+val);
 	$(".detail li:eq(0) .value").html(val);
+	rackInfoValue.value.rackValue[dataID].value["Name"] = $(".info-detail ul li:eq(0) .value").val();
 });
 
 $(document).delegate(".info-detail li .change-Model", "keyup", function (ev) {
@@ -576,6 +577,7 @@ $(document).delegate(".info-detail li .change-Model", "keyup", function (ev) {
 	var val = $(_this).val();
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
 	$(".detail li:eq(1) .value").html(val);
+	rackInfoValue.value.rackValue[dataID].value["Model"] = $(".info-detail ul li:eq(1) .value").val()
 });
 
 $(document).delegate(".info-detail li .change-SN", "keyup", function (ev) {
@@ -585,15 +587,17 @@ $(document).delegate(".info-detail li .change-SN", "keyup", function (ev) {
 	var val = $(_this).val();
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
 	$(".detail li:eq(2) .value").html(val);
+	rackInfoValue.value.rackValue[dataID].value["SN"] = $(".info-detail ul li:eq(2) .value").val();
 });
 
-$(document).delegate(".info-detail li .change-Asset ID", "keyup", function (ev) {
+$(document).delegate(".info-detail li .change-Asset.ID", "keyup", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
 	var val = $(_this).val();
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
 	$(".detail li:eq(3) .value").html(val);
+	rackInfoValue.value.rackValue[dataID].value["Asset ID"] = $(".info-detail ul li:eq(3) .value").val();
 });
 
 $(document).delegate(".unmerge-list li", "click", function (ev) {
