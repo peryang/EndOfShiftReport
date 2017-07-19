@@ -671,6 +671,9 @@
 						if (json.code == -1 && json.msg == "session-timeout") {
 							window.location.reload();
 						} else if (json.code == 1) {
+							for (var i = 0; i < json.data.length; i++) {
+								json.data[i].iconSkin = json.data[i].type;
+							}
 							$.fn.zTree.init($("#treeDemo"), setting, json.data);
 							zTree = $.fn.zTree.getZTreeObj("treeDemo");
 							rMenu = $("#rMenu");
