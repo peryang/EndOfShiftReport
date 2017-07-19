@@ -1,0 +1,274 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;padding: 0;outline: 0;font-weight: inherit;font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;}
+body {color: #2f332a;font: 15px/21px Arial, Helvetica, simsun, sans-serif;background: #f0f6e4 \9;}
+h1, h2, h3, h4, h5, h6 {color: #2f332a;font-weight: bold;font-family: Helvetica, Arial, sans-serif;padding-bottom: 5px;}
+h1 {font-size: 42px;float: left;}
+h2 {font-size: 14px;line-height: 24px;padding-top: 5px;}
+h6 {font-weight: normal;font-size: 12px;letter-spacing: 1px;line-height: 24px;text-align: center;}
+a {color:#3C6E31;text-decoration: underline;}
+a:hover {background-color:#3C6E31;color:white;}
+input.radio {margin: 0 2px 0 8px;}
+input.radio.first {margin-left:0;}
+input.empty {color: lightgray;}
+code {color: #2f332a;}
+.highlight_red {color:#A60000;}
+.highlight_green {color:#A7F43D;}
+li {list-style: circle;font-size: 12px;}
+li.title {list-style: none;}
+ul.list {margin-left: 17px;}
+
+div.content_wrap {width: 100%;height:460px;}
+div.content_wrap div.left{float: left;width: 250px;}
+div.content_wrap div.right{float: left;width: calc(100% - 560px);margin-right: 50px;}
+div.zTreeDemoBackground {width:250px;height:362px;text-align:left;}
+
+ul.ztree {margin-top: 10px;width:250px;height:360px;overflow-y:scroll;overflow-x:auto;}
+ul.log {border: 1px solid #617775;background: #f0f6e4;width:300px;height:170px;overflow: hidden;}
+ul.log.small {height:45px;}
+ul.log li {color: #666666;list-style: none;padding-left: 10px;}
+ul.log li.dark {background-color: #E3E3E3;}
+
+/* ruler */
+div.ruler {height:20px; width:220px; background-color:#f0f6e4;border: 1px solid #333; margin-bottom: 5px; cursor: pointer}
+div.ruler div.cursor {height:20px; width:30px; background-color:#3C6E31; color:white; text-align: right; padding-right: 5px; cursor: pointer}
+
+#in{border-radius: 10px;}
+.ztree *{font-size: 16px;font-family: 微软雅黑;}
+.ztree li{margin: 5px auto;}
+.ztree li a, .ztree li a.curSelectedNode{height: 18px;}
+.rack-name{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.info-detail li{
+	border: 0px;
+	line-height: 32px;
+}
+#rackValue tr td{
+	background: #FFFFFF;
+	color: #000000;
+}
+#rackValue tr td:first-child,
+#rackValue tr td:last-child{
+	background: #c0c0c0;
+	color: #000000;
+	border: 0px;
+}
+#rackValue tr{
+	height: 30px;
+	line-height: 30px;
+}
+.mask{
+	position: absolute;
+    top: 0;
+    left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(1, 1, 1, .6);
+}
+.mask .msg{
+	position: absolute;
+	top: 40%;
+	left: 45%;
+	color: #FFFFFF;
+	font-size: 30px;
+}
+div#rMenu {position:absolute; visibility:hidden; top:0; background-color: #555;text-align: left;padding: 2px;}
+div#rMenu ul li{
+	margin: 1px 0;
+	padding: 0 5px;
+	cursor: pointer;
+	list-style: none outside none;
+	background-color: #DFDFDF;
+}
+td{vertical-align: middle;}
+.file .m-add{display: none;}
+.file .m-del, .file .m-modify, .fold .m-add, .fold .m-del, .fold .m-modify{display: block;}
+html,body{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+body{
+	height: 98%;
+}
+#wrap{  
+    min-width:1024px;
+    margin:0 auto;
+    height: 100%;
+}  
+#header{  
+    margin-top:20px;
+    margin-left: 20px;
+    height:80px;
+  	line-height: 80px;
+  	border-bottom: 1px solid #EEEEEE;
+}
+#container{  
+    position:relative;  
+    margin:20px;
+    height: calc(100% - 240px);
+}  
+#left_side{  
+    position:absolute;  
+    top:0px;  
+    left:0px;
+    width:250px;  
+    height:100%;
+    border-right: 1px solid #EEEEEE;
+}  
+#content{  
+    margin:0px 470px 0px 270px;  
+    height:100%;  
+}  
+#right_side{  
+    position:absolute;  
+    top:0px;  
+    right:0px;
+    width:450px;  
+    height:100%;
+    padding-left: 20px;
+    border-left: 1px solid #EEEEEE;
+}  
+#footer{  
+    margin:20px;  
+    height:80px;
+    line-height: 80px;
+    border-top: 1px solid #EEEEEE;
+    text-align: center;
+}
+.tool-bar{
+	float: right;
+}
+.highlightCss{
+	font-weight: bold;
+}
+tr td:first-child,
+tr td:last-child{
+	width: 20%;
+}
+
+
+#treeDemo,
+.right{
+    overflow: auto;
+    overflow-x: hidden;
+}
+#treeDemo,
+.right{
+	height: calc(100% - 44px);
+}
+
+#treeDemo::-webkit-scrollbar,
+.right::-webkit-scrollbar {
+	width: 2px;
+}
+#treeDemo::-webkit-scrollbar-track,
+.right::-webkit-scrollbar-track{
+	background-color: #EEEEEE;
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius:2em;
+}
+#treeDemo::-webkit-scrollbar-thumb,
+.right::-webkit-scrollbar-thumb{
+	background-color: #808080;
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius:2em;
+}
+.noty-c{
+	word-wrap: break-word;float: right;margin-right: 100px;
+}
+.noty-c .noty{
+	color: red;
+}
+#left_side input{
+	display: inline-block;width: 160px;
+}
+.rackValue-c{
+	background: #808080;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 80%;
+	margin: 0 auto;
+}
+#rackValue{
+	border: 1px solid #000000;
+	text-align: center;
+	vertical-align: middle;
+	width: calc(60% - 20px);
+	margin: 0 auto;
+}
+#right_side .modify, #right_side .unmerge, #right_side .merge{
+	width: 230px;
+	margin: 10px auto;
+}
+#right_side .save-info{
+	width: 230px;
+}
+.info-detail .key{
+	float: left;
+	width: 110px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 14px;
+	font-weight: bold;
+}
+.detail .oper,
+.info-detail .oper{
+	float: left;
+	font-size: 14px;
+}
+.info-detail .value{
+	width: 260px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 14px;
+	border: 0px;
+}
+
+.detail .key{
+	float: left;
+	width: 60px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 14px;
+	font-weight: bold;
+}
+.detail .value{
+	width: 200px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 14px;
+	border: 0px;
+}
+.unmerge-list{
+	position: absolute;
+	top: 158px;
+	left: 0;
+	z-index: 10;
+	width: 230px;
+}
+.info-detail{
+	word-wrap: break-word;
+	margin-top: 40px;
+}
+.tool-bar{
+	float: left;
+}
+.tool-bar-btns{
+	position: relative;
+}
+.detail{
+	position: absolute;
+}
+.detail li{
+    height: 40px;
+}
