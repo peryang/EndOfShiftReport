@@ -404,9 +404,6 @@
 		<script type="text/javascript" src="static/js/jquery.ztree.all.js"></script>
 		<script type="text/javascript" src="static/js/jquery.ztree.exhide.js" ></script>
 		<script type="text/javascript" src="static/js/jquery.ztree.search.js"></script>
-		
-		
-		
 		<!-- momentjs --> 
 		<script type="text/javascript" src="static/js/moment.min.js"></script>
 		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -415,12 +412,8 @@
 		<![endif]-->
 		<!-- bootstrap 3 -->
 		<script type="text/javascript" src="static/js/bootstrap.js"></script>
-		<!-- bootstrap-datetimepicker -->
-		<script type="text/javascript" src="static/js/daterangepicker.js"></script>
 		<!-- x-editable (bootstrap 3) -->
 		<script type="text/javascript" src="static/js/bootstrap-editable.js"></script>
-		<script type="text/javascript" src="static/js/html2canvas.js"></script>
-		<script type="text/javascript" src="static/js/main2.js"></script>
 		<script type="text/javascript">
 			var ajax_url = {};
 			if(window.location.href.indexOf("dev") > -1){
@@ -524,9 +517,13 @@
 					timeout: 5000,
 					success: function (json) {
 						hideMask();
-						if (json.code == -1 && json.msg == "session-timeout") {
-							window.location.reload();
+						if (json.code != 1) {
+							console.warn("Request data error: Code is " + json.code);
+							$(".alert-warning").removeClass("hide");
+							setTimeout('$(".alert-warning").addClass("hide");', 1000);
 						} else if (json.code == 1) {
+							$(".alert-success").removeClass("hide");
+							setTimeout('$(".alert-success").addClass("hide");', 1000);
 							$(".add-node").modal("hide");
 						}
 					},
@@ -598,9 +595,13 @@
 					timeout: 5000,
 					success: function (json) {
 						hideMask();
-						if (json.code == -1 && json.msg == "session-timeout") {
-							window.location.reload();
+						if (json.code != 1) {
+							console.warn("Request data error: Code is " + json.code);
+							$(".alert-warning").removeClass("hide");
+							setTimeout('$(".alert-warning").addClass("hide");', 1000);
 						} else if (json.code == 1) {
+							$(".alert-success").removeClass("hide");
+							setTimeout('$(".alert-success").addClass("hide");', 1000);
 							rackInfoValue.value = JSON.parse(unescape(json.data.value));
 							rackInfoValue.info = JSON.parse(unescape(json.data.info));
 							rackInfoValue.name = json.data.name;
@@ -681,9 +682,13 @@
 								timeout: 5000,
 								success: function (json) {
 									hideMask();
-									if (json.code == -1 && json.msg == "session-timeout") {
-										window.location.reload();
+									if (json.code != 1) {
+										console.warn("Request data error: Code is " + json.code);
+										$(".alert-warning").removeClass("hide");
+										setTimeout('$(".alert-warning").addClass("hide");', 1000);
 									} else if (json.code == 1) {
+										$(".alert-success").removeClass("hide");
+										setTimeout('$(".alert-success").addClass("hide");', 1000);
 										zTree.removeNode(nodes[0]);
 										$(".add-node").modal("hide");
 									}
@@ -708,9 +713,13 @@
 							timeout: 5000,
 							success: function (json) {
 								hideMask();
-								if (json.code == -1 && json.msg == "session-timeout") {
-									window.location.reload();
+								if (json.code != 1) {
+									console.warn("Request data error: Code is " + json.code);
+									$(".alert-warning").removeClass("hide");
+									setTimeout('$(".alert-warning").addClass("hide");', 1000);
 								} else if (json.code == 1) {
+									$(".alert-success").removeClass("hide");
+									setTimeout('$(".alert-success").addClass("hide");', 1000);
 									zTree.removeNode(nodes[0]);
 									$(".add-node").modal("hide");
 								}
@@ -734,9 +743,13 @@
 					timeout: 5000,
 					success: function (json) {
 						hideMask();
-						if (json.code == -1 && json.msg == "session-timeout") {
-							window.location.reload();
+						if (json.code != 1) {
+							console.warn("Request data error: Code is " + json.code);
+							$(".alert-warning").removeClass("hide");
+							setTimeout('$(".alert-warning").addClass("hide");', 1000);
 						} else if (json.code == 1) {
+							$(".alert-success").removeClass("hide");
+							setTimeout('$(".alert-success").addClass("hide");', 1000);
 							for (var i = 0; i < json.data.length; i++) {
 								json.data[i].iconSkin = json.data[i].type;
 							}
@@ -840,9 +853,13 @@
 					timeout: 5000,
 					success: function (json) {
 						hideMask();
-						if (json.code == -1 && json.msg == "session-timeout") {
-							window.location.reload();
+						if (json.code != 1) {
+							console.warn("Request data error: Code is " + json.code);
+							$(".alert-warning").removeClass("hide");
+							setTimeout('$(".alert-warning").addClass("hide");', 1000);
 						} else if (json.code == 1) {
+							$(".alert-success").removeClass("hide");
+							setTimeout('$(".alert-success").addClass("hide");', 1000);
 							$(".rack-name").html(rackName);
 							$(".modify-rack-name").modal("hide");
 						}
@@ -888,9 +905,13 @@
 					timeout: 5000,
 					success: function (json) {
 						hideMask();
-						if (json.code == -1 && json.msg == "session-timeout") {
-							window.location.reload();
+						if (json.code != 1) {
+							console.warn("Request data error: Code is " + json.code);
+							$(".alert-warning").removeClass("hide");
+							setTimeout('$(".alert-warning").addClass("hide");', 1000);
 						} else if (json.code == 1) {
+							$(".alert-success").removeClass("hide");
+							setTimeout('$(".alert-success").addClass("hide");', 1000);
 							var newNode = { name: value, iconSkin: type, id: json.data.id };
 							if (zTree.getSelectedNodes()[0]) {
 								newNode.checked = zTree.getSelectedNodes()[0].checked;
@@ -982,10 +1003,13 @@
 					timeout: 5000,
 					success: function (json) {
 						hideMask();
-						if (json.code == -1 && json.msg == "session-timeout") {
-							window.location.reload();
+						if (json.code != 1) {
+							console.warn("Request data error: Code is " + json.code);
+							$(".alert-warning").removeClass("hide");
+							setTimeout('$(".alert-warning").addClass("hide");', 1000);
 						} else if (json.code == 1) {
-							
+							$(".alert-success").removeClass("hide");
+							setTimeout('$(".alert-success").addClass("hide");', 1000);
 						}
 					},
 					error: function (e) {
@@ -1011,10 +1035,13 @@
 					timeout: 5000,
 					success: function (json) {
 						hideMask();
-						if (json.code == -1 && json.msg == "session-timeout") {
-							window.location.reload();
+						if (json.code != 1) {
+							console.warn("Request data error: Code is " + json.code);
+							$(".alert-warning").removeClass("hide");
+							setTimeout('$(".alert-warning").addClass("hide");', 1000);
 						} else if (json.code == 1) {
-							
+							$(".alert-success").removeClass("hide");
+							setTimeout('$(".alert-success").addClass("hide");', 1000);
 						}
 					},
 					error: function (e) {

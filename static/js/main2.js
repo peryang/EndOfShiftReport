@@ -95,7 +95,7 @@ var drawTable = function(ajaxData){
 		url: ajax_url[key],
 		success: function(msg){
 			if(msg.code != 1){
-				console.warn("Request data error: "+(msg.data || ("Code is "+msg.code)));
+				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
 				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 				return false;
