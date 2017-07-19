@@ -610,7 +610,7 @@
 							setTimeout('$(".alert-success").addClass("hide");', 1000);
 							rackInfoValue.value = JSON.parse(unescape(json.data.value));
 							rackInfoValue.info = JSON.parse(unescape(json.data.info));
-							rackInfoValue.name = json.data.rackName;
+							rackInfoValue.name = json.data.rackname;
 							drawRack();
 							drawRackInfo();
 							drawMerge();
