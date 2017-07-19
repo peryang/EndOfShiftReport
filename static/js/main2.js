@@ -353,11 +353,13 @@ function searchNodes(value){
 	}
 	
 	var result = zTree.searchNodes($('#in').val());
-	if(result.length == 0){
-		$("#treeDemo").find(".no-data").remove();
-		$("#treeDemo").prepend("<li class='no-data'>没有搜索到数据</li>");
-	}else{
-		$("#treeDemo").find(".no-data").remove();
+	if(result){
+		if(result.length == 0){
+			$("#treeDemo").find(".no-data").remove();
+			$("#treeDemo").prepend("<li class='no-data'>没有搜索到数据</li>");
+		}else{
+			$("#treeDemo").find(".no-data").remove();
+		}
 	}
 }
 
