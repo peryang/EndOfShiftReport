@@ -399,7 +399,7 @@
 				ajax_url = {
 					"getTree": "/api/getnodes",
 					"addTree": "/api/addnode",
-					"delTree": "/api/delnode",
+					"delTree": "/api/delnode",// error
 					"modifyTree": "/api/modifynode",
 					"saveRackName": "/api/saveRackName",
 					"saveRackInfo": "/api/saveRackInfo",
@@ -795,7 +795,10 @@
 					data: {
 						name: value,
 						pId: id,
-						type: type
+						type: type,
+						rackName: value,
+						info: "someString",
+						value: "someString"
 					},
 					dataType: "json",
 					timeout: 5000,
