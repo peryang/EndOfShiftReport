@@ -216,6 +216,7 @@ function zTreeOnClick(ev, id, obj, lev){
 				$("#content .rack-name").html(rackInfoValue.name);
 				$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
 				$(".save-info").html("save rack info");
+				$(".device-id").html("rack");
 			}
 		},
 		error: function (e) {
@@ -371,6 +372,7 @@ $(document).delegate("#content .rack-name", "click", function (ev) {
 	drawRackInfo();
 	$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
 	$(".save-info").html("save rack info");
+	$(".device-id").html("rack");
 });
 
 $(document).delegate("#rackValue tbody tr", "mousemove", function (ev) {
