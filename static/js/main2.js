@@ -398,6 +398,7 @@ $(document).delegate("#rackValue tbody tr", "mouseout", function (ev) {
 $(document).delegate("#rackValue tbody tr td:nth-child(2)", "click", function (ev) {
 	var _this = this;
 	var dataID = $(_this).parent().data("id");
+	$(".device-id").html(dataID);
 	$(".info-detail").data("id", dataID);
 	var selVal = rackInfoValue.value.rackValue[dataID].value;
 	$(".info-detail ul").empty();
