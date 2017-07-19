@@ -912,7 +912,7 @@
 						} else if (json.code == 1) {
 							$(".alert-success").removeClass("hide");
 							setTimeout('$(".alert-success").addClass("hide");', 1000);
-							var newNode = { name: value, iconSkin: type, id: json.data.id };
+							var newNode = { name: value, type: type, iconSkin: type, id: json.data.id };
 							if (zTree.getSelectedNodes()[0]) {
 								newNode.checked = zTree.getSelectedNodes()[0].checked;
 								zTree.addNodes(zTree.getSelectedNodes()[0], newNode);
