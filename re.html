@@ -478,7 +478,6 @@
 							window.location.reload();
 						} else if (json.code == 1) {
 							$(".add-node").modal("hide");
-							alert("success");
 						}
 					},
 					error: function (e) {
@@ -624,7 +623,6 @@
 									} else if (json.code == 1) {
 										zTree.removeNode(nodes[0]);
 										$(".add-node").modal("hide");
-										alert("success");
 									}
 								},
 								error: function (e) {
@@ -649,7 +647,6 @@
 								} else if (json.code == 1) {
 									zTree.removeNode(nodes[0]);
 									$(".add-node").modal("hide");
-									alert("success");
 								}
 							},
 							error: function (e) {
@@ -814,7 +811,6 @@
 								zTree.addNodes(null, newNode);
 							}
 							$(".add-node").modal("hide");
-							alert("success");
 						}
 					},
 					error: function (e) {
