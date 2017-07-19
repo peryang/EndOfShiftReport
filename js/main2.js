@@ -420,7 +420,7 @@ $(document).delegate("#rackValue tbody tr td:nth-child(2)", "click", function (e
 				['<li class="list-group-item">',
 					'<div class="key">'+i+'</div>',
 					'<div class="oper">： </div>',
-					'<input type="text" class="form-control value" value="'+selVal[i]+'" placeholder="'+i+'" title="'+selVal[i]+'">',
+					'<input type="text" class="form-control value change-'+i+'" value="'+selVal[i]+'" placeholder="'+i+'" title="'+selVal[i]+'">',
 				'</li>'].join(""));
 	}
 	$(".save-info").removeClass("save-rack-info").addClass("save-rack-value");
