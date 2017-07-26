@@ -47,6 +47,10 @@ div.ruler div.cursor {height:20px; width:30px; background-color:#3C6E31; color:w
 	border: 0px;
 	line-height: 32px;
 }
+#rackValue tr{
+	height: 14px;
+	line-height: 13px;
+}
 #rackValue tr td{
 	background: #FFFFFF;
 	color: #000000;
@@ -57,10 +61,10 @@ div.ruler div.cursor {height:20px; width:30px; background-color:#3C6E31; color:w
 	color: #000000;
 	border: 0px;
 }
-#rackValue tr{
-	height: 14px;
-	line-height: 13px;
+#rackValue tr td:nth-child(2){
+	cursor: pointer;
 }
+
 .mask{
 	position: absolute;
     top: 0;
@@ -118,9 +122,11 @@ body{
     position:absolute;  
     top:0px;  
     left:0px;
-    width:250px;  
+    width: 300px;  
     height:100%;
     border-right: 1px solid #EEEEEE;
+    padding-left: 25px;
+    padding-top: 20px;
 }
 #left_side .title{
 	margin: 8px 0 6px 8px;

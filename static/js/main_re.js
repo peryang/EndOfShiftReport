@@ -225,7 +225,7 @@ function zTreeOnClick(ev, id, obj, lev){
 				$("#content .rack-name").html(rackInfoValue.name);
 				$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
 				$(".save-info").html(config.saveRackInfo);
-				$(".device-id").html("rack");
+				$(".device-id").html("（rack）");
 			}
 		},
 		error: function (e) {
@@ -454,7 +454,7 @@ $(document).delegate("#right_side .rack-name", "click", function (ev) {
 	drawRackInfo();
 	$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
 	$(".save-info").html(config.saveRackInfo);
-	$(".device-id").html("rack");
+	$(".device-id").html("（rack）");
 });
 
 $(document).delegate("#rackValue tbody tr", "mousemove", function (ev) {
@@ -488,7 +488,7 @@ $(document).delegate("#rackValue tbody tr td:nth-child(2)", "click", function (e
 	ev.preventDefault();
 	var _this = this;
 	var dataID = $(_this).parent().data("id");
-	$(".device-id").html(dataID);
+	$(".device-id").html("（"+dataID+"）");
 	$(".info-detail").attr("data-id", dataID);
 	var selVal = rackInfoValue.value.rackValue[dataID].value;
 	$(".info-detail ul").empty();
