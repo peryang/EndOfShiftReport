@@ -65,8 +65,8 @@ $(document).ready(function(){
 				for (var i = 0; i < json.data.length; i++) {
 					json.data[i].iconSkin = json.data[i].type;
 				}
-				$.fn.zTree.init($("#treeDemo"), setting, json.data);
-				zTree = $.fn.zTree.getZTreeObj("treeDemo");
+				$.fn.zTree.init($("#reTree"), setting, json.data);
+				zTree = $.fn.zTree.getZTreeObj("reTree");
 				rMenu = $("#rMenu");
 				
 				for (var i = 0; i < json.data.length; i++) {
@@ -111,7 +111,7 @@ function hideMask(){
 }
 
 function beforeRename(treeId, treeNode, newName, isCancel) {
-	var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+	var zTree = $.fn.zTree.getZTreeObj("reTree");
 	if (newName.length == 0) {
 		zTree.cancelEditName();
 		alert("节点名称不能为空.");
@@ -354,7 +354,7 @@ function removeTreeNode() {
 }
 
 function searchNodes(value){
-	var allNodesObj = $("#treeDemo .node_name");
+	var allNodesObj = $("#reTree .node_name");
 	allNodesObj.parents("li").addClass("hide");
 	for (var i = 0; i < allNodesObj.length; i++) {
 		if($(allNodesObj[i]).text().indexOf($('#in').val()) > -1){
@@ -366,10 +366,10 @@ function searchNodes(value){
 	var result = zTree.searchNodes($('#in').val());
 	if(result){
 		if(result.length == 0){
-			$("#treeDemo").find(".no-data").remove();
-			$("#treeDemo").prepend("<li class='no-data'>没有搜索到数据</li>");
+			$("#reTree").find(".no-data").remove();
+			$("#reTree").prepend("<li class='no-data'>没有搜索到数据</li>");
 		}else{
-			$("#treeDemo").find(".no-data").remove();
+			$("#reTree").find(".no-data").remove();
 		}
 	}
 }
@@ -392,14 +392,14 @@ function searchNodesByU(value){
 				$(".alert-warning").removeClass("hide");
 				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
-				$("#treeDemo").empty();
+				$("#reTree").empty();
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
 				for (var i = 0; i < json.data.length; i++) {
 					json.data[i].iconSkin = json.data[i].type;
 				}
-				$.fn.zTree.init($("#treeDemo"), setting, json.data);
-				zTree = $.fn.zTree.getZTreeObj("treeDemo");
+				$.fn.zTree.init($("#reTree"), setting, json.data);
+				zTree = $.fn.zTree.getZTreeObj("reTree");
 				
 				for (var i = 0; i < json.data.length; i++) {
 					if(json.data[i].type == "file"){
@@ -409,7 +409,7 @@ function searchNodesByU(value){
 		                break;
 					}
 				}
-				$("#treeDemo .node_name").addClass("highlightCss");
+				$("#reTree .node_name").addClass("highlightCss");
 			}
 		},
 		error: function (e) {

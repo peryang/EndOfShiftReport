@@ -20,7 +20,7 @@ ul.list {margin-left: 17px;}
 div.content_wrap {width: 100%;height:460px;}
 div.content_wrap div.left{float: left;width: 250px;}
 div.content_wrap div.right{float: left;width: calc(100% - 560px);margin-right: 50px;}
-div.zTreeDemoBackground {width:250px;height:362px;text-align:left;}
+div.zreTreeBackground {width:250px;height:362px;text-align:left;}
 
 ul.ztree {width:250px;height:360px;overflow-y:scroll;overflow-x:auto;}
 ul.log {border: 1px solid #617775;background: #f0f6e4;width:300px;height:170px;overflow: hidden;}
@@ -159,30 +159,30 @@ tr td:last-child{
 }
 
 
-#treeDemo,
+#reTree,
 .right{
     overflow: auto;
     overflow-x: hidden;
 }
-#treeDemo{
+#reTree{
 	height: calc(100% - 143px);
 }
 .right{
 	height: calc(100% - 2px);
 }
 
-#treeDemo::-webkit-scrollbar,
+#reTree::-webkit-scrollbar,
 .right::-webkit-scrollbar {
 	width: 2px;
 }
-#treeDemo::-webkit-scrollbar-track,
+#reTree::-webkit-scrollbar-track,
 .right::-webkit-scrollbar-track{
 	background-color: #EEEEEE;
 	-webkit-border-radius: 2em;
 	-moz-border-radius: 2em;
 	border-radius:2em;
 }
-#treeDemo::-webkit-scrollbar-thumb,
+#reTree::-webkit-scrollbar-thumb,
 .right::-webkit-scrollbar-thumb{
 	background-color: #808080;
 	-webkit-border-radius: 2em;

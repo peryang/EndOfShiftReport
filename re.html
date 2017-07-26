@@ -16,7 +16,7 @@
 		<link href="static/css/bootstrap-editable.css" rel="stylesheet">
 		<link rel="stylesheet" href="static/css/zTreeStyle/zTreeStyle.css" type="text/css">
 		
-		<link rel="stylesheet" type="text/css" href="static/css/main2.css"/>
+		<link rel="stylesheet" type="text/css" href="static/css/main_re.css"/>
 		<style>
 			.ztree li span.button.fold_ico_open{margin-right:2px; background: url('static/css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px -16px transparent; vertical-align:top; *vertical-align:middle}
 			.ztree li span.button.fold_ico_close{margin-right:2px; background: url('static/css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px 0 transparent; vertical-align:top; *vertical-align:middle}
@@ -40,7 +40,7 @@
 						<button type="button" class="btn btn-default" id="searchNode" onclick="searchNodes($('#in').val())">Search</button>
 	            	</div>
 	            	
-					<ul id="treeDemo" class="ztree"></ul>
+					<ul id="reTree" class="ztree"></ul>
 	            </div>
 	            <div id="content">
 	            	<div class="right">
@@ -230,9 +230,8 @@
 		<!-- bootstrap 3 -->
 		<script type="text/javascript" src="static/js/bootstrap.js"></script>
 		<!-- x-editable (bootstrap 3) -->
-		<script type="text/javascript" src="static/js/bootstrap-editable.js"></script>
 		<script type="text/javascript" src="static/js/config.js"></script>
-		<script type="text/javascript" src="static/js/main2.js"></script>
+		<script type="text/javascript" src="static/js/main_re.js"></script>
 		<script type="text/javascript">
 			var ajax_url = {};
 			if(window.location.href.indexOf("dev") > -1){
