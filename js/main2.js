@@ -32,6 +32,7 @@ var setting = {
 var rackInfoValue = {
 	value: {rackValue:{"1":{id:1,name:1,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"2":{id:2,name:2,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"3":{id:3,name:3,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"4":{id:4,name:4,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"5":{id:5,name:5,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"6":{id:6,name:6,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"7":{id:7,name:7,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"8":{id:8,name:8,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"9":{id:9,name:9,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"10":{id:10,name:10,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"11":{id:11,name:11,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"12":{id:12,name:12,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"13":{id:13,name:13,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"14":{id:14,name:14,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"15":{id:15,name:15,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"16":{id:16,name:16,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"17":{id:17,name:17,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"18":{id:18,name:18,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"19":{id:19,name:19,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"20":{id:20,name:20,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"21":{id:21,name:21,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"22":{id:22,name:22,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"23":{id:23,name:23,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"24":{id:24,name:24,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"25":{id:25,name:25,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"26":{id:26,name:26,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"27":{id:27,name:27,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"28":{id:28,name:28,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"29":{id:29,name:29,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"30":{id:30,name:30,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"31":{id:31,name:31,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"32":{id:32,name:32,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"33":{id:33,name:33,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"34":{id:34,name:34,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"35":{id:35,name:35,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"36":{id:36,name:36,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"37":{id:37,name:37,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"38":{id:38,name:38,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"39":{id:39,name:39,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"40":{id:40,name:40,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"41":{id:41,name:41,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"42":{id:42,name:42,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"43":{id:43,name:43,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"44":{id:44,name:44,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"45":{id:45,name:45,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"46":{id:46,name:46,value:{"Name":"","Model":"","SN":"","Asset ID":""}},},mergeData:{}},
 	info: {"Rack Location": "","Rack Asset ID": ""},
+	useinfo: "0000000000000000000000000000000000000000000000",
 	name: "Rack Name",
 };
 
@@ -120,7 +121,7 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 	showMask();
 	$.ajax({
 		url: ajax_url.modifyTree,
-		type: "post",
+		type: "get",//post
 		async: true,
 		data: {
 			name: newName,
@@ -292,7 +293,7 @@ function removeTreeNode() {
 				showMask();
 				$.ajax({
 					url: ajax_url.delTree,
-					type: "post",
+					type: "get",//post
 					async: true,
 					data: {
 						id: id
@@ -323,7 +324,7 @@ function removeTreeNode() {
 			showMask();
 			$.ajax({
 				url: ajax_url.delTree,
-				type: "post",
+				type: "get",//post
 				async: true,
 				data: {
 					id: id
@@ -373,9 +374,81 @@ function searchNodes(value){
 	}
 }
 
+function searchNodesByU(value){
+	showMask();
+	$.ajax({
+		url: ajax_url.searchNodesByU,
+		type: "get",//post
+		async: true,
+		data: {
+			num: value
+		},
+		dataType: "json",
+		timeout: 5000,
+		success: function (json) {
+			hideMask();
+			if (json.code != 1) {
+				console.warn("Request data error: Code is " + json.code);
+				$(".alert-warning").removeClass("hide");
+				setTimeout('$(".alert-warning").addClass("hide");', 1000);
+			} else if (json.code == 1) {
+				$("#treeDemo").empty();
+				$(".alert-success").removeClass("hide");
+				setTimeout('$(".alert-success").addClass("hide");', 1000);
+				for (var i = 0; i < json.data.length; i++) {
+					json.data[i].iconSkin = json.data[i].type;
+				}
+				$.fn.zTree.init($("#treeDemo"), setting, json.data);
+				zTree = $.fn.zTree.getZTreeObj("treeDemo");
+				
+				for (var i = 0; i < json.data.length; i++) {
+					if(json.data[i].type == "file"){
+						var node = zTree.getNodeByParam('id', json.data[i].id);  
+		                zTree.selectNode(node);
+		                zTree.setting.callback.onClick(null, zTree.setting.treeId, node);
+		                break;
+					}
+				}
+				$("#treeDemo .node_name").addClass("highlightCss");
+			}
+		},
+		error: function (e) {
+			hideMask();
+			console.error("请求出错(请检查相关网络状况.)", e);
+		}
+	});
+}
+
+function formatExportData(){
+	var allData = [];
+	var fileName = $(".rack-name").html();
+	allData.push(["Pos", "U-Name", "Pos"]);
+	
+	var trObjs = $("#rackValue tr");
+	for (var i = 0; i < trObjs.length; i++) {
+		var tdObjs = $(trObjs[i]).find("td");
+		var bodyTd = [];
+		for (var j = 0; j < tdObjs.length; j++) {
+			if($(tdObjs[j]).hasClass("hide")){
+				bodyTd.push("合并同上");
+			}else{
+				bodyTd.push($(tdObjs[j]).text());
+			}
+		}
+		allData.push(bodyTd);
+	}
+	
+	$("#rackValue").tableExport({
+		"type": "xlsx-data",
+		"exportData": allData,
+		"worksheetName": "Sheet1",
+		"fileName": fileName
+	});
+}
+
 
 ///// Event
-$(document).delegate("#content .rack-name", "click", function (ev) {
+$(document).delegate("#right_side .rack-name", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	drawRackInfo();
@@ -397,8 +470,12 @@ $(document).delegate("#rackValue tbody tr", "mousemove", function (ev) {
 					'<div class="value">'+selVal[i]+'</div>',
 				'</li>'].join(""));
 	}
+	if(document.body.clientHeight - ev.clientY > 180){
+		$(".detail").css("top", ev.clientY+10);
+	}else{
+		$(".detail").css("top", ev.clientY+10-180);
+	}
 	$(".detail").css("left", ev.clientX+10);
-	$(".detail").css("top", ev.clientY+10);
 	$(".detail").removeClass("hide");
 });
 
@@ -447,7 +524,7 @@ $(document).delegate(".modify-rack-name .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackName,
-		type: "post",
+		type: "get",//post
 		async: true,
 		data: {
 			id: id,
@@ -495,7 +572,7 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.addTree,
-		type: "post",
+		type: "get",//post
 		async: true,
 		data: {
 			name: value,
@@ -541,6 +618,14 @@ $(document).delegate("#in", "keyup", function (ev) {
 	}
 });
 
+$(document).delegate("#u_num", "keyup", function (ev) {
+	ev.stopPropagation();
+	ev.preventDefault();
+	if(ev.keyCode == 13){
+		searchNodesByU($('#u_num').val())
+	}
+});
+
 $(document).delegate(".merge", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
@@ -559,22 +644,35 @@ $(document).delegate(".unmerge", "click", function (ev) {
 	$(".unmerge-list").removeClass("hide");
 });
 
+$(document).delegate(".export", "click", function (ev) {
+	ev.stopPropagation();
+	ev.preventDefault();
+	formatExportData();
+});
+
 $(document).delegate(".info-detail li .change-Name", "keyup", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
-	var val = $(_this).val();
+	var val = $(_this).val().trim();
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
 	$("#rackValue tr[data-id='"+dataID+"'] td:eq(1)").html("name："+val);
 	$(".detail li:eq(0) .value").html(val);
 	rackInfoValue.value.rackValue[dataID].value["Name"] = $(".info-detail ul li:eq(0) .value").val();
+	var useinfoArr = rackInfoValue.useinfo.split("");
+	if(val){
+		useinfoArr[parseInt(dataID)-1] = 1;
+	}else{
+		useinfoArr[parseInt(dataID)-1] = 0;
+	}
+	rackInfoValue.useinfo = useinfoArr.join("");
 });
 
 $(document).delegate(".info-detail li .change-Model", "keyup", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
-	var val = $(_this).val();
+	var val = $(_this).val().trim();
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
 	$(".detail li:eq(1) .value").html(val);
 	rackInfoValue.value.rackValue[dataID].value["Model"] = $(".info-detail ul li:eq(1) .value").val()
@@ -584,7 +682,7 @@ $(document).delegate(".info-detail li .change-SN", "keyup", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
-	var val = $(_this).val();
+	var val = $(_this).val().trim();
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
 	$(".detail li:eq(2) .value").html(val);
 	rackInfoValue.value.rackValue[dataID].value["SN"] = $(".info-detail ul li:eq(2) .value").val();
@@ -594,7 +692,7 @@ $(document).delegate(".info-detail li .change-Asset.ID", "keyup", function (ev) 
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
-	var val = $(_this).val();
+	var val = $(_this).val().trim();
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
 	$(".detail li:eq(3) .value").html(val);
 	rackInfoValue.value.rackValue[dataID].value["Asset ID"] = $(".info-detail ul li:eq(3) .value").val();
@@ -612,7 +710,7 @@ $(document).delegate(".unmerge-list li", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackValue,
-		type: "post",
+		type: "get",//post
 		async: true,
 		data: {
 			id: id,
@@ -648,7 +746,7 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackInfo,
-		type: "post",
+		type: "get",//post
 		async: true,
 		data: {
 			id: id,
@@ -686,11 +784,12 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackValue,
-		type: "post",
+		type: "get",//post
 		async: true,
 		data: {
 			id: id,
-			value: escape(JSON.stringify(rackInfoValue.value))
+			value: escape(JSON.stringify(rackInfoValue.value)),
+			useinfo: rackInfoValue.useinfo
 		},
 		dataType: "json",
 		timeout: 5000,
@@ -765,7 +864,7 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackValue,
-		type: "post",
+		type: "get",//post
 		async: true,
 		data: {
 			id: id,

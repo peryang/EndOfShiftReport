@@ -16,7 +16,6 @@
 		<link href="static/css/bootstrap-editable.css" rel="stylesheet">
 		<link rel="stylesheet" href="static/css/zTreeStyle/zTreeStyle.css" type="text/css">
 		
-		<link href="static/css/main.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="static/css/main2.css"/>
 		<style>
 			.ztree li span.button.fold_ico_open{margin-right:2px; background: url('static/css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px -16px transparent; vertical-align:top; *vertical-align:middle}
@@ -27,21 +26,23 @@
 	</head>
 	<body>
 		<div id="wrap">
-	        <div id="header">
-	        	<h1 id="projectName">Rack Elevation</h1>
-	        	<div class="noty-c">
-	        		<span class="noty">noty:</span>
-	        		<span class="noty-info">this is a noty!</span>
-	        	</div>
-	        </div>
 	        <div id="container">
 	            <div id="left_side">
-	            	<input type="text" class="form-control" value="" id="in" placeholder="key value"/>
-					<button type="button" class="btn btn-default" id="searchNode" onclick="searchNodes($('#in').val())">search</button>
+	            	<h1 id="projectName">Rack Elevation</h1>
+	            	<div style="margin-top: 45px;">
+	            		<div class="title">Search U capacity</div>
+	            		<input type="text" class="form-control in" value="" id="u_num" placeholder="U number"/>
+						<button type="button" class="btn btn-default" onclick="searchNodesByU($('#u_num').val())">Search</button>
+	            	</div>
+	            	<div style="margin-top: 5px;">
+	            		<div class="title">Search rack</div>
+	            		<input type="text" class="form-control in" value="" id="in" placeholder="key value"/>
+						<button type="button" class="btn btn-default" id="searchNode" onclick="searchNodes($('#in').val())">Search</button>
+	            	</div>
+	            	
 					<ul id="treeDemo" class="ztree"></ul>
 	            </div>
 	            <div id="content">
-	            	<div class="rack-name">Rack Name</div>
 	            	<div class="right">
 						<div class="rackValue-c">
 							<table id="rackValue" class="" border="2" bordercolor="black" cellspacing="0" cellpadding="5"></table>
@@ -49,11 +50,13 @@
 					</div>
 	            </div>
 	            <div id="right_side">
+	            	<div class="rack-name">Rack Name</div>
 	            	<div class="tool-bar">
 						<div class="tool-bar-btns">
 							<button type="button" id="modifyBtn" class="modify btn btn-default" data-toggle="modal" >modify</button>
 							<button type="button" id="mergeBtn" class="merge btn btn-default" data-toggle="modal" data-target=".merge-node">merge</button>
 							<button type="button" id="unmergeBtn" class="unmerge btn btn-default">unmerge</button>
+							<button type="button" id="exportBtn" class="export btn btn-default">Export Excel</button>
 							<div class="unmerge-list hide">
 								<ul class="list-group"></ul>
 							</div>
@@ -86,10 +89,7 @@
 						<button type="button" class="save-info save-rack-info btn btn-default">save rack info</button>
 					</div>
 	            </div>
-	        </div>
-	        <div id="footer">
-	        	<p>amazon © amazon.</p>
-	        </div>
+	       </div>
 	   </div>
 		
 		<div class="detail hide">
@@ -219,6 +219,10 @@
 		<script type="text/javascript" src="static/js/jquery.ztree.search.js"></script>
 		<!-- momentjs --> 
 		<script type="text/javascript" src="static/js/moment.min.js"></script>
+		
+		<script type="text/javascript" src="static/js/export-libs/FileSaver/FileSaver.min.js"></script>
+	    <script type="text/javascript" src="static/js/export-libs/js-xlsx/xlsx.core.min.js"></script>
+		<script type="text/javascript" src="static/js/tableExport.js"></script>
 		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 		<!--[if lt IE 9]>
 		<script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -251,7 +255,8 @@
 					"saveRackName": "/api/saverackname",
 					"saveRackInfo": "/api/saverackinfo",
 					"saveRackValue": "/api/saverackvalue",
-					"getRack": "/api/getrack"
+					"getRack": "/api/getrack",
+					"searchNodesByU": "/api/useinfo"
 				};
 			}
 		</script>
