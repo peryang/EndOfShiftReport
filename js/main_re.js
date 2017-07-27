@@ -58,7 +58,6 @@ function initTree(){
 		type: "get",
 		async: true,
 		dataType: "json",
-		timeout: 5000,
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
@@ -133,7 +132,6 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 			id: id
 		},
 		dataType: "json",
-		timeout: 5000,
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
@@ -211,7 +209,6 @@ function zTreeOnClick(ev, id, obj, lev){
 			id: obj.id
 		},
 		dataType: "json",
-		timeout: 5000,
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
@@ -307,7 +304,6 @@ function removeTreeNode() {
 						id: id
 					},
 					dataType: "json",
-					timeout: 5000,
 					success: function (json) {
 						hideMask();
 						if (json.code != 1) {
@@ -338,7 +334,6 @@ function removeTreeNode() {
 					id: id
 				},
 				dataType: "json",
-				timeout: 5000,
 				success: function (json) {
 					hideMask();
 					if (json.code != 1) {
@@ -392,7 +387,6 @@ function searchNodesByU(value){
 			num: value
 		},
 		dataType: "json",
-		timeout: 5000,
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
@@ -539,7 +533,6 @@ $(document).delegate(".modify-rack-name .sure", "click", function (ev) {
 			rackname: rackName
 		},
 		dataType: "json",
-		timeout: 5000,
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
@@ -584,7 +577,7 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 		async: true,
 		data: {
 			name: value,
-			pId: id,
+			pid: id,
 			type: type,
 			rackname: value,
 			info: "%7B%22Rack%20Location%22%3A%22%22%2C%22Rack%20Asset%20ID%22%3A%22%22%7D",
@@ -592,7 +585,6 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 			useinfo: "0000000000000000000000000000000000000000000000"
 		},
 		dataType: "json",
-		timeout: 5000,
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
@@ -726,7 +718,6 @@ $(document).delegate(".unmerge-list li", "click", function (ev) {
 			value: escape(JSON.stringify(rackInfoValue.value))
 		},
 		dataType: "json",
-		timeout: 5000,
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
@@ -763,7 +754,6 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 			useinfo: rackInfoValue.useinfo
 		},
 		dataType: "json",
-		timeout: 5000,
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
@@ -802,7 +792,6 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 			useinfo: rackInfoValue.useinfo
 		},
 		dataType: "json",
-		timeout: 5000,
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
@@ -881,7 +870,6 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 			value: escape(JSON.stringify(rackInfoValue.value))
 		},
 		dataType: "json",
-		timeout: 5000,
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
