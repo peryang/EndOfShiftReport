@@ -141,7 +141,6 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
-				$(".add-node").modal("hide");
 			}
 		},
 		error: function (e) {
@@ -317,7 +316,6 @@ function removeTreeNode() {
 							$(".alert-success").removeClass("hide");
 							setTimeout('$(".alert-success").addClass("hide");', 1000);
 							zTree.removeNode(nodes[0]);
-							$(".add-node").modal("hide");
 						}
 					},
 					error: function (e) {
@@ -347,7 +345,6 @@ function removeTreeNode() {
 						$(".alert-success").removeClass("hide");
 						setTimeout('$(".alert-success").addClass("hide");', 1000);
 						zTree.removeNode(nodes[0]);
-						$(".add-node").modal("hide");
 					}
 				},
 				error: function (e) {
@@ -650,7 +647,7 @@ $(document).delegate(".unmerge", "click", function (ev) {
 			if($("#rackValue").find("tr:eq("+(46-parseInt(id)+x)+") td:nth-child(1)").hasClass("hide")){
 				continue;
 			}else{
-				id = id - x;
+				id = id - x - 1;
 				break;
 			}
 		}
