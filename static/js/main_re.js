@@ -244,7 +244,7 @@ function drawRack(){
 	var rackValue = rackInfoValue.value.rackValue;
 	$("#rackValue").empty();
 	for (var i in rackValue) {
-		$("#rackValue").append(
+		$("#rackValue").prepend(
 					['<tr data-id="'+rackValue[i].id+'">',
 			            '<td>'+rackValue[i].id+'</td>',
 			            '<td>name：'+(rackValue[i].value.Name || "")+'</td>',  
@@ -909,5 +909,6 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 $(document).delegate(".reset", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
+	$("#u_num").val("");
 	initTree();
 });
