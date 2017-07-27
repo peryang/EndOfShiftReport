@@ -200,6 +200,9 @@ function zTreeOnClick(ev, id, obj, lev){
 		$("#content").removeClass("hide");
 		$("#right_side").removeClass("hide");
 	}
+	if(obj.type == "fold"){
+		return false;
+	}
 	showMask();
 	$.ajax({
 		url: ajax_url.getRack,
