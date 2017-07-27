@@ -273,14 +273,14 @@ function drawMerge(){
 	for(var i in mergeData){
 		var pos = parseInt(mergeData[i].pos);
 		var len = parseInt(mergeData[i].len);
-		$("#rackValue").find("tr:eq("+(pos-1)+") td:eq(1)").attr("rowspan", len).addClass("td-merge");
-		$("#rackValue").find("tr:eq("+(pos-1)+") td:eq(1)").css({
+		$("#rackValue").find("tr:eq("+(46-pos+1-len)+") td:eq(1)").attr("rowspan", len).addClass("td-merge");
+		$("#rackValue").find("tr:eq("+(46-pos+1)+") td:eq(1)").css({
 			"vertical-align": "middle",
 			"text-align": "center"
 		});
 		for (var l = 0; l < len-1; l++) {
-			$("#rackValue").find("tr:eq("+(pos+l)+") td:eq(1)").addClass("hide");
-			useinfoArr[pos+l] = 1;
+			$("#rackValue").find("tr:eq("+(46-pos-l)+") td:eq(1)").addClass("hide");
+			useinfoArr[46-pos-l] = 1;
 		}
 	}
 	rackInfoValue.useinfo = useinfoArr.join("");
