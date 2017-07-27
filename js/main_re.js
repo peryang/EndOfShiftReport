@@ -754,7 +754,8 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 		async: true,
 		data: {
 			id: id,
-			info: escape(JSON.stringify(rackInfoValue.info))
+			info: escape(JSON.stringify(rackInfoValue.info)),
+			useinfo: rackInfoValue.useinfo
 		},
 		dataType: "json",
 		timeout: 5000,
