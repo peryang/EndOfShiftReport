@@ -386,7 +386,7 @@ function searchNodesByU(value){
 	showMask();
 	$.ajax({
 		url: ajax_url.searchNodesByU,
-		type: "get",
+		type: "post",
 		async: true,
 		data: {
 			num: value
