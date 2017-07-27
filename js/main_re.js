@@ -644,10 +644,10 @@ $(document).delegate(".unmerge", "click", function (ev) {
 		
 		
 		for (var x = 1; x <= 46; x++) {
-			if($("#rackValue").find("tr:eq("+(46-parseInt(id)+x)+") td:nth-child(1)").hasClass("hide")){
+			if($("#rackValue").find("tr:eq("+(46-parseInt(id)+x)+") td:nth-child(2)").hasClass("hide")){
 				continue;
 			}else{
-				id = id - x - 1;
+				id = id - x + 1;
 				break;
 			}
 		}
