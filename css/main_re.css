@@ -171,7 +171,7 @@ tr td:last-child{
     overflow-x: hidden;
 }
 #reTree{
-	height: calc(100% - 143px);
+	height: calc(100% - 177px);
 }
 .right{
 	height: calc(100% - 2px);
@@ -304,4 +304,9 @@ tr td:last-child{
 .btn{
 	line-height: 1;
 	height: 28px;
+}
+.reset{
+	margin-top: 6px;
+	margin-left: 170px;
+	width: 71px;
 }

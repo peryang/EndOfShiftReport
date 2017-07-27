@@ -46,6 +46,12 @@ $(document).ready(function(){
 	$("#deveceInfo").html(config.deveceInfo);
 	$(".save-info").html(config.saveRackInfo);
 	$("#searchNode").html(config.search);
+	initTree();
+});
+
+
+///// function
+function initTree(){
 	showMask();
 	$.ajax({
 		url: ajax_url.getTree,
@@ -60,6 +66,7 @@ $(document).ready(function(){
 				$(".alert-warning").removeClass("hide");
 				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
+				$("#reTree").empty();
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
 				for (var i = 0; i < json.data.length; i++) {
@@ -84,10 +91,8 @@ $(document).ready(function(){
 			console.error("请求出错(请检查相关网络状况.)", e);
 		}
 	});
-});
+}
 
-
-///// function
 function OnRightClick(event, treeId, treeNode) {
 	var type = treeNode.type || "file";
 	if (!treeNode && event.target.tagName.toLowerCase() != "button" && $(event.target).parents("a").length == 0) {
@@ -908,4 +913,10 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 	}
 	
 	$(".merge-node").modal("hide");
+});
+
+$(document).delegate(".reset", "click", function (ev) {
+	ev.stopPropagation();
+	ev.preventDefault();
+	initTree();
 });
