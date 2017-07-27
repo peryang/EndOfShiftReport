@@ -643,6 +643,19 @@ $(document).delegate(".unmerge", "click", function (ev) {
 	var tdMergeObjs = $("#rackValue").find("td.td-merge");
 	for (var i = 0; i < tdMergeObjs.length; i++) {
 		var id = $(tdMergeObjs[i]).parents("tr").data("id");
+		
+		
+		
+		for (var x = 1; x <= 46; x++) {
+			if($("#rackValue").find("tr:eq("+(46-parseInt(id)+x)+") td:nth-child(1)").hasClass("hide")){
+				continue;
+			}else{
+				id = id - x;
+				break;
+			}
+		}
+		
+		
 		$(".unmerge-list ul").append('<li class="list-group-item" data-id="'+id+'">'+id+'</li>');
 	}
 	$(".unmerge-list").removeClass("hide");
