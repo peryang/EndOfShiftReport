@@ -227,7 +227,7 @@ function zTreeOnClick(ev, id, obj, lev){
 				drawRack();
 				drawRackInfo();
 				drawMerge();
-				$("#content .rack-name").html(rackInfoValue.name);
+				$(".rack-name").html(rackInfoValue.name);
 				$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
 				$(".save-info").html(config.saveRackInfo);
 				$(".device-id").html("（rack）");
@@ -247,7 +247,7 @@ function drawRack(){
 		$("#rackValue").append(
 					['<tr data-id="'+rackValue[i].id+'">',
 			            '<td>'+rackValue[i].id+'</td>',
-			            '<td>name：'+(rackValue[i].value.Name || "U Name")+'</td>',  
+			            '<td>name：'+(rackValue[i].value.Name || "")+'</td>',  
 			            '<td>'+rackValue[i].id+'</td>',
 			        '</tr>'].join(""));
 	}
