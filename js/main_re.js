@@ -316,6 +316,8 @@ function removeTreeNode() {
 							$(".alert-success").removeClass("hide");
 							setTimeout('$(".alert-success").addClass("hide");', 1000);
 							zTree.removeNode(nodes[0]);
+							$("#content").addClass("hide");
+							$("#right_side").addClass("hide");
 						}
 					},
 					error: function (e) {
@@ -345,6 +347,8 @@ function removeTreeNode() {
 						$(".alert-success").removeClass("hide");
 						setTimeout('$(".alert-success").addClass("hide");', 1000);
 						zTree.removeNode(nodes[0]);
+						$("#content").addClass("hide");
+						$("#right_side").addClass("hide");
 					}
 				},
 				error: function (e) {
@@ -640,9 +644,6 @@ $(document).delegate(".unmerge", "click", function (ev) {
 	var tdMergeObjs = $("#rackValue").find("td.td-merge");
 	for (var i = 0; i < tdMergeObjs.length; i++) {
 		var id = $(tdMergeObjs[i]).parents("tr").data("id");
-		
-		
-		
 		for (var x = 1; x <= 46; x++) {
 			if($("#rackValue").find("tr:eq("+(46-parseInt(id)+x)+") td:nth-child(2)").hasClass("hide")){
 				continue;
@@ -651,8 +652,6 @@ $(document).delegate(".unmerge", "click", function (ev) {
 				break;
 			}
 		}
-		
-		
 		$(".unmerge-list ul").append('<li class="list-group-item" data-id="'+id+'">'+id+'</li>');
 	}
 	$(".unmerge-list").removeClass("hide");
@@ -862,16 +861,12 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 			break;
 		}
 	}
-	
 	rackInfoValue.value.mergeData[pos] = {};
 	rackInfoValue.value.mergeData[pos].pos = pos;
 	rackInfoValue.value.mergeData[pos].len = len;
-	
-	
 	for (var i = 1; i < len; i++) {
 		rackInfoValue.value.rackValue[pos+i].value = rackInfoValue.value.rackValue[pos].value;
 	}
-	
 	var id = zTree.getSelectedNodes()[0].id;
 	showMask();
 	$.ajax({
