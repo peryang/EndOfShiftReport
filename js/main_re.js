@@ -121,7 +121,7 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 	showMask();
 	$.ajax({
 		url: ajax_url.modifyTree,
-		type: "get",//post
+		type: "post",
 		async: true,
 		data: {
 			name: newName,
@@ -293,7 +293,7 @@ function removeTreeNode() {
 				showMask();
 				$.ajax({
 					url: ajax_url.delTree,
-					type: "get",//post
+					type: "post",
 					async: true,
 					data: {
 						id: id
@@ -324,7 +324,7 @@ function removeTreeNode() {
 			showMask();
 			$.ajax({
 				url: ajax_url.delTree,
-				type: "get",//post
+				type: "post",
 				async: true,
 				data: {
 					id: id
@@ -378,7 +378,7 @@ function searchNodesByU(value){
 	showMask();
 	$.ajax({
 		url: ajax_url.searchNodesByU,
-		type: "get",//post
+		type: "get",
 		async: true,
 		data: {
 			num: value
@@ -524,7 +524,7 @@ $(document).delegate(".modify-rack-name .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackName,
-		type: "get",//post
+		type: "post",
 		async: true,
 		data: {
 			id: id,
@@ -572,7 +572,7 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.addTree,
-		type: "get",//post
+		type: "post",
 		async: true,
 		data: {
 			name: value,
@@ -711,7 +711,7 @@ $(document).delegate(".unmerge-list li", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackValue,
-		type: "get",//post
+		type: "post",
 		async: true,
 		data: {
 			id: id,
@@ -747,7 +747,7 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackInfo,
-		type: "get",//post
+		type: "post",
 		async: true,
 		data: {
 			id: id,
@@ -785,7 +785,7 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackValue,
-		type: "get",//post
+		type: "post",
 		async: true,
 		data: {
 			id: id,
@@ -865,7 +865,7 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackValue,
-		type: "get",//post
+		type: "post",
 		async: true,
 		data: {
 			id: id,
