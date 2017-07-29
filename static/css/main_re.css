@@ -44,12 +44,12 @@ div.ruler div.cursor {height:20px; width:30px; background-color:#3C6E31; color:w
     cursor: pointer;
 }
 .info-detail li{
-	border: 0px;
+	border: 0;
 	line-height: 32px;
 }
 #rackValue tr{
-	height: 14px;
-	line-height: 13px;
+	height: 10px;
+	line-height: 10px;
 }
 #rackValue tr td{
 	background: #FFFFFF;
@@ -59,7 +59,7 @@ div.ruler div.cursor {height:20px; width:30px; background-color:#3C6E31; color:w
 #rackValue tr td:last-child{
 	background: #c0c0c0;
 	color: #000000;
-	border: 0px;
+	border: 0;
 }
 #rackValue tr td:nth-child(2){
 	cursor: pointer;
@@ -120,8 +120,8 @@ body{
 }  
 #left_side{  
     position:absolute;  
-    top:0px;  
-    left:0px;
+    top:0;
+    left:0;
     width: 300px;  
     height:100%;
     border-right: 1px solid #EEEEEE;
@@ -133,13 +133,13 @@ body{
 	font-weight: bold;
 }
 #content{  
-    margin:0px 470px 0px 270px;  
+    margin:0 470px 0 270px;
     height:100%;  
 }  
 #right_side{  
     position:absolute;  
-    top:0px;  
-    right:0px;
+    top:0;
+    right:0;
     width:450px;  
     height:100%;
     padding-left: 20px;
@@ -175,6 +175,7 @@ tr td:last-child{
 }
 .right{
 	height: calc(100% - 2px);
+	overflow-y: hidden;
 }
 
 #reTree::-webkit-scrollbar,
@@ -210,14 +211,16 @@ tr td:last-child{
 	margin: 0 auto;
 	height: 100%;
 	padding-top: 20px;
+	overflow-y: auto;
 }
 #rackValue{
 	border: 1px solid #000000;
 	text-align: center;
 	vertical-align: middle;
-	width: calc(60% - 20px);
+	width: calc(80% - 20px);
 	margin: 0 auto;
-	height: 100%;
+	height: calc(100% - 1px);
+	overflow-y: hidden;
 }
 #right_side .modify,
 #right_side .unmerge,
@@ -249,7 +252,7 @@ tr td:last-child{
 	overflow: hidden;
 	white-space: nowrap;
 	font-size: 14px;
-	border: 0px;
+	border: 0;
 	margin-top: 4px;
 }
 
@@ -268,7 +271,7 @@ tr td:last-child{
 	overflow: hidden;
 	white-space: nowrap;
 	font-size: 14px;
-	border: 0px;
+	border: 0;
 }
 .unmerge-list{
 	position: absolute;
