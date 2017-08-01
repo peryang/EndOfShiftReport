@@ -246,7 +246,7 @@ function drawRack(){
 		$("#rackValue").prepend(
 					['<tr data-id="'+rackValue[i].id+'">',
 			            '<td>'+rackValue[i].id+'</td>',
-			            '<td>name：'+(rackValue[i].value.Name || "")+'</td>',  
+			            '<td>'+(rackValue[i].value.Name || "")+'</td>',  
 			            '<td>'+rackValue[i].id+'</td>',
 			        '</tr>'].join(""));
 	}
@@ -669,7 +669,7 @@ $(document).delegate(".info-detail li .change-Name", "keyup", function (ev) {
 	var _this = this;
 	var val = $(_this).val().trim();
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
-	$("#rackValue tr[data-id='"+dataID+"'] td:eq(1)").html("name："+val);
+	$("#rackValue tr[data-id='"+dataID+"'] td:eq(1)").html(val);
 	$(".detail li:eq(0) .value").html(val);
 	rackInfoValue.value.rackValue[dataID].value["Name"] = $(".info-detail ul li:eq(0) .value").val();
 	var useinfoArr = rackInfoValue.useinfo.split("");
@@ -846,14 +846,14 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 	len = parseInt(len);
 	
 	
-	if($("#rackValue").find("tr:eq("+(pos-1)+") td:eq(1)").hasClass("hide")){
+	if($("#rackValue").find("tr:eq("+(46-pos+1)+") td:eq(1)").hasClass("hide")){
 		console.log("already merge");
 		$(".merge-node").modal("hide");
 		return false;
 	}
 	
 	for (var i = len-1; i > 0 ; i--) {
-		if($("#rackValue").find("tr:eq("+(pos+i)+") td:eq(1)").hasClass("hide")){
+		if($("#rackValue").find("tr:eq("+(46-pos-i)+") td:eq(1)").hasClass("hide")){
 			console.log("already merge");
 			$(".merge-node").modal("hide");
 			return false;
