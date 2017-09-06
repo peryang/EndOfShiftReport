@@ -266,7 +266,7 @@ function zTreeOnClick(ev, id, obj, lev){
 								"pdu_use": json.data.nodes[i].pdu_use || ""
 							}
 						};
-						rackInfoValue.value.pduData[parseInt(tpmAddsvr[0])+parseInt(tpmAddsvr[1])-1] = json.data.nodes[i].pdu_use;
+						rackInfoValue.value.pduData[parseInt(tpmAddsvr[0])+parseInt(tpmAddsvr[1])-1] = json.data.nodes[i].pdu_use || "";
 					}
 					if(json.data.nodes[i].id.indexOf("pdu") > -1){
 						rackInfoValue.value.pduValue[json.data.nodes[i].pos].push(json.data.nodes[i]);
@@ -387,6 +387,7 @@ function getPduByNum(num, id){
 function setPduStatus() {
 	$(".pdu-detail").removeClass("active").removeAttr("data-rack");
 	for(var pdu in rackInfoValue.value.pduData){
+		if(!rackInfoValue.value.pduData[pdu]) continue;
 		var pduUsed = rackInfoValue.value.pduData[pdu].split(",");
 		for (var i = 0; i < pduUsed.length; i++) {
 			var pduPos = pduUsed[i].split("-");
