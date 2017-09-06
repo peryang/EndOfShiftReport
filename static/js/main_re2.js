@@ -32,13 +32,13 @@ var setting = {
 var rackInfoValue = {
 	value: {
 		rackValue: {},
-		mergeData: {},
+		addsvrData: {},
 		pduValue: {
 			left: [],
 			right: []
 		}
 	},
-	//value: {rackValue:{"1":{id:1,name:1,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"2":{id:2,name:2,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"3":{id:3,name:3,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"4":{id:4,name:4,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"5":{id:5,name:5,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"6":{id:6,name:6,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"7":{id:7,name:7,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"8":{id:8,name:8,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"9":{id:9,name:9,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"10":{id:10,name:10,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"11":{id:11,name:11,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"12":{id:12,name:12,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"13":{id:13,name:13,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"14":{id:14,name:14,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"15":{id:15,name:15,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"16":{id:16,name:16,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"17":{id:17,name:17,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"18":{id:18,name:18,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"19":{id:19,name:19,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"20":{id:20,name:20,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"21":{id:21,name:21,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"22":{id:22,name:22,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"23":{id:23,name:23,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"24":{id:24,name:24,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"25":{id:25,name:25,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"26":{id:26,name:26,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"27":{id:27,name:27,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"28":{id:28,name:28,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"29":{id:29,name:29,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"30":{id:30,name:30,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"31":{id:31,name:31,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"32":{id:32,name:32,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"33":{id:33,name:33,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"34":{id:34,name:34,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"35":{id:35,name:35,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"36":{id:36,name:36,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"37":{id:37,name:37,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"38":{id:38,name:38,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"39":{id:39,name:39,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"40":{id:40,name:40,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"41":{id:41,name:41,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"42":{id:42,name:42,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"43":{id:43,name:43,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"44":{id:44,name:44,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"45":{id:45,name:45,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"46":{id:46,name:46,value:{"Name":"","Model":"","SN":"","Asset ID":""}},},mergeData:{}},
+	//value: {rackValue:{"1":{id:1,name:1,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"2":{id:2,name:2,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"3":{id:3,name:3,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"4":{id:4,name:4,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"5":{id:5,name:5,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"6":{id:6,name:6,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"7":{id:7,name:7,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"8":{id:8,name:8,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"9":{id:9,name:9,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"10":{id:10,name:10,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"11":{id:11,name:11,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"12":{id:12,name:12,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"13":{id:13,name:13,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"14":{id:14,name:14,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"15":{id:15,name:15,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"16":{id:16,name:16,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"17":{id:17,name:17,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"18":{id:18,name:18,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"19":{id:19,name:19,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"20":{id:20,name:20,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"21":{id:21,name:21,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"22":{id:22,name:22,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"23":{id:23,name:23,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"24":{id:24,name:24,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"25":{id:25,name:25,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"26":{id:26,name:26,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"27":{id:27,name:27,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"28":{id:28,name:28,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"29":{id:29,name:29,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"30":{id:30,name:30,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"31":{id:31,name:31,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"32":{id:32,name:32,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"33":{id:33,name:33,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"34":{id:34,name:34,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"35":{id:35,name:35,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"36":{id:36,name:36,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"37":{id:37,name:37,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"38":{id:38,name:38,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"39":{id:39,name:39,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"40":{id:40,name:40,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"41":{id:41,name:41,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"42":{id:42,name:42,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"43":{id:43,name:43,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"44":{id:44,name:44,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"45":{id:45,name:45,value:{"Name":"","Model":"","SN":"","Asset ID":""}},"46":{id:46,name:46,value:{"Name":"","Model":"","SN":"","Asset ID":""}},},addsvrData:{}},
 	//info: {"Rack Location": "","Rack Asset ID": ""},
 	useinfo: "0000000000000000000000000000000000000000000000",
 	//name: "Rack Name",
@@ -49,8 +49,7 @@ $(document).ready(function(){
 	$("#projectName").html(config.projectName);
 	$(".noty-info").html(config.noty);
 	$("#modifyBtn").html(config.modifyBtn);
-	$("#mergeBtn").html(config.mergeBtn);
-	$("#unmergeBtn").html(config.unmergeBtn);
+	$("#addsvrBtn").html(config.addsvrBtn);
 	$("#deveceInfo").html(config.deveceInfo);
 	$(".save-info").html(config.saveRackInfo);
 	$("#searchNode").html(config.search);
@@ -243,18 +242,18 @@ function zTreeOnClick(ev, id, obj, lev){
 				//rackInfoValue.info = JSON.parse(unescape(json.data.info));
 				//rackInfoValue.name = json.data.rackname;
 				
-				rackInfoValue.value.mergeData = {};
+				rackInfoValue.value.addsvrData = {};
 				rackInfoValue.value.pduData = {};
 				rackInfoValue.value.pduValue.left = [];
 				rackInfoValue.value.pduValue.right = [];
 				for (var i = 0; i < json.data.nodes.length; i++) {
 					if(json.data.nodes[i].id.indexOf("svr") > -1){
-						var tpmMerge = json.data.nodes[i].rack_use.split(",");
-						rackInfoValue.value.mergeData[tpmMerge[0]] = {
-							pos: tpmMerge[0],
-							len: tpmMerge[1]
+						var tpmAddsvr = json.data.nodes[i].rack_use.split(",");
+						rackInfoValue.value.addsvrData[tpmAddsvr[0]] = {
+							pos: tpmAddsvr[0],
+							len: tpmAddsvr[1]
 						};
-						rackInfoValue.value.rackValue[parseInt(tpmMerge[0])+parseInt(tpmMerge[1])-1] = {
+						rackInfoValue.value.rackValue[parseInt(tpmAddsvr[0])+parseInt(tpmAddsvr[1])-1] = {
 							id: json.data.nodes[i].id,
 							name: json.data.nodes[i].name || "test",
 							value:{
@@ -265,7 +264,7 @@ function zTreeOnClick(ev, id, obj, lev){
 								"pdu_use": json.data.nodes[i].pdu_use || "test"
 							}
 						};
-						rackInfoValue.value.pduData[parseInt(tpmMerge[0])+parseInt(tpmMerge[1])-1] = json.data.nodes[i].pdu_use;
+						rackInfoValue.value.pduData[parseInt(tpmAddsvr[0])+parseInt(tpmAddsvr[1])-1] = json.data.nodes[i].pdu_use;
 					}
 					if(json.data.nodes[i].id.indexOf("pdu") > -1){
 						rackInfoValue.value.pduValue[json.data.nodes[i].pos].push(json.data.nodes[i]);
@@ -273,7 +272,7 @@ function zTreeOnClick(ev, id, obj, lev){
 				}
 				drawRack();
 				drawPdu();
-				drawMerge();
+				drawAddsvr();
 				rackInfoValue.info = json.data.info;
 				drawRackInfo();
 				setPduStatus();
@@ -322,16 +321,16 @@ function drawRackInfo(){
 		}
 	}
 }
-function drawMerge(){
-	var mergeData = rackInfoValue.value.mergeData;
+function drawAddsvr(){
+	var addsvrData = rackInfoValue.value.addsvrData;
 	var useinfoArr = rackInfoValue.useinfo.split("");
 	$("#rackValue").find("td").removeAttr("rowspan").removeClass("hide");
-	$("#rackValue").find(".td-merge").removeClass("td-merge");
+	$("#rackValue").find(".td-addsvr").removeClass("td-addsvr");
 	
-	for(var i in mergeData){
-		var pos = parseInt(mergeData[i].pos);
-		var len = parseInt(mergeData[i].len);
-		/*$("#rackValue").find("tr:eq("+(46-pos+1-len)+") td:eq(1)").attr("rowspan", len).addClass("td-merge");
+	for(var i in addsvrData){
+		var pos = parseInt(addsvrData[i].pos);
+		var len = parseInt(addsvrData[i].len);
+		/*$("#rackValue").find("tr:eq("+(46-pos+1-len)+") td:eq(1)").attr("rowspan", len).addClass("td-addsvr");
 		$("#rackValue").find("tr:eq("+(46-pos+1)+") td:eq(1)").css({
 			"vertical-align": "middle",
 			"text-align": "center"
@@ -342,7 +341,7 @@ function drawMerge(){
 		}*/
 		$("#rackValue").find("tr[data-id="+(pos+len-1)+"]").addClass("used");
 		$("#rackValue").find("tr[data-id="+(pos+len-1)+"] td:eq(1)").addClass("used");
-		$("#rackValue").find("tr[data-id="+(pos+len-1)+"] td:eq(1)").attr("rowspan", len).addClass("td-merge");
+		$("#rackValue").find("tr[data-id="+(pos+len-1)+"] td:eq(1)").attr("rowspan", len).addClass("td-addsvr");
 		$("#rackValue").find("tr[data-id="+(pos+len-1)+"] td:eq(1)").css({
 			"vertical-align": "middle",
 			"text-align": "center"
@@ -551,6 +550,10 @@ $(document).delegate("#right_side .rack-name", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	drawRackInfo();
+	$(".info-detail").removeClass("hide");
+	$(".save-info").removeClass("hide");
+	$(".info-detail .add-pdu-pos").addClass("hide");
+	$(".info-detail .del-svr").addClass("hide");
 	$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
 	$(".save-info").html(config.saveRackInfo);
 	$(".device-id").html("（rack）");
@@ -691,6 +694,8 @@ $(document).delegate("#rackValue tbody tr td:nth-child(2)", "click", function (e
 	var _this = this;
 	if($(_this).hasClass("used")){
 		$(".info-detail").removeClass("hide");
+		$(".info-detail .add-pdu-pos").addClass("hide");
+		$(".info-detail .del-svr").addClass("hide");
 		$(".save-info").removeClass("hide");
 		var dataID = $(_this).parent().data("id");
 		var rowspan = $(_this).attr("rowspan");
@@ -786,7 +791,7 @@ $(document).delegate(".del-svr", "click", function (ev) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
 				$("#rackValue").find("tr[data-id="+(dataID)+"]").removeClass("used");
-				$("#rackValue").find("tr[data-id="+(dataID)+"] td:eq(1)").removeClass("used").removeClass("td-merge").removeAttr("style").removeAttr("rowspan").html("");
+				$("#rackValue").find("tr[data-id="+(dataID)+"] td:eq(1)").removeClass("used").removeClass("td-addsvr").removeAttr("style").removeAttr("rowspan").html("");
 				for (var i = 0; i < dataID && !$("#rackValue").find("tr[data-id="+(dataID-i)+"]").hasClass("used"); i++) {
 					$("#rackValue").find("tr[data-id="+(dataID-i)+"] td:eq(1)").removeClass("hide");
 				}
@@ -896,7 +901,7 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 			pid: id,
 			rackname: value,
 			info: "%7B%22Rack%20Location%22%3A%22%22%2C%22Rack%20Asset%20ID%22%3A%22%22%7D",
-			value: "%7B%22rackValue%22%3A%7B%221%22%3A%7B%22id%22%3A1%2C%22name%22%3A1%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%222%22%3A%7B%22id%22%3A2%2C%22name%22%3A2%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%223%22%3A%7B%22id%22%3A3%2C%22name%22%3A3%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%224%22%3A%7B%22id%22%3A4%2C%22name%22%3A4%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%225%22%3A%7B%22id%22%3A5%2C%22name%22%3A5%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%226%22%3A%7B%22id%22%3A6%2C%22name%22%3A6%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%227%22%3A%7B%22id%22%3A7%2C%22name%22%3A7%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%228%22%3A%7B%22id%22%3A8%2C%22name%22%3A8%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%229%22%3A%7B%22id%22%3A9%2C%22name%22%3A9%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2210%22%3A%7B%22id%22%3A10%2C%22name%22%3A10%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2211%22%3A%7B%22id%22%3A11%2C%22name%22%3A11%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2212%22%3A%7B%22id%22%3A12%2C%22name%22%3A12%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2213%22%3A%7B%22id%22%3A13%2C%22name%22%3A13%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2214%22%3A%7B%22id%22%3A14%2C%22name%22%3A14%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2215%22%3A%7B%22id%22%3A15%2C%22name%22%3A15%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2216%22%3A%7B%22id%22%3A16%2C%22name%22%3A16%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2217%22%3A%7B%22id%22%3A17%2C%22name%22%3A17%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2218%22%3A%7B%22id%22%3A18%2C%22name%22%3A18%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2219%22%3A%7B%22id%22%3A19%2C%22name%22%3A19%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2220%22%3A%7B%22id%22%3A20%2C%22name%22%3A20%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2221%22%3A%7B%22id%22%3A21%2C%22name%22%3A21%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2222%22%3A%7B%22id%22%3A22%2C%22name%22%3A22%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2223%22%3A%7B%22id%22%3A23%2C%22name%22%3A23%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2224%22%3A%7B%22id%22%3A24%2C%22name%22%3A24%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2225%22%3A%7B%22id%22%3A25%2C%22name%22%3A25%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2226%22%3A%7B%22id%22%3A26%2C%22name%22%3A26%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2227%22%3A%7B%22id%22%3A27%2C%22name%22%3A27%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2228%22%3A%7B%22id%22%3A28%2C%22name%22%3A28%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2229%22%3A%7B%22id%22%3A29%2C%22name%22%3A29%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2230%22%3A%7B%22id%22%3A30%2C%22name%22%3A30%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2231%22%3A%7B%22id%22%3A31%2C%22name%22%3A31%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2232%22%3A%7B%22id%22%3A32%2C%22name%22%3A32%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2233%22%3A%7B%22id%22%3A33%2C%22name%22%3A33%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2234%22%3A%7B%22id%22%3A34%2C%22name%22%3A34%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2235%22%3A%7B%22id%22%3A35%2C%22name%22%3A35%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2236%22%3A%7B%22id%22%3A36%2C%22name%22%3A36%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2237%22%3A%7B%22id%22%3A37%2C%22name%22%3A37%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2238%22%3A%7B%22id%22%3A38%2C%22name%22%3A38%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2239%22%3A%7B%22id%22%3A39%2C%22name%22%3A39%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2240%22%3A%7B%22id%22%3A40%2C%22name%22%3A40%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2241%22%3A%7B%22id%22%3A41%2C%22name%22%3A41%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2242%22%3A%7B%22id%22%3A42%2C%22name%22%3A42%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2243%22%3A%7B%22id%22%3A43%2C%22name%22%3A43%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2244%22%3A%7B%22id%22%3A44%2C%22name%22%3A44%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2245%22%3A%7B%22id%22%3A45%2C%22name%22%3A45%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2246%22%3A%7B%22id%22%3A46%2C%22name%22%3A46%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%7D%2C%22mergeData%22%3A%7B%7D%7D",
+			value: "%7B%22rackValue%22%3A%7B%221%22%3A%7B%22id%22%3A1%2C%22name%22%3A1%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%222%22%3A%7B%22id%22%3A2%2C%22name%22%3A2%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%223%22%3A%7B%22id%22%3A3%2C%22name%22%3A3%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%224%22%3A%7B%22id%22%3A4%2C%22name%22%3A4%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%225%22%3A%7B%22id%22%3A5%2C%22name%22%3A5%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%226%22%3A%7B%22id%22%3A6%2C%22name%22%3A6%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%227%22%3A%7B%22id%22%3A7%2C%22name%22%3A7%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%228%22%3A%7B%22id%22%3A8%2C%22name%22%3A8%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%229%22%3A%7B%22id%22%3A9%2C%22name%22%3A9%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2210%22%3A%7B%22id%22%3A10%2C%22name%22%3A10%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2211%22%3A%7B%22id%22%3A11%2C%22name%22%3A11%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2212%22%3A%7B%22id%22%3A12%2C%22name%22%3A12%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2213%22%3A%7B%22id%22%3A13%2C%22name%22%3A13%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2214%22%3A%7B%22id%22%3A14%2C%22name%22%3A14%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2215%22%3A%7B%22id%22%3A15%2C%22name%22%3A15%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2216%22%3A%7B%22id%22%3A16%2C%22name%22%3A16%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2217%22%3A%7B%22id%22%3A17%2C%22name%22%3A17%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2218%22%3A%7B%22id%22%3A18%2C%22name%22%3A18%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2219%22%3A%7B%22id%22%3A19%2C%22name%22%3A19%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2220%22%3A%7B%22id%22%3A20%2C%22name%22%3A20%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2221%22%3A%7B%22id%22%3A21%2C%22name%22%3A21%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2222%22%3A%7B%22id%22%3A22%2C%22name%22%3A22%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2223%22%3A%7B%22id%22%3A23%2C%22name%22%3A23%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2224%22%3A%7B%22id%22%3A24%2C%22name%22%3A24%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2225%22%3A%7B%22id%22%3A25%2C%22name%22%3A25%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2226%22%3A%7B%22id%22%3A26%2C%22name%22%3A26%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2227%22%3A%7B%22id%22%3A27%2C%22name%22%3A27%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2228%22%3A%7B%22id%22%3A28%2C%22name%22%3A28%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2229%22%3A%7B%22id%22%3A29%2C%22name%22%3A29%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2230%22%3A%7B%22id%22%3A30%2C%22name%22%3A30%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2231%22%3A%7B%22id%22%3A31%2C%22name%22%3A31%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2232%22%3A%7B%22id%22%3A32%2C%22name%22%3A32%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2233%22%3A%7B%22id%22%3A33%2C%22name%22%3A33%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2234%22%3A%7B%22id%22%3A34%2C%22name%22%3A34%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2235%22%3A%7B%22id%22%3A35%2C%22name%22%3A35%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2236%22%3A%7B%22id%22%3A36%2C%22name%22%3A36%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2237%22%3A%7B%22id%22%3A37%2C%22name%22%3A37%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2238%22%3A%7B%22id%22%3A38%2C%22name%22%3A38%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2239%22%3A%7B%22id%22%3A39%2C%22name%22%3A39%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2240%22%3A%7B%22id%22%3A40%2C%22name%22%3A40%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2241%22%3A%7B%22id%22%3A41%2C%22name%22%3A41%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2242%22%3A%7B%22id%22%3A42%2C%22name%22%3A42%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2243%22%3A%7B%22id%22%3A43%2C%22name%22%3A43%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2244%22%3A%7B%22id%22%3A44%2C%22name%22%3A44%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2245%22%3A%7B%22id%22%3A45%2C%22name%22%3A45%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%2C%2246%22%3A%7B%22id%22%3A46%2C%22name%22%3A46%2C%22value%22%3A%7B%22Name%22%3A%22%22%2C%22Model%22%3A%22%22%2C%22SN%22%3A%22%22%2C%22Asset%20ID%22%3A%22%22%7D%7D%7D%2C%22addsvrData%22%3A%7B%7D%7D",
 			useinfo: "0000000000000000000000000000000000000000000000"
 		}
 	*/
@@ -968,7 +973,7 @@ $(document).delegate(".info-detail .add-pdu-pos", "click", function (ev) {
 	}
 });
 
-$(document).delegate(".merge-node .add-pdu-pos", "click", function (ev) {
+$(document).delegate(".add-svr .add-pdu-pos", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
@@ -1033,26 +1038,26 @@ $(document).delegate(".info-detail .pdu-pos", "change", function (ev) {
 	setPduStatus();
 });
 
-$(document).delegate("#mergeBtn", "click", function (ev) {
+$(document).delegate("#addsvrBtn", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
-	$(".merge-node .pdu-info option").remove();
-	$(".merge-node .pdu-pos option").remove();
-	$(".merge-node .pdu-info").append('<option data-num="" value="">select pdu</option>');
-	$(".merge-node .pdu-pos").append('<option data-num="" value="">select pdu pos</option>');
+	$(".add-svr .pdu-info option").remove();
+	$(".add-svr .pdu-pos option").remove();
+	$(".add-svr .pdu-info").append('<option data-num="" value="">select pdu</option>');
+	$(".add-svr .pdu-pos").append('<option data-num="" value="">select pdu pos</option>');
 	var pduValue = rackInfoValue.value.pduValue;
 	for(var pduPos in pduValue){
 		for (var i = 0; i < pduValue[pduPos].length; i++) {
-			$(".merge-node .pdu-info").append('<option data-num="'+pduValue[pduPos][i].pin_num+'" value="'+pduValue[pduPos][i].id+'">'+pduValue[pduPos][i].id+'</option>');
+			$(".add-svr .pdu-info").append('<option data-num="'+pduValue[pduPos][i].pin_num+'" value="'+pduValue[pduPos][i].id+'">'+pduValue[pduPos][i].id+'</option>');
 		}
 	}
-	var pin_num = $(".merge-node .pdu-info option:eq(1)").data("num");
+	var pin_num = $(".add-svr .pdu-info option:eq(1)").data("num");
 	for (var n = 1; n <= pin_num; n++) {
-		if($(".merge-node .pdu-pos option[value='"+n+"']").length <= 0){
-			$(".merge-node .pdu-pos").append('<option value="'+n+'">'+n+'</option>');
+		if($(".add-svr .pdu-pos option[value='"+n+"']").length <= 0){
+			$(".add-svr .pdu-pos").append('<option value="'+n+'">'+n+'</option>');
 		}
 	}
-	$(".merge-node").modal("show");
+	$(".add-svr").modal("show");
 });
 
 $(document).delegate("#in", "keyup", function (ev) {
@@ -1071,20 +1076,20 @@ $(document).delegate("#u_num", "keyup", function (ev) {
 	}
 });
 
-$(document).delegate(".merge", "click", function (ev) {
+$(document).delegate(".addsvr", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
-	$(".merge-node").removeClass("hide");
+	$(".add-svr").removeClass("hide");
 });
 
 /*
-$(document).delegate(".unmerge", "click", function (ev) {
+$(document).delegate(".unaddsvr", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
-	$(".unmerge-list ul").empty();
-	var tdMergeObjs = $("#rackValue").find("td.td-merge");
-	for (var i = 0; i < tdMergeObjs.length; i++) {
-		var id = $(tdMergeObjs[i]).parents("tr").data("id");
+	$(".unaddsvr-list ul").empty();
+	var tdAddsvrObjs = $("#rackValue").find("td.td-addsvr");
+	for (var i = 0; i < tdAddsvrObjs.length; i++) {
+		var id = $(tdAddsvrObjs[i]).parents("tr").data("id");
 		for (var x = 1; x <= 46; x++) {
 			if($("#rackValue").find("tr:eq("+(46-parseInt(id)+x)+") td:nth-child(2)").hasClass("hide")){
 				continue;
@@ -1093,9 +1098,9 @@ $(document).delegate(".unmerge", "click", function (ev) {
 				break;
 			}
 		}
-		$(".unmerge-list ul").append('<li class="list-group-item" data-id="'+id+'">'+id+'</li>');
+		$(".unaddsvr-list ul").append('<li class="list-group-item" data-id="'+id+'">'+id+'</li>');
 	}
-	$(".unmerge-list").removeClass("hide");
+	$(".unaddsvr-list").removeClass("hide");
 });
 */
 
@@ -1154,13 +1159,13 @@ $(document).delegate(".info-detail li .change-Asset.ID", "keyup", function (ev) 
 });
 
 /*
-$(document).delegate(".unmerge-list li", "click", function (ev) {
+$(document).delegate(".unaddsvr-list li", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
 	$(_this).remove();
 	var dataID = $(_this).data("id");
-	delete rackInfoValue.value.mergeData[dataID];
+	delete rackInfoValue.value.addsvrData[dataID];
 	
 	var id = zTree.getSelectedNodes()[0].id;
 	showMask();
@@ -1182,8 +1187,8 @@ $(document).delegate(".unmerge-list li", "click", function (ev) {
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
-				drawMerge();
-				$(".unmerge-list").addClass("hide");
+				drawAddsvr();
+				$(".unaddsvr-list").addClass("hide");
 			}
 		},
 		error: function (e) {
@@ -1331,7 +1336,7 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 /*$(document).bind('click',function(ev){
 	ev.stopPropagation();
 	ev.preventDefault();
-	$(".unmerge-list").addClass("hide");
+	$(".unaddsvr-list").addClass("hide");
 });*/
 
 $(document).delegate(".import-db-modal .sure", "click", function (ev) {
@@ -1353,17 +1358,17 @@ $(document).delegate(".import-db-modal .sure", "click", function (ev) {
 	});
 });
 
-$(document).delegate(".merge-node .sure", "click", function (ev) {
+$(document).delegate(".add-svr .sure", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
 	var id = zTree.getSelectedNodes()[0].id;
-	var pos = $(".merge-node .merge-pos").val();
-	var len = $(".merge-node .merge-len option:selected").val();
-	var svr_asset_id = $(".merge-node .svr-asset-id").val();
-	var svr_name = $(".merge-node .svr-name").val();
-	var svr_model = $(".merge-node .svr-model").val();
-	var svr_sn = $(".merge-node .svr-sn").val();
+	var pos = $(".add-svr .addsvr-pos").val();
+	var len = $(".add-svr .addsvr-len option:selected").val();
+	var svr_asset_id = $(".add-svr .svr-asset-id").val();
+	var svr_name = $(".add-svr .svr-name").val();
+	var svr_model = $(".add-svr .svr-model").val();
+	var svr_sn = $(".add-svr .svr-sn").val();
 	if(!pos || !len){
 		alert("the pos is empty or the len is empty!");
 		return false;
@@ -1377,15 +1382,15 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 	
 	
 	if($("#rackValue").find("tr:eq("+(46-pos+1)+") td:eq(1)").hasClass("hide")){
-		console.log("already merge");
-		$(".merge-node").modal("hide");
+		console.log("already addsvr");
+		$(".add-svr").modal("hide");
 		return false;
 	}
 	
 	for (var i = len-1; i > 0 ; i--) {
 		if($("#rackValue").find("tr:eq("+(46-pos-i)+") td:eq(1)").hasClass("hide")){
-			console.log("already merge");
-			$(".merge-node").modal("hide");
+			console.log("already addsvr");
+			$(".add-svr").modal("hide");
 			return false;
 		}else{
 			break;
@@ -1406,9 +1411,9 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 	};
 	
 	var svr_pdu_use = "";
-	for (var i = 0; i < $(".merge-node .pdu-pos-info").length; i++) {
-		var pdu_id = $($(".merge-node .pdu-pos-info")[i]).find(".merge-node .pdu-info option:selected").val()
-		var pdu_pos = $($(".merge-node .pdu-pos-info")[i]).find(".merge-node .pdu-pos option:selected").val()
+	for (var i = 0; i < $(".add-svr .pdu-pos-info").length; i++) {
+		var pdu_id = $($(".add-svr .pdu-pos-info")[i]).find(".add-svr .pdu-info option:selected").val()
+		var pdu_pos = $($(".add-svr .pdu-pos-info")[i]).find(".add-svr .pdu-pos option:selected").val()
 		if(pdu_id && pdu_pos && pdu_id != "selected" && pdu_pos != "selected"){
 			if(svr_pdu_use.indexOf(pdu_id+"-"+pdu_pos+",") == -1){
 				svr_pdu_use += (pdu_id+"-"+pdu_pos+ ",");
@@ -1435,9 +1440,9 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
-				rackInfoValue.value.mergeData[pos] = {};
-				rackInfoValue.value.mergeData[pos].pos = pos;
-				rackInfoValue.value.mergeData[pos].len = len;
+				rackInfoValue.value.addsvrData[pos] = {};
+				rackInfoValue.value.addsvrData[pos].pos = pos;
+				rackInfoValue.value.addsvrData[pos].len = len;
 				
 				rackInfoValue.value.rackValue[pos+len-1] = {
 					id: json.data.id,
@@ -1450,8 +1455,8 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 					}
 				}
 				drawRack();
-				drawMerge();
-				$(".merge-node").modal("hide");
+				drawAddsvr();
+				$(".add-svr").modal("hide");
 			}
 		},
 		error: function (e) {
@@ -1462,7 +1467,7 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 	
 	return true;
 	
-	$("#rackValue").find("tr:eq("+(pos-1)+") td:eq(1)").attr("rowspan", len).addClass("td-merge");
+	$("#rackValue").find("tr:eq("+(pos-1)+") td:eq(1)").attr("rowspan", len).addClass("td-addsvr");
 	$("#rackValue").find("tr:eq("+(pos-1)+") td:eq(1)").css({
 		"vertical-align": "middle",
 		"text-align": "center"
@@ -1471,7 +1476,7 @@ $(document).delegate(".merge-node .sure", "click", function (ev) {
 		$("#rackValue").find("tr:eq("+(pos+i)+") td:eq(1)").addClass("hide");
 	}
 	
-	$(".merge-node").modal("hide");
+	$(".add-svr").modal("hide");
 });
 
 $(document).delegate(".reset", "click", function (ev) {

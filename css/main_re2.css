@@ -223,8 +223,8 @@ tr td:last-child{
 	overflow-y: hidden;
 }
 #right_side .modify,
-#right_side .unmerge,
-#right_side .merge,
+#right_side .unaddsvr,
+#right_side .addsvr,
 #right_side .export-db,
 #right_side .import-db,
 #right_side .export{
@@ -283,14 +283,14 @@ tr td:last-child{
 	border: 0;
 	height: 20px;
 }
-.unmerge-list{
+.unaddsvr-list{
 	position: absolute;
 	top: 185px;
 	left: 0;
 	z-index: 10;
 	width: 230px;
 }
-.unmerge-list li{
+.unaddsvr-list li{
 	cursor: pointer;
 }
 .info-detail{
