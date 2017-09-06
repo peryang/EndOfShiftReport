@@ -559,15 +559,71 @@ $(document).delegate("#right_side .rack-name", "click", function (ev) {
 $(document).delegate(".pdu-c-left .add-pdu", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
-	$(".add-pdu-modal").attr("data-type", "left");
-	$(".add-pdu-modal").modal("show");
+	$.ajax({
+		url: ajax_url.get_pdu_nodes,
+		type: "post",
+		async: true,
+		dataType: "json",
+		success: function (json) {
+			hideMask();
+			if (json.code != 1) {
+				console.warn("Request data error: Code is " + json.code);
+				$(".alert-warning").removeClass("hide");
+				setTimeout('$(".alert-warning").addClass("hide");', 1000);
+			} else if (json.code == 1) {
+				$(".alert-success").removeClass("hide");
+				setTimeout('$(".alert-success").addClass("hide");', 1000);
+				
+				for (var i = 0; i < json.data.length; i++) {
+					var pin_num = json.data[i].pin_num;
+					$(".add-pdu-modal .pdu-type").append('<option value="'+pin_num+'">'+pin_num+'</option>');
+				}
+				
+				$(".add-pdu-modal").attr("data-type", "left");
+				$(".add-pdu-modal").modal("show");
+				$(".info-detail").addClass("hide");
+			}
+		},
+		error: function (e) {
+			hideMask();
+			console.error("请求出错(请检查相关网络状况.)", e);
+		}
+	});
 });
 
 $(document).delegate(".pdu-c-right .add-pdu", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
-	$(".add-pdu-modal").attr("data-type", "right");
-	$(".add-pdu-modal").modal("show");
+	$.ajax({
+		url: ajax_url.get_pdu_nodes,
+		type: "post",
+		async: true,
+		dataType: "json",
+		success: function (json) {
+			hideMask();
+			if (json.code != 1) {
+				console.warn("Request data error: Code is " + json.code);
+				$(".alert-warning").removeClass("hide");
+				setTimeout('$(".alert-warning").addClass("hide");', 1000);
+			} else if (json.code == 1) {
+				$(".alert-success").removeClass("hide");
+				setTimeout('$(".alert-success").addClass("hide");', 1000);
+				
+				for (var i = 0; i < json.data.length; i++) {
+					var pin_num = json.data[i].pin_num;
+					$(".add-pdu-modal .pdu-type").append('<option value="'+pin_num+'">'+pin_num+'</option>');
+				}
+				
+				$(".add-pdu-modal").attr("data-type", "right");
+				$(".add-pdu-modal").modal("show");
+				$(".info-detail").addClass("hide");
+			}
+		},
+		error: function (e) {
+			hideMask();
+			console.error("请求出错(请检查相关网络状况.)", e);
+		}
+	});
 });
 
 // rack hover
