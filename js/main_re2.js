@@ -75,6 +75,7 @@ function initTree(){
 				$("#reTree").empty();
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
+				
 				for (var i = 0; i < json.data.length; i++) {
 					json.data[i].iconSkin = json.data[i].type;
 				}
@@ -84,6 +85,7 @@ function initTree(){
 				
 				for (var i = 0; i < json.data.length; i++) {
 					if(json.data[i].type == "file"){
+						$("#right_side").removeClass("hide");
 						var node = zTree.getNodeByParam('id', json.data[i].id);  
 		                zTree.selectNode(node);
 		                zTree.setting.callback.onClick(null, zTree.setting.treeId, node);
@@ -1035,6 +1037,7 @@ $(document).delegate(".info-detail .pdu-pos", "change", function (ev) {
 	}
 	svr_pdu_use = svr_pdu_use.substr(0, svr_pdu_use.length-1);
 	rackInfoValue.value.pduData[dataID] = svr_pdu_use;
+	rackInfoValue.value.rackValue[dataID].value.pdu_use = svr_pdu_use;
 	setPduStatus();
 });
 
@@ -1110,15 +1113,26 @@ $(document).delegate(".export", "click", function (ev) {
 	formatExportData();
 });
 
-$(document).delegate(".info-detail li .change-Name", "keyup", function (ev) {
+$(document).delegate(".info-detail li .change-model", "keyup", function (ev) {
+	ev.stopPropagation();
+	ev.preventDefault();
+	var _this = this;
+	var val = $(_this).val().trim();
+	var dataID = $(_this).parents(".info-detail").attr("data-id");
+	$(".detail li:eq(1) .value").html(val);
+	rackInfoValue.value.rackValue[dataID].value["model"] = $(".info-detail ul li:eq(1) .value").val()
+});
+
+
+$(document).delegate(".info-detail li .change-name", "keyup", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
 	var val = $(_this).val().trim();
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
 	$("#rackValue tr[data-id='"+dataID+"'] td:eq(1)").html(val);
-	$(".detail li:eq(0) .value").html(val);
-	rackInfoValue.value.rackValue[dataID].value["Name"] = $(".info-detail ul li:eq(0) .value").val();
+	$(".detail li:eq(2) .value").html(val);
+	rackInfoValue.value.rackValue[dataID].value["name"] = $(".info-detail ul li:eq(2) .value").val();
 	var useinfoArr = rackInfoValue.useinfo.split("");
 	if(val){
 		useinfoArr[parseInt(dataID)-1] = 1;
@@ -1128,26 +1142,16 @@ $(document).delegate(".info-detail li .change-Name", "keyup", function (ev) {
 	rackInfoValue.useinfo = useinfoArr.join("");
 });
 
-$(document).delegate(".info-detail li .change-Model", "keyup", function (ev) {
+$(document).delegate(".info-detail li .change-sn", "keyup", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
 	var val = $(_this).val().trim();
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
-	$(".detail li:eq(1) .value").html(val);
-	rackInfoValue.value.rackValue[dataID].value["Model"] = $(".info-detail ul li:eq(1) .value").val()
+	$(".detail li:eq(3) .value").html(val);
+	rackInfoValue.value.rackValue[dataID].value["sn"] = $(".info-detail ul li:eq(3) .value").val();
 });
-
-$(document).delegate(".info-detail li .change-SN", "keyup", function (ev) {
-	ev.stopPropagation();
-	ev.preventDefault();
-	var _this = this;
-	var val = $(_this).val().trim();
-	var dataID = $(_this).parents(".info-detail").attr("data-id");
-	$(".detail li:eq(2) .value").html(val);
-	rackInfoValue.value.rackValue[dataID].value["SN"] = $(".info-detail ul li:eq(2) .value").val();
-});
-
+/*
 $(document).delegate(".info-detail li .change-Asset.ID", "keyup", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
@@ -1156,7 +1160,7 @@ $(document).delegate(".info-detail li .change-Asset.ID", "keyup", function (ev) 
 	var dataID = $(_this).parents(".info-detail").attr("data-id");
 	$(".detail li:eq(3) .value").html(val);
 	rackInfoValue.value.rackValue[dataID].value["Asset ID"] = $(".info-detail ul li:eq(3) .value").val();
-});
+});*/
 
 /*
 $(document).delegate(".unaddsvr-list li", "click", function (ev) {
