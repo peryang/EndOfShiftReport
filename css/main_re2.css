@@ -331,6 +331,9 @@ tr td:last-child{
 .svr-label{
 	min-width: 80px;
 }
+.info-detail .svr-label{
+	min-width: 45px;
+}
 .add-svr .input-group .form-control.pdu-info,
 .add-svr .input-group .form-control.pdu-pos{
 	width: 200px;

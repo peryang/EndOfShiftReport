@@ -5,6 +5,6 @@ var config = {
 	"addsvrBtn": "Add Svr",
 	"deveceInfo": "Device Information",
 	"saveRackInfo": "Save Rack Info",
-	"saveRackValue": "Save Rack Value",
+	"saveRackValue": "Save Svr Value",
 	"search": "Search"
 };

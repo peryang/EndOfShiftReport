@@ -62,7 +62,7 @@ function initTree(){
 	showMask();
 	$.ajax({
 		url: ajax_url.get_rack_nodes,
-		type: "get",
+		type: "post",
 		async: true,
 		dataType: "json",
 		success: function (json) {
@@ -225,7 +225,7 @@ function zTreeOnClick(ev, id, obj, lev){
 	showMask();
 	$.ajax({
 		url: ajax_url.get_rack_dev,
-		type: "get",
+		type: "post",
 		async: true,
 		data: {
 			id: obj.id
