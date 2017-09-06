@@ -327,3 +327,73 @@ tr td:last-child{
 	margin-left: 170px;
 	width: 71px;
 }
+.modal .modal-body .input-group-addon,
+.svr-label{
+	min-width: 80px;
+}
+.add-svr .input-group .form-control.pdu-info,
+.add-svr .input-group .form-control.pdu-pos{
+	width: 200px;
+	padding: 0 12px;
+}
+.info-detail .input-group .form-control.pdu-info,
+.info-detail .input-group .form-control.pdu-pos{
+	width: 100px;
+	padding: 0 12px;
+}
+.info-detail .pdu-pos-info{
+	margin: 5px 0;
+}
+td.used .svr{
+	float: left;width: calc(100% - 12px);
+}
+td.used .status{
+	background-color: green;width: 10px;height: 10px;float: right;
+}
+td.not-used{
+	
+}
+.right{
+	position: relative;
+}
+.pdu-c-left{
+    position: absolute;
+    top: 23px;
+    left: 11%;
+}
+.pdu-c-right{
+    position: absolute;
+    top: 23px;
+    right: 11%;
+}
+.pdu{
+	border: solid 2px #999999;
+	padding: 4px 2px;
+	margin-top: 10px;
+	width: 50px;
+}
+.pdu-detail{
+	float: left;
+	text-align: center;
+	width: 10px;
+	height: 10px;
+	margin: 2px 5px;
+	cursor: pointer;
+	background-color: #666666;
+}
+.pdu-detail.active{
+	background-color: green;
+}
+.pdu-del{
+	float: right;
+	cursor: pointer;
+}
+.add-pdu{
+	margin-top: 20px;
+	cursor: pointer;
+	font-size: 12px;
+}
+.pdu-id{
+	margin-top: 10px;
+	text-align: center;
+}

@@ -889,9 +889,11 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 	ev.preventDefault();
 	var _this = this;
 	var value = $(".add-node .node-name").val();
+	var asset_id = $(".add-node .node-asset-id").val();
+	
 	var type = $(".add-node .node-type option:selected").val()
-	if(!value || !type){
-		alert("the name is empty or the type is empty!");
+	if(!value || !type || !asset_id){
+		alert("the name is empty or the type is empty or the asset id is empty!");
 		return false;
 	}
 	var add_node_url = "";
@@ -911,7 +913,8 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 	var postData = {};
 	postData = {
 		pId: id,
-		name: value
+		name: value,
+		asset_id: asset_id
 	}
 	showMask();
 	$.ajax({

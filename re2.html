@@ -39,58 +39,10 @@
 					<ul id="reTree" class="ztree"></ul>
 	            </div>
 	            <div id="content">
-	            	<style>
-	            		.right{
-	            			position: relative;
-	            		}
-	            	</style>
 	            	<div class="right">
 						<div class="rackValue-c">
 							<table id="rackValue" class="" border="2" bordercolor="black" cellspacing="0" cellpadding="5"></table>
 						</div>
-						<style>
-							.pdu-c-left{
-							    position: absolute;
-							    top: 23px;
-							    left: 11%;
-							}
-							.pdu-c-right{
-							    position: absolute;
-							    top: 23px;
-							    right: 11%;
-							}
-							.pdu{
-								border: solid 2px #999999;
-								padding: 4px 2px;
-								margin-top: 10px;
-								width: 50px;
-							}
-							.pdu-detail{
-								float: left;
-								text-align: center;
-								width: 10px;
-								height: 10px;
-								margin: 2px 5px;
-								cursor: pointer;
-								background-color: #666666;
-							}
-							.pdu-detail.active{
-								background-color: green;
-							}
-							.pdu-del{
-								float: right;
-								cursor: pointer;
-							}
-							.add-pdu{
-								margin-top: 20px;
-								cursor: pointer;
-								font-size: 12px;
-							}
-							.pdu-id{
-								margin-top: 10px;
-    							text-align: center;
-							}
-						</style>
 						<div class="pdu-c-left"></div>
 						<div class="pdu-c-right"></div>
 					</div>
@@ -194,6 +146,11 @@
 						</div>
 						<br />
 						<div class="input-group">
+							<span class="input-group-addon">asset id:</span>
+							<input type="text" class="form-control node-asset-id" name="" value="" placeholder="node asset id" />
+						</div>
+						<br />
+						<div class="input-group">
 							<span class="input-group-addon">type:</span>
 							<select class="form-control node-type">
 								<option value="fold">idc</option>
@@ -217,24 +174,6 @@
 						<h4 class="modal-title">Add Svr</h4>
 					</div>
 					<div class="modal-body">
-						<style>
-							.svr-label{
-								min-width: 80px;
-							}
-							.add-svr .input-group .form-control.pdu-info,
-							.add-svr .input-group .form-control.pdu-pos{
-								width: 200px;
-								padding: 0 12px;
-							}
-							.info-detail .input-group .form-control.pdu-info,
-							.info-detail .input-group .form-control.pdu-pos{
-								width: 100px;
-								padding: 0 12px;
-							}
-							.info-detail .pdu-pos-info{
-								margin: 5px 0;
-							}
-						</style>
 						<div class="input-group">
 							<span class="input-group-addon svr-label">asset id:</span>
 							<input type="text" class="form-control svr-asset-id" name="" value="" placeholder="asset id" />
@@ -373,17 +312,6 @@
 		<!-- x-editable (bootstrap 3) -->
 		<script type="text/javascript" src="static/js/config2.js"></script>
 		<script type="text/javascript" src="static/js/main_re2.js"></script>
-		<style>
-			td.used .svr{
-				float: left;width: calc(100% - 12px);
-			}
-			td.used .status{
-				background-color: green;width: 10px;height: 10px;float: right;
-			}
-			td.not-used{
-				
-			}
-		</style>
 		<script type="text/javascript">
 			var ajax_url = {};
 			if(window.location.href.indexOf("dev") > -1){
