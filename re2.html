@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="author" content="Tao Di">
+		<meta http-equiv="cache-control" content="max-age=0">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+		<meta http-equiv="pragma" content="no-cache">
+		<title>Rack elevation</title>
+		<!-- bootstrap 3 -->
+		<link href="static/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="static/css/zTreeStyle/zTreeStyle.css" type="text/css">
+		<link rel="stylesheet" type="text/css" href="static/css/main_re.css"/>
+		<style>
+			.ztree li span.button.fold_ico_open{margin-right:2px; background: url('static/css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px -16px transparent; vertical-align:top; *vertical-align:middle}
+			.ztree li span.button.fold_ico_close{margin-right:2px; background: url('static/css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px 0 transparent; vertical-align:top; *vertical-align:middle}
+			.ztree li span.button.fold_ico_docu{margin-right:2px; background: url('static/css/zTreeStyle/img/zTreeStandard.png') no-repeat scroll -110px 0 transparent; vertical-align:top; *vertical-align:middle}
+			.ztree li span.button.file_ico_docu{margin-right:2px; background: url('static/css/zTreeStyle/img/diy/3.png') no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+	        <div id="container">
+	            <div id="left_side">
+	            	<h1 id="projectName">Rack Elevation</h1>
+	            	<div style="margin-top: 45px;">
+	            		<div class="title">Search U capacity</div>
+	            		<input type="text" class="form-control in" value="" id="u_num" placeholder="U number"/>
+						<button type="button" class="btn btn-default" onclick="searchNodesByU($('#u_num').val())">Search</button>
+						<button type="button" class="btn btn-default reset">Reset</button>
+	            	</div>
+	            	<div style="margin-top: 5px;">
+	            		<div class="title">Search rack</div>
+	            		<input type="text" class="form-control in" value="" id="in" placeholder="key value"/>
+						<button type="button" class="btn btn-default" id="searchNode" onclick="searchNodes($('#in').val())">Search</button>
+	            	</div>
+	            	
+					<ul id="reTree" class="ztree"></ul>
+	            </div>
+	            <div id="content">
+	            	<style>
+	            		.right{
+	            			position: relative;
+	            		}
+	            	</style>
+	            	<div class="right">
+						<div class="rackValue-c">
+							<table id="rackValue" class="" border="2" bordercolor="black" cellspacing="0" cellpadding="5"></table>
+						</div>
+						<style>
+							.pdu-c-left{
+							    position: absolute;
+							    top: 23px;
+							    left: 160px;
+							}
+							.pdu-c-right{
+							    position: absolute;
+							    top: 23px;
+							    right: 150px;
+							}
+							.pdu{
+								border: solid 2px #999999;
+								padding: 4px 2px;
+								margin-top: 10px;
+								width: 50px;
+							}
+							.pdu-detail{
+								float: left;
+								text-align: center;
+								width: 10px;
+								height: 10px;
+								margin: 2px 5px;
+								cursor: pointer;
+								background-color: #666666;
+							}
+							.pdu-detail.active{
+								background-color: green;
+							}
+							.pdu-del{
+								float: right;
+								cursor: pointer;
+							}
+							.add-pdu{
+								margin-top: 20px;
+								cursor: pointer;
+							}
+							.pdu-id{
+								margin-top: 10px;
+    							text-align: center;
+							}
+						</style>
+						<div class="pdu-c-left"></div>
+						<div class="pdu-c-right"></div>
+					</div>
+	            </div>
+	            <div id="right_side">
+	            	<div class="rack-name">Rack Name</div>
+	            	<div class="tool-bar">
+						<div class="tool-bar-btns">
+							<button type="button" id="exportBtn" class="export btn btn-default">Export Excel</button>
+							<button type="button" id="exportDbBtn" class="export-db btn btn-default">Export DB</button>
+							<button type="button" id="importDbBtn" class="import-db btn btn-default">Import DB</button>
+							<button type="button" id="modifyBtn" class="modify btn btn-default">modify</button>
+							<button type="button" id="mergeBtn" class="merge btn btn-default">Add Svr</button>
+							<!--<button type="button" id="unmergeBtn" class="unmerge btn btn-default">unmerge</button>-->
+							<!--<div class="unmerge-list hide">
+								<ul class="list-group"></ul>
+							</div>-->
+						</div>
+						<div class="info-detail">
+							<span id="deveceInfo">Device information</span><span class="device-id">（rack）</span>
+							<ul class="list-group">
+								<!--<li class="list-group-item">
+									<div class="key">name</div>
+									<div class="oper">： </div>
+									<input type="text" class="form-control value" value="PEK50-NP-COR-R2" placeholder="name" title="PEK50-NP-COR-R2"/>
+								</li>
+								<li class="list-group-item">
+									<div class="key">model</div>
+									<div class="oper">： </div>
+									<input type="text" class="form-control value" value="WS-C4900M V12" placeholder="model" title="WS-C4900M V12" />
+								</li>
+								<li class="list-group-item">
+									<div class="key">SN</div>
+									<div class="oper">： </div>
+									<input type="text" class="form-control value" value="JAE17160807" placeholder="SN" title="JAE17160807" />
+								</li>
+								<li class="list-group-item">
+									<div class="key">asset</div>
+									<div class="oper">： </div>
+									<input type="text" class="form-control value" value="9901524790" placeholder="asset" title="9901524790" />
+								</li>-->
+							</ul>
+						</div>
+						<button type="button" class="save-info save-rack-info btn btn-default">save rack info</button>
+					</div>
+	            </div>
+	       </div>
+	   </div>
+		
+		<div class="detail hide">
+			<ul class="list-group">
+				<!--<li class="list-group-item">
+					<div class="key">name</div>
+					<div class="oper">： </div>
+					<div class="value">PEK50-NP-COR-R2</div>
+				</li>
+				<li class="list-group-item">
+					<div class="key">model</div>
+					<div class="oper">： </div>
+					<div class="value">WS-C4900M V12</div>
+				</li>
+				<li class="list-group-item">
+					<div class="key">SN</div>
+					<div class="oper">： </div>
+					<div class="value">JAE17160807</div>
+				</li>
+				<li class="list-group-item">
+					<div class="key">asset</div>
+					<div class="oper">： </div>
+					<div class="value">9901524790</div>
+				</li>-->
+			</ul>
+		</div>
+		<div class="main" id="main">
+			<div class="alert alert-success alert-dismissible hide" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span></button>
+				<strong>Well done!</strong>Successful operation.
+			</div>
+			<div class="alert alert-warning alert-dismissible hide" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span></button>
+				<strong>Wrong!</strong>Operation failed, reference console log.
+			</div>
+		</div>
+		<div id="rMenu">
+			<ul>
+				<li id="m_add" class="m-add" onclick="addTreeNode();">Add Node</li>
+				<li id="m_del" class="m-del" onclick="modifyTreeNode();">Modify Node</li>
+				<li id="m_modify" class="m-modify" onclick="removeTreeNode();">Del Node</li>
+			</ul>
+		</div>
+		
+		<div class="modal fade add-node" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Add New Node</h4>
+					</div>
+					<div class="modal-body">
+						<div class="input-group">
+							<span class="input-group-addon">name:</span>
+							<input type="text" class="form-control node-name" name="" value="" placeholder="node name" />
+						</div>
+						<br />
+						<div class="input-group">
+							<span class="input-group-addon">type:</span>
+							<select class="form-control node-type">
+								<option value="fold">idc</option>
+								<option value="file">rack</option>
+							</select>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary sure">Submit</button>
+						<button type="button" class="btn btn-default cancel" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<div class="modal fade merge-node" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Add Svr</h4>
+					</div>
+					<div class="modal-body">
+						<style>
+							.svr-label{
+								min-width: 80px;
+							}
+							.merge-node .input-group .form-control.pdu-info,
+							.merge-node .input-group .form-control.pdu-pos{
+								width: 200px;
+								padding: 0 12px;
+							}
+							.info-detail .input-group .form-control.pdu-info,
+							.info-detail .input-group .form-control.pdu-pos{
+								width: 100px;
+								padding: 0 12px;
+							}
+							.info-detail .pdu-pos-info{
+								margin: 5px 0;
+							}
+						</style>
+						<div class="input-group">
+							<span class="input-group-addon svr-label">asset id:</span>
+							<input type="text" class="form-control svr-asset-id" name="" value="" placeholder="asset id" />
+						</div>
+						<br />
+						<div class="input-group">
+							<span class="input-group-addon svr-label">name:</span>
+							<input type="text" class="form-control svr-name" name="" value="" placeholder="name" />
+						</div>
+						<br />
+						<div class="input-group">
+							<span class="input-group-addon svr-label">model:</span>
+							<input type="text" class="form-control svr-model" name="" value="" placeholder="model" />
+						</div>
+						<br />
+						<div class="input-group">
+							<span class="input-group-addon svr-label">sn:</span>
+							<input type="text" class="form-control svr-sn" name="" value="" placeholder="sn" />
+						</div>
+						<br />
+						<div class="input-group">
+							<span class="input-group-addon svr-label">start:</span>
+							<input type="text" class="form-control merge-pos" name="" value="" placeholder="merge-pos" />
+						</div>
+						<br />
+						<div class="input-group">
+							<span class="input-group-addon svr-label">len:</span>
+							<select class="form-control merge-len">
+								<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option>
+							</select>
+						</div>
+						<!--<br />
+						<div class="input-group pdu-pos-info">
+							<span class="input-group-addon svr-label">pdu:</span>
+							<select class="form-control pdu-info"></select>
+							<span class="input-group-addon svr-label">pos:</span>
+							<select class="form-control pdu-pos"></select>
+						</div>
+						<br />
+						<button type="button" class="btn btn-default add-pdu-pos" style="width: 100%;">Add Pdu Pos Info</button>-->
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary sure">Submit</button>
+						<button type="button" class="btn btn-default cancel" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<div class="modal fade modify-rack-name" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Modify Rack Name</h4>
+					</div>
+					<div class="modal-body">
+						<div class="input-group">
+							<span class="input-group-addon">name:</span>
+							<input type="text" class="form-control modal-rack-name" name="" value="" placeholder="rack name" />
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary sure">Submit</button>
+						<button type="button" class="btn btn-default cancel" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<div class="modal fade add-pdu-modal" tabindex="-1" role="dialog" data-type="left">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Add PDU</h4>
+					</div>
+					<div class="modal-body">
+						<div class="input-group">
+							<span class="input-group-addon">type:</span>
+							<select class="form-control pdu-type">
+								<option>8</option>
+								<option>10</option>
+							</select>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary sure">Submit</button>
+						<button type="button" class="btn btn-default cancel" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<div class="modal fade import-db-modal" tabindex="-1" role="dialog" data-type="left">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Import DB</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="input-group">
+								<span class="input-group-addon">file:</span>
+								<input type="file" id="inputfile">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary sure">Submit</button>
+						<button type="button" class="btn btn-default cancel" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<div class="mask hide">
+			<div class="msg">loading</div>
+		</div>
+		
+		<script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="static/js/jquery.ztree.all.js"></script>
+		<script type="text/javascript" src="static/js/jquery.ztree.exhide.js" ></script>
+		<script type="text/javascript" src="static/js/jquery.ztree.search.js"></script>
+		<!-- momentjs --> 
+		<script type="text/javascript" src="static/js/moment.min.js"></script>
+		
+		<script type="text/javascript" src="static/js/export-libs/FileSaver/FileSaver.min.js"></script>
+	    <script type="text/javascript" src="static/js/export-libs/js-xlsx/xlsx.core.min.js"></script>
+		<script type="text/javascript" src="static/js/tableExport.js"></script>
+		
+		<script type="text/javascript" src="static/js/ajaxfileupload.js"></script>
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- bootstrap 3 -->
+		<script type="text/javascript" src="static/js/bootstrap.js"></script>
+		<!-- x-editable (bootstrap 3) -->
+		<script type="text/javascript" src="static/js/config.js"></script>
+		<script type="text/javascript" src="static/js/main_re.js"></script>
+		<style>
+			td.used .svr{
+				float: left;width: calc(100% - 12px);
+			}
+			td.used .status{
+				background-color: green;width: 10px;height: 10px;float: right;
+			}
+			td.not-used{
+				
+			}
+		</style>
+		<script type="text/javascript">
+			var ajax_url = {};
+			if(window.location.href.indexOf("dev") > -1){
+				ajax_url = {
+					//  机房
+					//  获机房结构树
+					get_rack_nodes: "./json/2/get_rack_nodes.json",// fixed
+					//  添加机房
+					add_idc_node: "./json/2/add_idc_node.json",// fixed
+					//  删除机房
+					del_idc_node: "./json/2/del_idc_node.json",// fixed
+					//  设置机房属性
+					set_idc_prop: "./json/2/set_idc_prop.json",// fixed
+					
+					//  机柜
+					//  添加机柜
+					add_rack_node: "./json/2/add_rack_node.json",// fixed
+					//  设置机柜属性
+					set_rack_prop: "./json/2/set_rack_prop.json",// fixed
+					//  删除机柜
+					del_rack_node: "./json/2/del_rack_node.json",// fixed
+					// 获取机柜上所有的设备
+					get_rack_dev: "./json/2/get_rack_dev.json",// fixed
+					
+					//  机器
+					//  添加服务器
+					add_svr_node: "./json/2/add_svr_node.json",// fixed
+					//  设置机器属性
+					set_svr_prop: "./json/2/set_svr_prop.json",// fixed
+					// 删除机器
+					del_svr_node: "./json/2/del_svr_node.json",// fixed
+					
+					//  pdu
+					//  添加pdu
+					add_pdu_node: "./json/2/add_pdu_node.json",// fixed
+					// 获取pdu属性
+					get_pdu_prop: "./json/2/get_pdu_prop.json",// TODO
+					// 设置pdu属性
+					set_pdu_prop: "./json/2/set_pdu_prop.json",// TODO
+					//  删除pdu
+					del_pdu_node: "./json/2/del_pdu_node.json",// fixed
+					
+					// 获取所有pdu类型
+					get_pdu_nodes: "./json/2/get_pdu_nodes.json",
+					
+					import_db: "./json/2/import_db.json",
+					export_db: "./json/2/export_db.json",
+					
+					search_rack_by_u: "./json/2/search_rack_by_u.json"
+				};
+			}else{
+				ajax_url = {
+					"getTree": "/api/getnodes",
+					"addTree": "/api/addnode",
+					"delTree": "/api/delnode",// error
+					"modifyTree": "/api/modifynode",
+					"saveRackName": "/api/saverackname",
+					"saveRackInfo": "/api/saverackinfo",
+					"saveRackValue": "/api/saverackvalue",
+					"getRack": "/api/getrack",
+					"searchNodesByU": "/api/searchnodes"
+				};
+			}
+		</script>
+	</body>
+</html>

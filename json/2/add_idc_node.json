@@ -1,0 +1,48 @@
+{
+	"code": 1,
+	"data": [
+		{
+	        "id": "idc_0",
+			"pId":"idc_0",
+	        "name": "root",
+			"iconSkin":"fold",
+			"type": "fold"
+		},
+		{
+			"id": "idc_1",
+			"pId":"idc_0",
+			"name": "亚太",
+			"iconSkin":"fold",
+			"type": "fold"
+		},
+		{
+			"id": "idc_2",
+			"pId":"idc_1",
+			"name": "中国大陆",
+			"iconSkin":"fold",
+			"type": "fold"
+		},
+		{
+			"id": "idc_3",
+			"pId":"idc_2",
+			"name": "北京",
+			"iconSkin":"fold",
+			"type": "fold"
+		},
+		{
+			"id":"rack_0",
+			"pId":"idc_3",
+			"name":"rack",
+			"iconSkin":"file",
+			"type": "file"
+		},
+		{
+			"id":"rack_1",
+			"pId":"idc_3",
+			"name":"rack",
+			"iconSkin":"file",
+			"type": "file"
+		}
+	],
+	"msg": "success"
+}

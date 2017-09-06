@@ -1,0 +1,44 @@
+{
+	"code": 1,
+	"data": {
+		"info":{
+			"asset_id":"",
+			"size":46,
+			"name":"rack",
+			"useinfo":"000000000000"
+		},
+		"nodes": [
+			{
+				"id":"svr_0",
+				"pId":"rack_0",
+				"mn":"test1",
+				"sn":"test1",
+				"pdu_use":"pdu_0-1,pdu_0-2",
+				"rack_use":"1,1"
+			},
+			{
+				"id":"svr_1",
+				"pId":"rack_0",
+				"mn":"test2",
+				"sn":"test2",
+				"pdu_use":"pdu_0-3,pdu_1-4",
+				"rack_use":"2,4"
+			},
+			{
+				"id":"pdu_0",
+				"pId":"rack_0",
+				"pos": "left",
+				"pin_num":8,
+				"useinfo":"00000000"
+			},
+			{
+				"id":"pdu_1",
+				"pId":"rack_0",
+				"pos": "right",
+				"pin_num":10,
+				"useinfo":"00000000"
+			}
+		]
+	},
+	"msg": "success"
+}
