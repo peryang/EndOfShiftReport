@@ -228,17 +228,21 @@ tr td:last-child{
 #right_side .export-db,
 #right_side .import-db,
 #right_side .export{
-	width: 230px;
-	margin: 10px auto;
+	width: 200px;
+	margin: 5px auto;
 }
 #right_side .add-pdu-pos,
 #right_side .del-svr,
 #right_side .save-info{
-	width: 230px;
+	width: 200px;
 }
+#right_side .add-pdu-pos,
 #right_side .del-svr,
 #right_side .save-info{
 	margin-top: 10px;
+}
+#right_side .del-svr{
+	margin-left: 5px;
 }
 .info-detail .key{
 	float: left;
