@@ -257,13 +257,13 @@ function zTreeOnClick(ev, id, obj, lev){
 						};
 						rackInfoValue.value.rackValue[parseInt(tpmAddsvr[0])+parseInt(tpmAddsvr[1])-1] = {
 							id: json.data.nodes[i].id,
-							name: json.data.nodes[i].name || "test",
+							name: json.data.nodes[i].name || "",
 							value:{
-								"asset_id": json.data.nodes[i].asset_id || "test",
-								"model": json.data.nodes[i].model || "test",
-								"name": json.data.nodes[i].name || "test",
-								"sn": json.data.nodes[i].sn || "test",
-								"pdu_use": json.data.nodes[i].pdu_use || "test"
+								"asset_id": json.data.nodes[i].asset_id || "",
+								"model": json.data.nodes[i].model || "",
+								"name": json.data.nodes[i].name || "",
+								"sn": json.data.nodes[i].sn || "",
+								"pdu_use": json.data.nodes[i].pdu_use || ""
 							}
 						};
 						rackInfoValue.value.pduData[parseInt(tpmAddsvr[0])+parseInt(tpmAddsvr[1])-1] = json.data.nodes[i].pdu_use;
