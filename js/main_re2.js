@@ -1257,10 +1257,10 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
 				
-				zTree.getSelectedNodes()[0].name = rackName;
+				zTree.getSelectedNodes()[0].name = name;
 				zTree.updateNode(zTree.getSelectedNodes()[0]);
-				rackInfoValue.info.name = rackName;
-				$(".rack-name").html(rackName);
+				rackInfoValue.info.name = name;
+				$(".rack-name").html(name);
 			}
 		},
 		error: function (e) {
