@@ -566,7 +566,7 @@ $(document).delegate(".pdu-c-left .add-pdu", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	$.ajax({
-		url: ajax_url.get_pdu_nodes,
+		url: ajax_url.get_pdu_model,
 		type: "post",
 		async: true,
 		dataType: "json",
@@ -601,7 +601,7 @@ $(document).delegate(".pdu-c-right .add-pdu", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	$.ajax({
-		url: ajax_url.get_pdu_nodes,
+		url: ajax_url.get_pdu_model,
 		type: "post",
 		async: true,
 		dataType: "json",
@@ -1317,7 +1317,7 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 		async: true,
 		data: {
 			"id": id,
-			"mn": svr_model,
+			"model": svr_model,
 			"name": svr_name,
 			"sn": svr_sn,
 			"pdu_use": svr_pdu_use
@@ -1413,7 +1413,6 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 		"asset_id": svr_asset_id,
 		"name": svr_name,
 		"model": svr_model,
-		"mn":"xxx",
 		"sn": svr_sn,
 		"rack_use": pos+","+len
 	};
