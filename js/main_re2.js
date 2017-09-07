@@ -1310,19 +1310,20 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 		}
 	}
 	svr_pdu_use = svr_pdu_use.substr(0, svr_pdu_use.length-1);
+	var postData = {
+		"id": id
+	};
+	if(svr_model) postData.model = svr_model;
+	if(svr_name) postData.name = svr_name;
+	if(svr_sn) postData.sn = svr_sn;
+	if(svr_pdu_use) postData.pdu_use = svr_pdu_use;
 	
 	showMask();
 	$.ajax({
 		url: ajax_url.set_svr_prop,
 		type: "post",
 		async: true,
-		data: {
-			"id": id,
-			"model": svr_model,
-			"name": svr_name,
-			"sn": svr_sn,
-			"pdu_use": svr_pdu_use
-		},
+		data: postData,
 		dataType: "json",
 		success: function (json) {
 			hideMask();
