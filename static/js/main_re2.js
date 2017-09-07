@@ -811,7 +811,7 @@ $(document).delegate(".del-svr", "click", function (ev) {
 $(document).delegate(".add-pdu-modal .sure", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
-	var type = $(".add-pdu-modal .pdu-type option:selected").val()
+	var type = $(".add-pdu-modal .pdu-type option:selected").val();
 	var pos = $(".add-pdu-modal").attr("data-type");
 	var id = zTree.getSelectedNodes()[0].id;
 	showMask();
@@ -834,6 +834,7 @@ $(document).delegate(".add-pdu-modal .sure", "click", function (ev) {
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
+				json.data.pin_num = parseInt(type);
 				rackInfoValue.value.pduValue[pos].push(json.data);
 				drawPdu();
 				$(".add-pdu-modal").modal("hide");
