@@ -161,6 +161,12 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
+				
+				rackInfoValue.info.name = newName;
+				$(".rack-name").html(newName);
+				if($(".save-info").hasClass("save-rack-info")){
+					$(".info-detail li .change-name").val(newName).attr("title", newName);
+				}
 			}
 		},
 		error: function (e) {
@@ -875,7 +881,15 @@ $(document).delegate(".modify-rack-name .sure", "click", function (ev) {
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
+				
+				zTree.getSelectedNodes()[0].name = rackName;
+				zTree.updateNode(zTree.getSelectedNodes()[0]);
+				rackInfoValue.info.name = rackName;
 				$(".rack-name").html(rackName);
+				if($(".save-info").hasClass("save-rack-info")){
+					$(".info-detail li .change-name").val(rackName).attr("title", rackName);
+				}
+				
 				$(".modify-rack-name").modal("hide");
 			}
 		},
@@ -1242,6 +1256,11 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
+				
+				zTree.getSelectedNodes()[0].name = rackName;
+				zTree.updateNode(zTree.getSelectedNodes()[0]);
+				rackInfoValue.info.name = rackName;
+				$(".rack-name").html(rackName);
 			}
 		},
 		error: function (e) {
