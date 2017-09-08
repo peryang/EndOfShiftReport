@@ -261,6 +261,7 @@ function zTreeOnClick(ev, id, obj, lev){
 						rackInfoValue.value.rackValue[parseInt(tpmAddsvr[0])+parseInt(tpmAddsvr[1])-1] = {
 							id: json.data.nodes[i].id,
 							name: json.data.nodes[i].name || "",
+							rack_use: json.data.nodes[i].rack_use || "",
 							value:{
 								"asset_id": json.data.nodes[i].asset_id || "",
 								"model": json.data.nodes[i].model || "",
@@ -1557,6 +1558,7 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 				rackInfoValue.value.rackValue[pos+len-1] = {
 					id: json.data.id,
 					name: svr_name,
+					rack_use: pos+","+len,
 					value: {
 						"asset_id": svr_asset_id,
 						"model": svr_model,
