@@ -519,7 +519,7 @@ function searchNodesByU(value){
 		type: "post",
 		async: true,
 		data: {
-			id: id,
+			id: getChildNodesID(),
 			num: value
 		},
 		dataType: "json",
@@ -584,6 +584,17 @@ function formatExportData(){
 	});
 }
 
+function getChildNodesID() {
+	var treeNode = zTree.getSelectedNodes()[0];
+	var childNodes = zTree.transformToArray(treeNode);
+	var nodes = new Array();
+	for(i = 0; i < childNodes.length; i++) {
+	 	var id = childNodes[i].id;
+	 	if(id.indexOf("idc_") > -1)
+			nodes.push(id);
+	}
+	return nodes.join(",");
+}
 
 ///// Event
 // 点击rackname展示rack信息
