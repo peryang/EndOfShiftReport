@@ -854,7 +854,7 @@ $(document).delegate(".del-svr", "click", function (ev) {
 	var pduuseinfo = JSON.stringify(pduUsed);
 	
 	var rackUsedInfoArr = rackInfoValue.useinfo.split("");
-	var rackuseArr = rackInfoValue.value.rackValue[pduID].rack_use.split(",");
+	var rackuseArr = rackInfoValue.value.rackValue[dataID].rack_use.split(",");
 	var dataID2 = rackuseArr[0];
 	var pos = parseInt(rackInfoValue.value.addsvrData[dataID2].pos);
 	var len = parseInt(rackInfoValue.value.addsvrData[dataID2].len);
