@@ -1253,7 +1253,6 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var id = zTree.getSelectedNodes()[0].id;
-	rackInfoValue.info = {"Rack Location": $(".info-detail ul li:eq(0) .value").val(),"Rack Asset ID": $(".info-detail ul li:eq(1) .value").val()};
 	var name = $(".info-detail ul li:eq(1) .value").val();
 	showMask();
 	// 设置rack属性
