@@ -830,12 +830,46 @@ $(document).delegate(".del-svr", "click", function (ev) {
 	var dataID = $(_this).parent().attr("data-id");
 	var id = rackInfoValue.value.rackValue[dataID].id;
 	
+	var pduUsed = {};
+	var pdus = $(".pdu");
+	for (var i = 0; i < pdus.length; i++) {
+		var pduID = $(pdus[i]).attr("id");
+		var pduItems = $(pdus[i]).find(".pdu-detail");
+		var pduInfo = "";
+		for(var item = 0; item < pduItems.length; item ++){
+			if($(pduItems[item]).hasClass("active")){
+				pduInfo += 1;
+			}else{
+				pduInfo += 0;
+			}
+		}
+		pduUsed[pduID] = pduInfo;
+	}
+	
+	var pduUsedArr = rackInfoValue.value.pduData[dataID].split(",");
+	for (var i = 0; i < pduUsedArr.length; i++) {
+		var pduPos = pduUsedArr[i].split("-");
+		pduUsed[pduPos[0]][parseInt(pduPos[1])-1] = "0";
+	}
+	var pduuseinfo = JSON.stringify(pduUsed);
+	
+	var rackUsedInfoArr = rackInfoValue.useinfo.split("");
+	var rackuseArr = rackInfoValue.value.rackValue[pduID].rack_use.split(",");
+	var dataID2 = rackuseArr[0];
+	var pos = parseInt(rackInfoValue.value.addsvrData[dataID2].pos);
+	var len = parseInt(rackInfoValue.value.addsvrData[dataID2].len);
+	for (var i = 0; i < len; i++) {
+		rackUsedInfoArr[pos-1+i] = "0";
+	}
+	
 	$.ajax({
 		url: ajax_url.del_svr_node,
 		type: "post",
 		async: true,
 		data: {
-			"id": id
+			"id": id,
+			"rackuseinfo": rackUsedInfoArr.join(""),
+			"pduuseinfo": pduuseinfo
 		},
 		dataType: "json",
 		success: function (json) {
@@ -847,6 +881,9 @@ $(document).delegate(".del-svr", "click", function (ev) {
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
+				delete rackInfoValue.value.addsvrData[dataID2];
+				delete rackInfoValue.value.pduData[dataID];
+				delete rackInfoValue.value.rackValue[dataID];
 				$("#rackValue").find("tr[data-id="+(dataID)+"]").removeClass("used");
 				$("#rackValue").find("tr[data-id="+(dataID)+"] td:eq(1)").removeClass("used").removeClass("td-addsvr").removeAttr("style").removeAttr("rowspan").html("");
 				for (var i = 0; i < dataID && !$("#rackValue").find("tr[data-id="+(dataID-i)+"]").hasClass("used"); i++) {
