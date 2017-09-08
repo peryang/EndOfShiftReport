@@ -893,6 +893,7 @@ $(document).delegate(".del-svr", "click", function (ev) {
 					$("#rackValue").find("tr[data-id="+(dataID-i)+"] td:eq(1)").removeClass("hide");
 				}
 				$(".save-info").addClass("hide");
+				drawPdu();
 				$(".info-detail").addClass("hide");
 			}
 		},
