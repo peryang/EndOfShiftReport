@@ -329,9 +329,42 @@ function drawRackInfo(){
 		}
 	}
 }
+
+function getRackUsed(){
+	var addsvrData = rackInfoValue.value.addsvrData;
+	var useInfoArr = rackInfoValue.useinfo.split("");
+	for(var i in addsvrData){
+		var pos = parseInt(addsvrData[i].pos);
+		var len = parseInt(addsvrData[i].len);
+		for(var p = 0; p < len; p ++){
+			useInfoArr[pos-1+p] = "1";
+		}
+	}
+	rackInfoValue.useinfo = useInfoArr.join("");
+	return useInfoArr.join("");
+}
+
+function getPduUsed(){
+	var pduUsed = {};
+	var pdus = $(".pdu");
+	for (var i = 0; i < pdus.length; i++) {
+		var pduID = $(pdus[i]).attr("id");
+		var pduItems = $(pdus[i]).find(".pdu-detail");
+		var pduInfo = "";
+		for(var item = 0; item < pduItems.length; item ++){
+			if($(pduItems[item]).hasClass("active")){
+				pduInfo += 1;
+			}else{
+				pduInfo += 0;
+			}
+		}
+		pduUsed[pduID] = pduInfo;
+	}
+	return pduUsed;
+}
+
 function drawAddsvr(){
 	var addsvrData = rackInfoValue.value.addsvrData;
-	var useinfoArr = rackInfoValue.useinfo.split("");
 	$("#rackValue").find("td").removeAttr("rowspan").removeClass("hide");
 	$("#rackValue").find(".td-addsvr").removeClass("td-addsvr");
 	
@@ -356,10 +389,8 @@ function drawAddsvr(){
 		});
 		for (var l = 1; l < len; l++) {
 			$("#rackValue").find("tr[data-id="+(pos+l-1)+"] td:eq(1)").addClass("hide");
-			useinfoArr[pos+l] = 1;
 		}
 	}
-	rackInfoValue.useinfo = useinfoArr.join("");
 }
 
 function drawPdu() {
@@ -804,6 +835,7 @@ $(document).delegate(".del-svr", "click", function (ev) {
 				for (var i = 0; i < dataID && !$("#rackValue").find("tr[data-id="+(dataID-i)+"]").hasClass("used"); i++) {
 					$("#rackValue").find("tr[data-id="+(dataID-i)+"] td:eq(1)").removeClass("hide");
 				}
+				$(".save-info").addClass("hide");
 				$(".info-detail").addClass("hide");
 			}
 		},
