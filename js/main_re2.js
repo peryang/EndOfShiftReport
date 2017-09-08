@@ -1407,6 +1407,7 @@ $(document).delegate(".import-db-modal .sure", "click", function (ev) {
 	    dataType: 'json', //返回值类型 一般设置为json
 	    success: function (data, status) {
 	        hideMask();
+	        window.location.reload();
 	    },
 	    error: function (e) {
 	        hideMask();
