@@ -1401,7 +1401,7 @@ $(document).delegate(".import-db-modal .sure", "click", function (ev) {
 	ev.preventDefault();
 	showMask();
 	$.ajaxFileUpload({
-	    url: ajax_url.import_db, //用于文件上传的服务器端请求地址
+	    url: ajax_url.upload_excel, //用于文件上传的服务器端请求地址
 	    secureuri: false, //是否需要安全协议，一般设置为false
 	    fileElementId: 'inputfile', //文件上传域的ID
 	    dataType: 'json', //返回值类型 一般设置为json
@@ -1552,7 +1552,7 @@ $(document).delegate("#exportDbBtn", "click", function (ev) {
 	ev.preventDefault();
 	showMask();
 	$.ajax({
-		url: ajax_url.export_db,
+		url: ajax_url.download_excel,
 		type: "post",
 		async: true,
 		dataType: "json",
