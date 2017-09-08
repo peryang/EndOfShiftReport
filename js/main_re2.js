@@ -716,13 +716,21 @@ $(document).delegate(".pdu .pdu-detail-c .pdu-detail.active", "mousemove", funct
 	var selVal = rackInfoValue.value.rackValue[dataID].value;
 	$(".detail ul").empty();
 	for(var i in selVal){
-		$(".detail ul").append(
+		if(i == "asset_id" || i == "model" || i == "name" || i == "sn"){
+			$(".detail ul").append(
 				['<li class="list-group-item">',
 					'<div class="key">'+i+'</div>',
 					'<div class="oper">： </div>',
 					'<div class="value">'+selVal[i]+'</div>',
 				'</li>'].join(""));
+		}
 	}
+	$(".detail ul").append(
+			['<li class="list-group-item">',
+				'<div class="key">connect</div>',
+				'<div class="oper">： </div>',
+				'<div class="value">'+dataID+' svr</div>',
+			'</li>'].join(""));
 	if(document.body.clientHeight - ev.clientY > 180){
 		$(".detail").css("top", ev.clientY+10);
 	}else{
@@ -1438,6 +1446,13 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 	len = parseInt(len);
 	
 	
+	for(var i = 0; i < len; i ++){
+		if(rackInfoValue.useinfo[pos-1+i] == "1"){
+			alert("the position has svr!");
+			return false;
+		}
+	}
+	
 	if($("#rackValue").find("tr:eq("+(46-pos+1)+") td:eq(1)").hasClass("hide")){
 		console.log("already addsvr");
 		$(".add-svr").modal("hide");
@@ -1453,9 +1468,6 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 			break;
 		}
 	}
-	/*for (var i = 1; i < len; i++) {
-		rackInfoValue.value.rackValue[pos+i].value = rackInfoValue.value.rackValue[pos].value;
-	}*/
 	
 	var postData = {
 		"pId": id,
