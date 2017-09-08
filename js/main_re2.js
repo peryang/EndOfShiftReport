@@ -282,7 +282,7 @@ function zTreeOnClick(ev, id, obj, lev){
 				drawRackInfo();
 				setPduStatus();
 				getRackUsed();
-				$(".rack-name").html(rackInfoValue.name);
+				$(".rack-name").html(rackInfoValue.info.name);
 				$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
 				$(".save-info").html(config.saveRackInfo);
 				$(".device-id").html("（rack）");
