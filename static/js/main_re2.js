@@ -847,10 +847,12 @@ $(document).delegate(".del-svr", "click", function (ev) {
 		pduUsed[pduID] = pduInfo;
 	}
 	
-	var pduUsedArr = rackInfoValue.value.pduData[dataID].split(",");
-	for (var i = 0; i < pduUsedArr.length; i++) {
-		var pduPos = pduUsedArr[i].split("-");
-		pduUsed[pduPos[0]][parseInt(pduPos[1])-1] = "0";
+	if(rackInfoValue.value.pduData[dataID]){
+		var pduUsedArr = rackInfoValue.value.pduData[dataID].split(",");
+		for (var i = 0; i < pduUsedArr.length; i++) {
+			var pduPos = pduUsedArr[i].split("-");
+			pduUsed[pduPos[0]][parseInt(pduPos[1])-1] = "0";
+		}
 	}
 	var pduuseinfo = JSON.stringify(pduUsed);
 	
