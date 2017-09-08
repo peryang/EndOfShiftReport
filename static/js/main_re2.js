@@ -284,6 +284,7 @@ function zTreeOnClick(ev, id, obj, lev){
 				rackInfoValue.info = json.data.info;
 				drawRackInfo();
 				setPduStatus();
+				getRackUsed();
 				$(".rack-name").html(rackInfoValue.name);
 				$(".save-info").removeClass("save-rack-value").addClass("save-rack-info");
 				$(".save-info").html(config.saveRackInfo);
@@ -360,7 +361,7 @@ function getPduUsed(){
 		}
 		pduUsed[pduID] = pduInfo;
 	}
-	return pduUsed;
+	return JSON.stringify(pduUsed);
 }
 
 function drawAddsvr(){
@@ -1185,13 +1186,6 @@ $(document).delegate(".info-detail li .change-name", "keyup", function (ev) {
 		$("#rackValue tr[data-id='"+dataID+"'] td:eq(1)").html(val);
 		$(".detail li:eq(2) .value").html(val);
 		rackInfoValue.value.rackValue[dataID].value["name"] = $(".info-detail ul li:eq(2) .value").val();
-		var useinfoArr = rackInfoValue.useinfo.split("");
-		if(val){
-			useinfoArr[parseInt(dataID)-1] = 1;
-		}else{
-			useinfoArr[parseInt(dataID)-1] = 0;
-		}
-		rackInfoValue.useinfo = useinfoArr.join("");
 	}
 });
 
@@ -1364,7 +1358,8 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 	}
 	svr_pdu_use = svr_pdu_use.substr(0, svr_pdu_use.length-1);
 	var postData = {
-		"id": id
+		"id": id,
+		"pduuseinfo": getPduUsed()
 	};
 	if(svr_model) postData.model = svr_model;
 	if(svr_name) postData.name = svr_name;
@@ -1472,6 +1467,12 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 		"rack_use": pos+","+len
 	};
 	
+	var useInfoArr = rackInfoValue.useinfo.split("");
+	for(var p = 0; p < len; p ++){
+		useInfoArr[pos-1+p] = "1";
+	}
+	rackInfoValue.useinfo = useInfoArr.join("");
+	postData.rackuseinfo = rackInfoValue.useinfo;
 	var svr_pdu_use = "";
 	for (var i = 0; i < $(".add-svr .pdu-pos-info").length; i++) {
 		var pdu_id = $($(".add-svr .pdu-pos-info")[i]).find(".add-svr .pdu-info option:selected").val()
@@ -1483,7 +1484,6 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 		}
 	}
 	svr_pdu_use = svr_pdu_use.substr(0, svr_pdu_use.length-1);
-	
 	if(svr_pdu_use) postData.pdu_use = svr_pdu_use;
 	
 	showMask();
