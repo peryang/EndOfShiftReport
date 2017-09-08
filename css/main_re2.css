@@ -61,7 +61,7 @@ div.ruler div.cursor {height:20px; width:30px; background-color:#3C6E31; color:w
 	color: #000000;
 	border: 0;
 }
-#rackValue tr td:nth-child(2){
+#rackValue tr.used td:nth-child(2){
 	cursor: pointer;
 }
 
@@ -375,17 +375,20 @@ td.not-used{
 	margin-top: 10px;
 	width: 50px;
 }
+.pdu-del-c{
+	margin-bottom: 4px;
+}
 .pdu-detail{
 	float: left;
 	text-align: center;
 	width: 10px;
 	height: 10px;
 	margin: 2px 5px;
-	cursor: pointer;
 	background-color: #666666;
 }
 .pdu-detail.active{
 	background-color: green;
+	cursor: pointer;
 }
 .pdu-del{
 	float: right;
@@ -399,4 +402,5 @@ td.not-used{
 .pdu-id{
 	margin-top: 10px;
 	text-align: center;
+	margin-left: -4px;
 }

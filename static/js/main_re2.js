@@ -512,11 +512,11 @@ function searchNodesByU(value){
 	}
 	showMask();
 	$.ajax({
-		url: ajax_url.search_rack_by_u,
+		url: ajax_url.search_rack_nodes,
 		type: "post",
 		async: true,
 		data: {
-			id: getChildNodesID(),
+			pIds: getChildNodesID(),
 			num: value
 		},
 		dataType: "json",
