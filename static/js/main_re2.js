@@ -1298,7 +1298,7 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
-	var pdu_id = $(_this).parents("pdu").attr("id");
+	var pdu_id = $(_this).parents(".pdu").attr("id");
 	
 	showMask();
 	$.ajax({
