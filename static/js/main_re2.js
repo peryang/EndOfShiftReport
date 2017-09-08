@@ -444,7 +444,7 @@ function removeTreeNode() {
 		if(type == "fold") remove_node = ajax_url.del_idc_node;
 		if(type == "file") remove_node = ajax_url.del_rack_node;
 		
-		var msg = "删除选中节点及其该节点的子节点。\n\n请确认！";
+		var msg = "delete curent node and the child nodes.\n\nPlease sure！";
 		if (confirm(msg)==true){
 			if(id == 0){
 				alert("the root node can't delte!");
@@ -865,44 +865,48 @@ $(document).delegate(".del-svr", "click", function (ev) {
 		rackUsedInfoArr[pos-1+i] = "0";
 	}
 	
-	$.ajax({
-		url: ajax_url.del_svr_node,
-		type: "post",
-		async: true,
-		data: {
-			"id": id,
-			"rackuseinfo": rackUsedInfoArr.join(""),
-			"pduuseinfo": pduuseinfo
-		},
-		dataType: "json",
-		success: function (json) {
-			hideMask();
-			if (json.code != 1) {
-				console.warn("Request data error: Code is " + json.code);
-				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
-			} else if (json.code == 1) {
-				$(".alert-success").removeClass("hide");
-				setTimeout('$(".alert-success").addClass("hide");', 1000);
-				delete rackInfoValue.value.addsvrData[dataID2];
-				delete rackInfoValue.value.pduData[dataID];
-				delete rackInfoValue.value.rackValue[dataID];
-				$("#rackValue").find("tr[data-id="+(dataID)+"]").removeClass("used");
-				$("#rackValue").find("tr[data-id="+(dataID)+"] td:eq(1)").removeClass("used").removeClass("td-addsvr").removeAttr("style").removeAttr("rowspan").html("");
-				for (var i = 0; i < dataID && !$("#rackValue").find("tr[data-id="+(dataID-i)+"]").hasClass("used"); i++) {
-					$("#rackValue").find("tr[data-id="+(dataID-i)+"] td:eq(1)").removeClass("hide");
+	var msg = "delete the svr.\n\nPlease sure！";
+	if (confirm(msg)==true){
+		showMask();
+		$.ajax({
+			url: ajax_url.del_svr_node,
+			type: "post",
+			async: true,
+			data: {
+				"id": id,
+				"rackuseinfo": rackUsedInfoArr.join(""),
+				"pduuseinfo": pduuseinfo
+			},
+			dataType: "json",
+			success: function (json) {
+				hideMask();
+				if (json.code != 1) {
+					console.warn("Request data error: Code is " + json.code);
+					$(".alert-warning").removeClass("hide");
+					setTimeout('$(".alert-warning").addClass("hide");', 1000);
+				} else if (json.code == 1) {
+					$(".alert-success").removeClass("hide");
+					setTimeout('$(".alert-success").addClass("hide");', 1000);
+					delete rackInfoValue.value.addsvrData[dataID2];
+					delete rackInfoValue.value.pduData[dataID];
+					delete rackInfoValue.value.rackValue[dataID];
+					$("#rackValue").find("tr[data-id="+(dataID)+"]").removeClass("used");
+					$("#rackValue").find("tr[data-id="+(dataID)+"] td:eq(1)").removeClass("used").removeClass("td-addsvr").removeAttr("style").removeAttr("rowspan").html("");
+					for (var i = 0; i < dataID && !$("#rackValue").find("tr[data-id="+(dataID-i)+"]").hasClass("used"); i++) {
+						$("#rackValue").find("tr[data-id="+(dataID-i)+"] td:eq(1)").removeClass("hide");
+					}
+					$(".save-info").addClass("hide");
+					drawPdu();
+					setPduStatus();
+					$(".info-detail").addClass("hide");
 				}
-				$(".save-info").addClass("hide");
-				drawPdu();
-				setPduStatus();
-				$(".info-detail").addClass("hide");
+			},
+			error: function (e) {
+				hideMask();
+				console.error("请求出错(请检查相关网络状况.)", e);
 			}
-		},
-		error: function (e) {
-			hideMask();
-			console.error("请求出错(请检查相关网络状况.)", e);
-		}
-	});
+		});
+	}
 });
 
 $(document).delegate(".add-pdu-modal .sure", "click", function (ev) {
@@ -1351,32 +1355,37 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 	var _this = this;
 	var pdu_id = $(_this).parents(".pdu").attr("id");
 	
-	showMask();
-	$.ajax({
-		url: ajax_url.del_pdu_node,
-		type: "post",
-		async: true,
-		data: {
-			"id": pdu_id
-		},
-		dataType: "json",
-		success: function (json) {
-			hideMask();
-			if (json.code != 1) {
-				console.warn("Request data error: Code is " + json.code);
-				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
-			} else if (json.code == 1) {
-				$(".alert-success").removeClass("hide");
-				setTimeout('$(".alert-success").addClass("hide");', 1000);
-				$("#"+pdu_id).remove();
+	var msg = "delete the pdu.\n\nPlease sure！";
+	if (confirm(msg)==true){
+		showMask();
+		$.ajax({
+			url: ajax_url.del_pdu_node,
+			type: "post",
+			async: true,
+			data: {
+				"id": pdu_id
+			},
+			dataType: "json",
+			success: function (json) {
+				hideMask();
+				if (json.code != 1) {
+					console.warn("Request data error: Code is " + json.code);
+					$(".alert-warning").removeClass("hide");
+					setTimeout('$(".alert-warning").addClass("hide");', 1000);
+				} else if (json.code == 1) {
+					$(".alert-success").removeClass("hide");
+					setTimeout('$(".alert-success").addClass("hide");', 1000);
+					$("#"+pdu_id).remove();
+					$(".info-detail").addClass("hide");
+					$(".save-info").addClass("hide");
+				}
+			},
+			error: function (e) {
+				hideMask();
+				console.error("请求出错(请检查相关网络状况.)", e);
 			}
-		},
-		error: function (e) {
-			hideMask();
-			console.error("请求出错(请检查相关网络状况.)", e);
-		}
-	});
+		});
+	}
 });
 
 $(document).delegate(".save-rack-value", "click", function (ev) {
