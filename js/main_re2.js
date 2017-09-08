@@ -894,6 +894,7 @@ $(document).delegate(".del-svr", "click", function (ev) {
 				}
 				$(".save-info").addClass("hide");
 				drawPdu();
+				setPduStatus();
 				$(".info-detail").addClass("hide");
 			}
 		},
@@ -933,6 +934,7 @@ $(document).delegate(".add-pdu-modal .sure", "click", function (ev) {
 				json.data.pin_num = parseInt(type);
 				rackInfoValue.value.pduValue[pos].push(json.data);
 				drawPdu();
+				setPduStatus();
 				$(".add-pdu-modal").modal("hide");
 			}
 		},
@@ -1486,6 +1488,15 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 	pos = parseInt(pos);
 	len = parseInt(len);
 	
+	if(pos < 1){
+		alert("pos must > 0");
+		return false;
+	}
+	
+	if(pos+len > 47){
+		alert("pos plus len must < 48");
+		return false;
+	}
 	
 	for(var i = 0; i < len; i ++){
 		if(rackInfoValue.useinfo[pos-1+i] == "1"){
