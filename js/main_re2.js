@@ -1354,6 +1354,27 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 	ev.preventDefault();
 	var _this = this;
 	var pdu_id = $(_this).parents(".pdu").attr("id");
+	var pdu_pos = $(_this).parents(".pdu-c").data("pos");
+	
+	var allSelPdu = $(_this).parents(".pdu").find(".pdu-detail-c .pdu-detail.active");
+	var rack_use = {};
+	
+	for (var i = 0; i < allSelPdu.length; i++) {
+		var svrIndex = $(allSelPdu[i]).data("rack");
+		var svrID = rackInfoValue.value.rackValue[svrIndex].id;
+		rack_use[svrID] = rackInfoValue.value.rackValue[svrIndex].value.pdu_use
+	}
+	
+	for(var i in rack_use){
+		var pduUsedArr = rack_use[i].split(",");
+		for(var s = 0; s < pduUsedArr.length; s ++){
+			if(pduUsedArr[s].indexOf(pdu_id) > -1){
+				pduUsedArr.splice(s,1);
+				s --;
+			}
+		}
+		rack_use[i] = pduUsedArr.join(",");
+	}
 	
 	var msg = "delete the pdu.\n\nPlease sure！";
 	if (confirm(msg)==true){
@@ -1363,7 +1384,8 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 			type: "post",
 			async: true,
 			data: {
-				"id": pdu_id
+				"id": pdu_id,
+				"rack_use": JSON.stringify(rack_use);
 			},
 			dataType: "json",
 			success: function (json) {
@@ -1375,6 +1397,23 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 				} else if (json.code == 1) {
 					$(".alert-success").removeClass("hide");
 					setTimeout('$(".alert-success").addClass("hide");', 1000);
+					
+					var allSelPdu = $(_this).parents(".pdu").find(".pdu-detail-c .pdu-detail.active");
+					var rack_use_tmp = {};
+					for (var i = 0; i < allSelPdu.length; i++) {
+						var svrIndex = $(allSelPdu[i]).data("rack");
+						var svrID = rackInfoValue.value.rackValue[svrIndex].id;
+						rackInfoValue.value.pduData[svrIndex] = rack_use[svrID];
+						rackInfoValue.value.rackValue[svrIndex].value.pdu_use = rack_use[svrID];
+					}
+					
+					for (var i = 0; i < rackInfoValue.value.pduValue[pdu_pos].length; i++) {
+						if(rackInfoValue.value.pduValue[pdu_pos][i].id == pdu_id){
+							rackInfoValue.value.pduValue[pdu_pos].splice(i, 1);
+							i --;
+						}
+					}
+					
 					$("#"+pdu_id).remove();
 					$(".info-detail").addClass("hide");
 					$(".save-info").addClass("hide");
