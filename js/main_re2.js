@@ -730,7 +730,7 @@ $(document).delegate(".pdu .pdu-detail-c .pdu-detail.active", "mousemove", funct
 			['<li class="list-group-item">',
 				'<div class="key">connect</div>',
 				'<div class="oper">： </div>',
-				'<div class="value">'+dataID+' svr</div>',
+				'<div class="value">'+rackInfoValue.value.rackValue[dataID].id+'</div>',
 			'</li>'].join(""));
 	if(document.body.clientHeight - ev.clientY > 180){
 		$(".detail").css("top", ev.clientY+10);
