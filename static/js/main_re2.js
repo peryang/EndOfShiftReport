@@ -682,7 +682,7 @@ $(document).delegate(".pdu-c-right .add-pdu", "click", function (ev) {
 // rack hover
 $(document).delegate("#rackValue tbody tr.used", "mousemove", function (ev) {
 	var _this = this;
-	var dataID = $(_this).data("id");
+	var dataID = $(_this).attr("data-id");
 	var selVal = rackInfoValue.value.rackValue[dataID].value;
 	$(".detail ul").empty();
 	for(var i in selVal){
@@ -713,7 +713,7 @@ $(document).delegate("#rackValue tbody tr", "mouseout", function (ev) {
 // rack hover
 $(document).delegate(".pdu .pdu-detail-c .pdu-detail.active", "mousemove", function (ev) {
 	var _this = this;
-	var dataID = $(_this).data("rack");
+	var dataID = $(_this).attr("data-rack");
 	var selVal = rackInfoValue.value.rackValue[dataID].value;
 	$(".detail ul").empty();
 	for(var i in selVal){
@@ -755,7 +755,7 @@ $(document).delegate("#rackValue tbody tr td:nth-child(2)", "click", function (e
 		$(".info-detail .add-pdu-pos").addClass("hide");
 		$(".info-detail .del-svr").addClass("hide");
 		$(".save-info").removeClass("hide");
-		var dataID = $(_this).parent().data("id");
+		var dataID = $(_this).parent().attr("data-id");
 		var rowspan = $(_this).attr("rowspan");
 		$(".device-id").html("（"+(dataID-rowspan+1)+"）");
 		$(".info-detail").attr("data-id", dataID);
@@ -793,7 +793,7 @@ $(document).delegate("#rackValue tbody tr td:nth-child(2)", "click", function (e
 					}
 					var pduPos = pduUsed[pu].split("-");
 					tmpObj.find(".pdu-info option[value='"+pduPos[0]+"']").attr("selected", true)
-					var pin_num = tmpObj.find(".pdu-info option:selected").data("num") || tmpObj.find(".pdu-info option:eq(1)").data("num");
+					var pin_num = tmpObj.find(".pdu-info option:selected").attr("data-num") || tmpObj.find(".pdu-info option:eq(1)").attr("data-num");
 					for (var n = 1; n <= pin_num; n++) {
 						if(tmpObj.find(".pdu-pos option[value='"+n+"']").length <= 0){
 							tmpObj.find(".pdu-pos").append('<option value="'+n+'">'+n+'</option>');
@@ -1073,7 +1073,7 @@ $(document).delegate(".info-detail .add-pdu-pos", "click", function (ev) {
 			tmpObj.find(".pdu-info").append('<option data-num="'+pduValue[pduPos][i].pin_num+'" value="'+pduValue[pduPos][i].id+'">'+pduValue[pduPos][i].id+'</option>');
 		}
 	}
-	var pin_num = tmpObj.find(".pdu-info option:eq(1)").data("num");
+	var pin_num = tmpObj.find(".pdu-info option:eq(1)").attr("data-num");
 	for (var n = 1; n <= pin_num; n++) {
 		if(tmpObj.find(".pdu-pos option[value='"+n+"']").length <= 0){
 			tmpObj.find(".pdu-pos").append('<option value="'+n+'">'+n+'</option>');
@@ -1103,7 +1103,7 @@ $(document).delegate(".add-svr .add-pdu-pos", "click", function (ev) {
 			tmpObj.find(".pdu-info").append('<option data-num="'+pduValue[pduPos][i].pin_num+'" value="'+pduValue[pduPos][i].id+'">'+pduValue[pduPos][i].id+'</option>');
 		}
 	}
-	var pin_num = tmpObj.find(".pdu-info option:eq(1)").data("num");
+	var pin_num = tmpObj.find(".pdu-info option:eq(1)").attr("data-num");
 	for (var n = 1; n <= pin_num; n++) {
 		if(tmpObj.find(".pdu-pos option[value='"+n+"']").length <= 0){
 			tmpObj.find(".pdu-pos").append('<option value="'+n+'">'+n+'</option>');
@@ -1115,7 +1115,7 @@ $(document).delegate(".pdu-info", "change", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
-	var pin_num = $(_this).find("option:selected").data("num");
+	var pin_num = $(_this).find("option:selected").attr("data-num");
 	$(_this).nextAll(".pdu-pos").find("option").remove();
 	$(_this).nextAll(".pdu-pos").append('<option value="">select pdu pos</option>');
 	for (var n = 1; n <= pin_num; n++) {
@@ -1129,7 +1129,7 @@ $(document).delegate(".info-detail .pdu-pos", "change", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
 	var _this = this;
-	var dataID = $($(_this).parents(".info-detail")[0]).data("id");
+	var dataID = $($(_this).parents(".info-detail")[0]).attr("data-id");
 	var svr_pdu_use = "";
 	var pdu_pos_info_obj = $(".info-detail .pdu-pos-info");
 	for (var i = 0; i < pdu_pos_info_obj.length; i++) {
@@ -1160,7 +1160,7 @@ $(document).delegate("#addsvrBtn", "click", function (ev) {
 			$(".add-svr .pdu-info").append('<option data-num="'+pduValue[pduPos][i].pin_num+'" value="'+pduValue[pduPos][i].id+'">'+pduValue[pduPos][i].id+'</option>');
 		}
 	}
-	var pin_num = $(".add-svr .pdu-info option:eq(1)").data("num");
+	var pin_num = $(".add-svr .pdu-info option:eq(1)").attr("data-num");
 	for (var n = 1; n <= pin_num; n++) {
 		if($(".add-svr .pdu-pos option[value='"+n+"']").length <= 0){
 			$(".add-svr .pdu-pos").append('<option value="'+n+'">'+n+'</option>');
@@ -1354,13 +1354,13 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 	ev.preventDefault();
 	var _this = this;
 	var pdu_id = $(_this).parents(".pdu").attr("id");
-	var pdu_pos = $(_this).parents(".pdu-c").data("pos");
+	var pdu_pos = $(_this).parents(".pdu-c").attr("data-pos");
 	
 	var allSelPdu = $(_this).parents(".pdu").find(".pdu-detail-c .pdu-detail.active");
 	var rack_use = {};
 	
 	for (var i = 0; i < allSelPdu.length; i++) {
-		var svrIndex = $(allSelPdu[i]).data("rack");
+		var svrIndex = $(allSelPdu[i]).attr("data-rack");
 		var svrID = rackInfoValue.value.rackValue[svrIndex].id;
 		rack_use[svrID] = rackInfoValue.value.rackValue[svrIndex].value.pdu_use
 	}
@@ -1385,7 +1385,7 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 			async: true,
 			data: {
 				"id": pdu_id,
-				"rack_use": JSON.stringify(rack_use);
+				"rack_use": JSON.stringify(rack_use)
 			},
 			dataType: "json",
 			success: function (json) {
@@ -1401,7 +1401,7 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 					var allSelPdu = $(_this).parents(".pdu").find(".pdu-detail-c .pdu-detail.active");
 					var rack_use_tmp = {};
 					for (var i = 0; i < allSelPdu.length; i++) {
-						var svrIndex = $(allSelPdu[i]).data("rack");
+						var svrIndex = $(allSelPdu[i]).attr("data-rack");
 						var svrID = rackInfoValue.value.rackValue[svrIndex].id;
 						rackInfoValue.value.pduData[svrIndex] = rack_use[svrID];
 						rackInfoValue.value.rackValue[svrIndex].value.pdu_use = rack_use[svrID];
@@ -1430,7 +1430,7 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 $(document).delegate(".save-rack-value", "click", function (ev) {
 	ev.stopPropagation();
 	ev.preventDefault();
-	var selID = $(".info-detail").data("id");
+	var selID = $(".info-detail").attr("data-id");
 	var id = rackInfoValue.value.rackValue[selID].id;
 	//rackInfoValue.value.rackValue[selID].value["Name"] = $(".info-detail ul li:eq(0) .value").val();
 	//rackInfoValue.value.rackValue[selID].value["Model"] = $(".info-detail ul li:eq(1) .value").val()
