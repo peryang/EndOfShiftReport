@@ -1666,9 +1666,7 @@ $(document).delegate("#exportDbBtn", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.download_excel,
-		type: "post",
-		async: true,
-		dataType: "json",
+		type: "get",
 		success: function (json) {
 			hideMask();
 			if (json.code != 1) {
