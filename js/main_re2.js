@@ -1672,7 +1672,7 @@ $(document).delegate("#exportDbBtn", "click", function (ev) {
 			var disp = request.getResponseHeader('Content-Disposition');
 			if (disp && disp.search('attachment') != -1) {  //判断是否为文件
 				var form = $('<form method="POST" action="' + ajax_url.download_excel + '">');
-				form.append($('<input type="hidden" name="filename" value="' + v + '">'));
+				form.append($('<input type="hidden" name="filename">'));
 				$('body').append(form);
 				form.submit(); //自动提交
 			}
