@@ -1666,16 +1666,18 @@ $(document).delegate("#exportDbBtn", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.download_excel,
-		type: "get",
-		success: function (json) {
+		type: "post",
+		success: function (response, status, request) {
 			hideMask();
-			if (json.code != 1) {
-				console.warn("Request data error: Code is " + json.code);
-				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
-			} else if (json.code == 1) {
-				$(".alert-success").removeClass("hide");
-				setTimeout('$(".alert-success").addClass("hide");', 1000);
+			var disp = request.getResponseHeader('Content-Disposition');
+			if (disp && disp.search('attachment') != -1) {  //判断是否为文件
+				var form = $('<form method="POST" action="' + url + '">');
+				$.each(params, function(k, v) {
+					form.append($('<input type="hidden" name="' + k +
+					'" value="' + v + '">'));
+				});
+				$('body').append(form);
+				form.submit(); //自动提交
 			}
 		},
 		error: function (e) {
