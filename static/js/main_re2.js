@@ -1357,23 +1357,23 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 	var pdu_pos = $(_this).parents(".pdu-c").attr("data-pos");
 	
 	var allSelPdu = $(_this).parents(".pdu").find(".pdu-detail-c .pdu-detail.active");
-	var rack_use = {};
+	var serverpduuse = {};
 	
 	for (var i = 0; i < allSelPdu.length; i++) {
 		var svrIndex = $(allSelPdu[i]).attr("data-rack");
 		var svrID = rackInfoValue.value.rackValue[svrIndex].id;
-		rack_use[svrID] = rackInfoValue.value.rackValue[svrIndex].value.pdu_use
+		serverpduuse[svrID] = rackInfoValue.value.rackValue[svrIndex].value.pdu_use
 	}
 	
-	for(var i in rack_use){
-		var pduUsedArr = rack_use[i].split(",");
+	for(var i in serverpduuse){
+		var pduUsedArr = serverpduuse[i].split(",");
 		for(var s = 0; s < pduUsedArr.length; s ++){
 			if(pduUsedArr[s].indexOf(pdu_id) > -1){
 				pduUsedArr.splice(s,1);
 				s --;
 			}
 		}
-		rack_use[i] = pduUsedArr.join(",");
+		serverpduuse[i] = pduUsedArr.join(",");
 	}
 	
 	var msg = "delete the pdu.\n\nPlease sure！";
@@ -1385,7 +1385,7 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 			async: true,
 			data: {
 				"id": pdu_id,
-				"rack_use": JSON.stringify(rack_use)
+				"serverpduuse": JSON.stringify(serverpduuse)
 			},
 			dataType: "json",
 			success: function (json) {
