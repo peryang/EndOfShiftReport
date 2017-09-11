@@ -720,7 +720,7 @@ $(document).delegate(".pdu .pdu-detail-c .pdu-detail.active", "mousemove", funct
 			['<li class="list-group-item">',
 				'<div class="key">connect</div>',
 				'<div class="oper">： </div>',
-				'<div class="value">'+rackInfoValue.value.rackValue[dataID].id+'</div>',
+				'<div class="value">svr pos : '+dataID+'</div>',
 			'</li>'].join(""));
 	for(var i in selVal){
 		if(i == "asset_id" || i == "model" || i == "name" || i == "sn"){
