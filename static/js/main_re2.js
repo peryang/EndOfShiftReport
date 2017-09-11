@@ -715,12 +715,14 @@ $(document).delegate(".pdu .pdu-detail-c .pdu-detail.active", "mousemove", funct
 	var _this = this;
 	var dataID = $(_this).attr("data-rack");
 	var selVal = rackInfoValue.value.rackValue[dataID].value;
+	var svr_rack_use = rackInfoValue.value.rackValue[dataID].rack_use;
+	
 	$(".detail ul").empty();
 	$(".detail ul").append(
 			['<li class="list-group-item">',
 				'<div class="key">connect</div>',
 				'<div class="oper">： </div>',
-				'<div class="value">svr pos : '+dataID+'</div>',
+				'<div class="value">svr pos : '+ svr_rack_use.substr(0, svr_rack_use.indexOf(",")) +'</div>',
 			'</li>'].join(""));
 	for(var i in selVal){
 		if(i == "asset_id" || i == "model" || i == "name" || i == "sn"){
