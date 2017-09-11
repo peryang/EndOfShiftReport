@@ -716,22 +716,22 @@ $(document).delegate(".pdu .pdu-detail-c .pdu-detail.active", "mousemove", funct
 	var dataID = $(_this).attr("data-rack");
 	var selVal = rackInfoValue.value.rackValue[dataID].value;
 	$(".detail ul").empty();
-	for(var i in selVal){
-		if(i == "asset_id" || i == "model" || i == "name" || i == "sn"){
-			$(".detail ul").append(
-				['<li class="list-group-item">',
-					'<div class="key">'+i+'</div>',
-					'<div class="oper">： </div>',
-					'<div class="value">'+selVal[i]+'</div>',
-				'</li>'].join(""));
-		}
-	}
 	$(".detail ul").append(
 			['<li class="list-group-item">',
 				'<div class="key">connect</div>',
 				'<div class="oper">： </div>',
 				'<div class="value">'+rackInfoValue.value.rackValue[dataID].id+'</div>',
 			'</li>'].join(""));
+	for(var i in selVal){
+		if(i == "asset_id" || i == "model" || i == "name" || i == "sn"){
+			$(".detail ul").append(
+				['<li class="list-group-item">',
+					'<div class="key">svr '+i+'</div>',
+					'<div class="oper">： </div>',
+					'<div class="value">'+selVal[i]+'</div>',
+				'</li>'].join(""));
+		}
+	}
 	if(document.body.clientHeight - ev.clientY > 180){
 		$(".detail").css("top", ev.clientY+10);
 	}else{
