@@ -270,7 +270,7 @@ tr td:last-child{
 
 .detail .key{
 	float: left;
-	width: 60px;
+	width: 90px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
@@ -279,7 +279,7 @@ tr td:last-child{
 	height: 20px;
 }
 .detail .value{
-	width: 200px;
+	width: 170px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
@@ -403,4 +403,10 @@ td.not-used{
 	margin-top: 10px;
 	text-align: center;
 	margin-left: -4px;
+}
+#main .alert-success,
+#main .alert-warning{
+	position: fixed;
+	top: 0;
+	left: 40%;
 }

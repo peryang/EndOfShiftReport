@@ -716,22 +716,22 @@ $(document).delegate(".pdu .pdu-detail-c .pdu-detail.active", "mousemove", funct
 	var dataID = $(_this).attr("data-rack");
 	var selVal = rackInfoValue.value.rackValue[dataID].value;
 	$(".detail ul").empty();
-	for(var i in selVal){
-		if(i == "asset_id" || i == "model" || i == "name" || i == "sn"){
-			$(".detail ul").append(
-				['<li class="list-group-item">',
-					'<div class="key">'+i+'</div>',
-					'<div class="oper">： </div>',
-					'<div class="value">'+selVal[i]+'</div>',
-				'</li>'].join(""));
-		}
-	}
 	$(".detail ul").append(
 			['<li class="list-group-item">',
 				'<div class="key">connect</div>',
 				'<div class="oper">： </div>',
 				'<div class="value">'+rackInfoValue.value.rackValue[dataID].id+'</div>',
 			'</li>'].join(""));
+	for(var i in selVal){
+		if(i == "asset_id" || i == "model" || i == "name" || i == "sn"){
+			$(".detail ul").append(
+				['<li class="list-group-item">',
+					'<div class="key">svr '+i+'</div>',
+					'<div class="oper">： </div>',
+					'<div class="value">'+selVal[i]+'</div>',
+				'</li>'].join(""));
+		}
+	}
 	if(document.body.clientHeight - ev.clientY > 180){
 		$(".detail").css("top", ev.clientY+10);
 	}else{
@@ -1237,7 +1237,7 @@ $(document).delegate(".info-detail li .change-name", "keyup", function (ev) {
 		var _this = this;
 		var val = $(_this).val().trim();
 		var dataID = $(_this).parents(".info-detail").attr("data-id");
-		$("#rackValue tr[data-id='"+dataID+"'] td:eq(1)").html(val);
+		$("#rackValue tr[data-id='"+dataID+"'] td:eq(1) .svr").html(val);
 		$(".detail li:eq(2) .value").html(val);
 		rackInfoValue.value.rackValue[dataID].value["name"] = $(".info-detail ul li:eq(2) .value").val();
 	}
@@ -1399,12 +1399,11 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 					setTimeout('$(".alert-success").addClass("hide");', 1000);
 					
 					var allSelPdu = $(_this).parents(".pdu").find(".pdu-detail-c .pdu-detail.active");
-					var rack_use_tmp = {};
 					for (var i = 0; i < allSelPdu.length; i++) {
 						var svrIndex = $(allSelPdu[i]).attr("data-rack");
 						var svrID = rackInfoValue.value.rackValue[svrIndex].id;
-						rackInfoValue.value.pduData[svrIndex] = rack_use[svrID];
-						rackInfoValue.value.rackValue[svrIndex].value.pdu_use = rack_use[svrID];
+						rackInfoValue.value.pduData[svrIndex] = serverpduuse[svrID];
+						rackInfoValue.value.rackValue[svrIndex].value.pdu_use = serverpduuse[svrID];
 					}
 					
 					for (var i = 0; i < rackInfoValue.value.pduValue[pdu_pos].length; i++) {
