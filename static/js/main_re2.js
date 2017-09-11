@@ -1399,12 +1399,11 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 					setTimeout('$(".alert-success").addClass("hide");', 1000);
 					
 					var allSelPdu = $(_this).parents(".pdu").find(".pdu-detail-c .pdu-detail.active");
-					var rack_use_tmp = {};
 					for (var i = 0; i < allSelPdu.length; i++) {
 						var svrIndex = $(allSelPdu[i]).attr("data-rack");
 						var svrID = rackInfoValue.value.rackValue[svrIndex].id;
-						rackInfoValue.value.pduData[svrIndex] = rack_use[svrID];
-						rackInfoValue.value.rackValue[svrIndex].value.pdu_use = rack_use[svrID];
+						rackInfoValue.value.pduData[svrIndex] = serverpduuse[svrID];
+						rackInfoValue.value.rackValue[svrIndex].value.pdu_use = serverpduuse[svrID];
 					}
 					
 					for (var i = 0; i < rackInfoValue.value.pduValue[pdu_pos].length; i++) {
