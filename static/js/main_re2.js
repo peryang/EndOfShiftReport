@@ -80,6 +80,7 @@ function initTree(){
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
 		}
 	});
 }
@@ -154,6 +155,7 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
 		}
 	});
 	return true;
@@ -289,7 +291,7 @@ function zTreeOnClick(ev, id, obj, lev){
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
-			JSON.parse(e.responseText)
+			$(".alert-warning").removeClass("hide");
 		}
 	});
 }
@@ -472,6 +474,7 @@ function removeTreeNode() {
 				error: function (e) {
 					hideMask();
 					console.error("请求出错(请检查相关网络状况.)", e);
+					$(".alert-warning").removeClass("hide");
 				}
 			});
 		}
@@ -546,6 +549,7 @@ function searchNodesByU(value){
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
 		}
 	});
 }
@@ -634,6 +638,7 @@ $(document).delegate(".pdu-c-left .add-pdu", "click", function (ev) {
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
 		}
 	});
 });
@@ -668,6 +673,7 @@ $(document).delegate(".pdu-c-right .add-pdu", "click", function (ev) {
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
 		}
 	});
 });
@@ -898,6 +904,7 @@ $(document).delegate(".del-svr", "click", function (ev) {
 			error: function (e) {
 				hideMask();
 				console.error("请求出错(请检查相关网络状况.)", e);
+				$(".alert-warning").removeClass("hide");
 			}
 		});
 	}
@@ -938,6 +945,8 @@ $(document).delegate(".add-pdu-modal .sure", "click", function (ev) {
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
+			$(".add-pdu-modal").modal("hide");
 		}
 	});
 });
@@ -977,13 +986,14 @@ $(document).delegate(".modify-rack-name .sure", "click", function (ev) {
 				if($(".save-info").hasClass("save-rack-info")){
 					$(".info-detail li .change-name").val(rackName).attr("title", rackName);
 				}
-				
 				$(".modify-rack-name").modal("hide");
 			}
 		},
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
+			$(".modify-rack-name").modal("hide");
 		}
 	});
 });
@@ -1039,6 +1049,8 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
+			$(".add-node").modal("hide");
 		}
 	});
 });
@@ -1289,6 +1301,7 @@ $(document).delegate(".unaddsvr-list li", "click", function (ev) {
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
 		}
 	});
 });
@@ -1334,6 +1347,7 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
 		}
 	});
 });
@@ -1409,6 +1423,7 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 			error: function (e) {
 				hideMask();
 				console.error("请求出错(请检查相关网络状况.)", e);
+				$(".alert-warning").removeClass("hide");
 			}
 		});
 	}
@@ -1470,6 +1485,7 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
 		}
 	});
 });
@@ -1496,13 +1512,16 @@ $(document).delegate(".import-db-modal .sure", "click", function (ev) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
 				console.error(json);
+				$(".import-db-modal").modal("hide");
 			} else if (json.code == 1) {
 				window.location.reload();
 			}
 	    },
 	    error: function (e) {
 	        hideMask();
+			$(".alert-warning").removeClass("hide");
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".import-db-modal").modal("hide");
 	    }
 	});
 });
@@ -1628,6 +1647,8 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
+			$(".add-svr").modal("hide");
 		}
 	});
 	
@@ -1672,6 +1693,7 @@ $(document).delegate("#exportDbBtn", "click", function (ev) {
 		error: function (e) {
 			hideMask();
 			console.error("请求出错(请检查相关网络状况.)", e);
+			$(".alert-warning").removeClass("hide");
 		}
 	});
 });
