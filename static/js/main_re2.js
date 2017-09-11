@@ -54,7 +54,6 @@ function initTree(){
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$("#reTree").empty();
 				$(".alert-success").removeClass("hide");
@@ -141,7 +140,6 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -239,7 +237,6 @@ function zTreeOnClick(ev, id, obj, lev){
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -464,7 +461,6 @@ function removeTreeNode() {
 					if (json.code != 1) {
 						console.warn("Request data error: Code is " + json.code);
 						$(".alert-warning").removeClass("hide");
-						setTimeout('$(".alert-warning").addClass("hide");', 1000);
 					} else if (json.code == 1) {
 						$(".alert-success").removeClass("hide");
 						setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -526,7 +522,6 @@ function searchNodesByU(value){
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$("#reTree").empty();
 				$(".alert-success").removeClass("hide");
@@ -622,7 +617,6 @@ $(document).delegate(".pdu-c-left .add-pdu", "click", function (ev) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -657,7 +651,6 @@ $(document).delegate(".pdu-c-right .add-pdu", "click", function (ev) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -885,7 +878,6 @@ $(document).delegate(".del-svr", "click", function (ev) {
 				if (json.code != 1) {
 					console.warn("Request data error: Code is " + json.code);
 					$(".alert-warning").removeClass("hide");
-					setTimeout('$(".alert-warning").addClass("hide");', 1000);
 				} else if (json.code == 1) {
 					$(".alert-success").removeClass("hide");
 					setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -933,7 +925,6 @@ $(document).delegate(".add-pdu-modal .sure", "click", function (ev) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -975,7 +966,6 @@ $(document).delegate(".modify-rack-name .sure", "click", function (ev) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -1033,7 +1023,6 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -1290,7 +1279,6 @@ $(document).delegate(".unaddsvr-list li", "click", function (ev) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -1333,7 +1321,6 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -1395,7 +1382,6 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 				if (json.code != 1) {
 					console.warn("Request data error: Code is " + json.code);
 					$(".alert-warning").removeClass("hide");
-					setTimeout('$(".alert-warning").addClass("hide");', 1000);
 				} else if (json.code == 1) {
 					$(".alert-success").removeClass("hide");
 					setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -1476,7 +1462,6 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
@@ -1510,7 +1495,6 @@ $(document).delegate(".import-db-modal .sure", "click", function (ev) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 				console.error(json);
 			} else if (json.code == 1) {
 				window.location.reload();
@@ -1618,7 +1602,6 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 			if (json.code != 1) {
 				console.warn("Request data error: Code is " + json.code);
 				$(".alert-warning").removeClass("hide");
-				setTimeout('$(".alert-warning").addClass("hide");', 1000);
 			} else if (json.code == 1) {
 				$(".alert-success").removeClass("hide");
 				setTimeout('$(".alert-success").addClass("hide");', 1000);
