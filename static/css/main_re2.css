@@ -404,3 +404,9 @@ td.not-used{
 	text-align: center;
 	margin-left: -4px;
 }
+#main .alert-success,
+#main .alert-warning{
+	position: fixed;
+	top: 0;
+	left: 40%;
+}
