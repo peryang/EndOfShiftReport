@@ -1503,9 +1503,17 @@ $(document).delegate(".import-db-modal .sure", "click", function (ev) {
 	    secureuri: false, //是否需要安全协议，一般设置为false
 	    fileElementId: 'inputfile', //文件上传域的ID
 	    dataType: 'json', //返回值类型 一般设置为json
-	    success: function (data, status) {
-	        hideMask();
-	        window.location.reload();
+	    success: function (json) {
+			hideMask();
+			json = JSON.parse(json);
+			if (json.code != 1) {
+				console.warn("Request data error: Code is " + json.code);
+				$(".alert-warning").removeClass("hide");
+				setTimeout('$(".alert-warning").addClass("hide");', 1000);
+				console.error(json);
+			} else if (json.code == 1) {
+				window.location.reload();
+			}
 	    },
 	    error: function (e) {
 	        hideMask();
