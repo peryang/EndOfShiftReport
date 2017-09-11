@@ -1237,7 +1237,7 @@ $(document).delegate(".info-detail li .change-name", "keyup", function (ev) {
 		var _this = this;
 		var val = $(_this).val().trim();
 		var dataID = $(_this).parents(".info-detail").attr("data-id");
-		$("#rackValue tr[data-id='"+dataID+"'] td:eq(1)").html(val);
+		$("#rackValue tr[data-id='"+dataID+"'] td:eq(1) .svr").html(val);
 		$(".detail li:eq(2) .value").html(val);
 		rackInfoValue.value.rackValue[dataID].value["name"] = $(".info-detail ul li:eq(2) .value").val();
 	}
