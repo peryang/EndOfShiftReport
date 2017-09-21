@@ -63,7 +63,7 @@ function initTree(){
 	showMask();
 	$.ajax({
 		url: ajax_url.get_rack_nodes,
-		type: "get",
+		type: "post",
 		async: true,
 		dataType: "json",
 		success: function (json) {
@@ -146,7 +146,7 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 	showMask();
 	$.ajax({
 		url: modify_node,
-		type: "get",
+		type: "post",
 		async: true,
 		data: postData,
 		dataType: "json",
@@ -242,7 +242,7 @@ function zTreeOnClick(ev, id, obj, lev){
 	showMask();
 	$.ajax({
 		url: ajax_url.get_rack_dev,
-		type: "get",
+		type: "post",
 		async: true,
 		data: {
 			id: obj.id
@@ -473,7 +473,7 @@ function removeTreeNode() {
 			showMask();
 			$.ajax({
 				url: remove_node,
-				type: "get",
+				type: "post",
 				async: true,
 				data: {
 					id: id
@@ -534,7 +534,7 @@ function searchNodesByU(value){
 	showMask();
 	$.ajax({
 		url: ajax_url.search_rack_nodes,
-		type: "get",
+		type: "post",
 		async: true,
 		data: {
 			pIds: getChildNodesID(),
@@ -634,7 +634,7 @@ $(document).delegate(".pdu-c-left .add-pdu", "click", function (ev) {
 	ev.preventDefault();
 	$.ajax({
 		url: ajax_url.get_pdu_model,
-		type: "get",
+		type: "post",
 		async: true,
 		dataType: "json",
 		success: function (json) {
@@ -669,7 +669,7 @@ $(document).delegate(".pdu-c-right .add-pdu", "click", function (ev) {
 	ev.preventDefault();
 	$.ajax({
 		url: ajax_url.get_pdu_model,
-		type: "get",
+		type: "post",
 		async: true,
 		dataType: "json",
 		success: function (json) {
@@ -892,7 +892,7 @@ $(document).delegate(".del-svr", "click", function (ev) {
 		showMask();
 		$.ajax({
 			url: ajax_url.del_svr_node,
-			type: "get",
+			type: "post",
 			async: true,
 			data: {
 				"id": id,
@@ -940,7 +940,7 @@ $(document).delegate(".add-pdu-modal .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.add_pdu_node,
-		type: "get",
+		type: "post",
 		async: true,
 		data: {
 			"pId": id,
@@ -984,7 +984,7 @@ $(document).delegate(".modify-rack-name .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.set_rack_prop,
-		type: "get",
+		type: "post",
 		async: true,
 		data: {
 			id: id,
@@ -1045,7 +1045,7 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: add_node_url,
-		type: "get",
+		type: "post",
 		async: true,
 		data: postData,
 		dataType: "json",
@@ -1300,7 +1300,7 @@ $(document).delegate(".unaddsvr-list li", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackValue,
-		type: "get",
+		type: "post",
 		async: true,
 		data: {
 			id: id,
@@ -1343,7 +1343,7 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 	// pdu_use 界面化
 	$.ajax({
 		url: ajax_url.set_rack_prop,
-		type: "get",
+		type: "post",
 		async: true,
 		data: {
 			id: id,
@@ -1405,7 +1405,7 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 		showMask();
 		$.ajax({
 			url: ajax_url.del_pdu_node,
-			type: "get",
+			type: "post",
 			async: true,
 			data: {
 				"id": pdu_id,
@@ -1489,7 +1489,7 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.set_svr_prop,
-		type: "get",
+		type: "post",
 		async: true,
 		data: postData,
 		dataType: "json",
@@ -1633,7 +1633,7 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.add_svr_node,
-		type: "get",
+		type: "post",
 		async: true,
 		data: postData,
 		dataType: "json",
@@ -1700,7 +1700,7 @@ $(document).delegate("#exportDbBtn", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.download_excel,
-		type: "get",
+		type: "post",
 		success: function (response, status, request) {
 			hideMask();
 			var disp = request.getResponseHeader('Content-Disposition');
