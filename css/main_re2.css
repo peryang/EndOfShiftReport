@@ -329,7 +329,7 @@ tr td:last-child{
 }
 .modal .modal-body .input-group-addon,
 .svr-label{
-	min-width: 80px;
+	min-width: 104px;
 }
 .info-detail .svr-label{
 	min-width: 45px;

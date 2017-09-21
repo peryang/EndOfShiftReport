@@ -32,12 +32,29 @@ var setting = {
 var rackInfoValue = "", zTree, rMenu;
 $(document).ready(function(){
 	$("#projectName").html(config.projectName);
-	$(".noty-info").html(config.noty);
 	$("#modifyBtn").html(config.modifyBtn);
-	$("#addsvrBtn").html(config.addsvrBtn);
+	$("#addsvrBtn").html(config.addSvrBtn);
 	$("#deveceInfo").html(config.deveceInfo);
 	$(".save-info").html(config.saveRackInfo);
 	$("#searchNode").html(config.search);
+	
+	$(".modify-rack-name .modal-title").html(config.modalModifyTitle);
+	$(".modify-rack-name .modal-rack-name-label").html(config.modalModifyNameLabel);
+	$(".modify-rack-name .modal-rack-name").attr("placeholder", config.modalModifyNamePlaceHolder);
+	$(".add-svr .addsvr-pos").attr("placeholder", config.modalAddSvrStart);
+	$("#left_side .search-by-u").html(config.searchByU);
+	$("#u_num").attr("placeholder", config.searchByUPlaceHolder);
+	$("#in").attr("placeholder", config.searchRackPlaceHolder);
+	$("#exportBtn").html(config.exportExcel);
+	$("#addsvrBtn").html(config.addSvrBtn);
+	$(".del-svr").html(config.delSvr);
+	$(".save-info").html(config.saveInfo);
+	$(".add-pdu-pos").html(config.addPduPos);
+	$(".add-svr-len-label").html(config.addSvrLen);
+	$(".add-svr-start-label").html(config.addSvrStart);
+	$(".add-svr-name-label").html(config.addSvrName);
+	//$("searchNode").html(search);
+	//$("searchNode").html(search);
 	initTree();
 });
 
@@ -46,7 +63,7 @@ function initTree(){
 	showMask();
 	$.ajax({
 		url: ajax_url.get_rack_nodes,
-		type: "post",
+		type: "get",
 		async: true,
 		dataType: "json",
 		success: function (json) {
@@ -124,15 +141,12 @@ function beforeRename(treeId, treeNode, newName, isCancel) {
 	var postData = {
 		name: newName,
 		id: id
-		// "asset_id":"",
-		// "name":"rack",
-		// "useinfo":"",
 	};
 	
 	showMask();
 	$.ajax({
 		url: modify_node,
-		type: "post",
+		type: "get",
 		async: true,
 		data: postData,
 		dataType: "json",
@@ -228,7 +242,7 @@ function zTreeOnClick(ev, id, obj, lev){
 	showMask();
 	$.ajax({
 		url: ajax_url.get_rack_dev,
-		type: "post",
+		type: "get",
 		async: true,
 		data: {
 			id: obj.id
@@ -278,7 +292,14 @@ function zTreeOnClick(ev, id, obj, lev){
 				drawRack();
 				drawPdu();
 				drawAddsvr();
-				rackInfoValue.info = json.data.info;
+				for(var i in json.data.info){
+					if(i == "name"){
+						i = "position";
+						rackInfoValue.info[i] = json.data.info["name"];
+						continue;
+					}
+					rackInfoValue.info[i] = json.data.info[i];
+				}
 				drawRackInfo();
 				setPduStatus();
 				getRackUsed();
@@ -316,7 +337,7 @@ function drawRackInfo(){
 	var rackInfo = rackInfoValue.info;
 	$(".info-detail ul").empty();
 	for (var i in rackInfo) {
-		if(i == "asset_id" || i == "name"){
+		if(i == "asset_id" || i == "position"){
 			var obj = $(['<li class="list-group-item">',
 							'<div class="key">'+i+'</div>',
 							'<div class="oper">： </div>',
@@ -452,7 +473,7 @@ function removeTreeNode() {
 			showMask();
 			$.ajax({
 				url: remove_node,
-				type: "post",
+				type: "get",
 				async: true,
 				data: {
 					id: id
@@ -497,7 +518,7 @@ function searchNodes(value){
 	if(result){
 		if(result.length == 0){
 			$("#reTree").find(".no-data").remove();
-			$("#reTree").prepend("<li class='no-data'>没有搜索到数据</li>");
+			$("#reTree").prepend("<li class='no-data'>No Data</li>");
 		}else{
 			$("#reTree").find(".no-data").remove();
 		}
@@ -513,7 +534,7 @@ function searchNodesByU(value){
 	showMask();
 	$.ajax({
 		url: ajax_url.search_rack_nodes,
-		type: "post",
+		type: "get",
 		async: true,
 		data: {
 			pIds: getChildNodesID(),
@@ -613,7 +634,7 @@ $(document).delegate(".pdu-c-left .add-pdu", "click", function (ev) {
 	ev.preventDefault();
 	$.ajax({
 		url: ajax_url.get_pdu_model,
-		type: "post",
+		type: "get",
 		async: true,
 		dataType: "json",
 		success: function (json) {
@@ -648,7 +669,7 @@ $(document).delegate(".pdu-c-right .add-pdu", "click", function (ev) {
 	ev.preventDefault();
 	$.ajax({
 		url: ajax_url.get_pdu_model,
-		type: "post",
+		type: "get",
 		async: true,
 		dataType: "json",
 		success: function (json) {
@@ -776,9 +797,9 @@ $(document).delegate("#rackValue tbody tr td:nth-child(2)", "click", function (e
 				var pduUsed = rackInfoValue.value.pduData[dataID].split(",");
 				for (var pu = 0; pu < pduUsed.length; pu++) {
 					var tmpObj = $(['<li class="input-group pdu-pos-info">',
-										'<span class="input-group-addon svr-label">pdu:</span>',
+										'<span class="input-group-addon svr-label use-pdu-id">', config.usePduID,':</span>',
 										'<select class="form-control pdu-info"></select>',
-										'<span class="input-group-addon svr-label">pos:</span>',
+										'<span class="input-group-addon svr-label use-pdu-pos">', config.usePduPos,':</span>',
 										'<select class="form-control pdu-pos"></select>',
 									'</li>'].join(""));
 					$(".info-detail ul").append(tmpObj);
@@ -805,10 +826,10 @@ $(document).delegate("#rackValue tbody tr td:nth-child(2)", "click", function (e
 			}
 		}
 		$(".info-detail .add-pdu-pos").remove();
-		$(".info-detail").append('<button type="button" class="add-pdu-pos btn btn-default">Add Pdu Pos Info</button>');
+		$(".info-detail").append('<button type="button" class="add-pdu-pos btn btn-default">'+config.addPduPos+'</button>');
 		
 		$(".info-detail .del-svr").remove();
-		$(".info-detail").append('<button type="button" class="del-svr btn btn-default">Del Svr</button>');
+		$(".info-detail").append('<button type="button" class="del-svr btn btn-default">'+config.delSvr+'</button>');
 		$(".save-info").removeClass("save-rack-info").addClass("save-rack-value");
 		$(".save-info").html(config.saveRackValue);
 	}else{
@@ -871,7 +892,7 @@ $(document).delegate(".del-svr", "click", function (ev) {
 		showMask();
 		$.ajax({
 			url: ajax_url.del_svr_node,
-			type: "post",
+			type: "get",
 			async: true,
 			data: {
 				"id": id,
@@ -919,7 +940,7 @@ $(document).delegate(".add-pdu-modal .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.add_pdu_node,
-		type: "post",
+		type: "get",
 		async: true,
 		data: {
 			"pId": id,
@@ -963,7 +984,7 @@ $(document).delegate(".modify-rack-name .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.set_rack_prop,
-		type: "post",
+		type: "get",
 		async: true,
 		data: {
 			id: id,
@@ -1024,7 +1045,7 @@ $(document).delegate(".add-node .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: add_node_url,
-		type: "post",
+		type: "get",
 		async: true,
 		data: postData,
 		dataType: "json",
@@ -1060,9 +1081,9 @@ $(document).delegate(".info-detail .add-pdu-pos", "click", function (ev) {
 	ev.preventDefault();
 	var _this = this;
 	var tmpObj = $(['<div class="input-group pdu-pos-info">',
-					'<span class="input-group-addon svr-label">pdu:</span>',
+					'<span class="input-group-addon svr-label use-pdu-id">', config.usePduID,':</span>',
 					'<select class="form-control pdu-info"></select>',
-					'<span class="input-group-addon svr-label">pos:</span>',
+					'<span class="input-group-addon svr-label use-pdu-pos">', config.usePduPos,':</span>',
 					'<select class="form-control pdu-pos"></select>',
 				'</div>'].join(""));
 	$(_this).prevAll("ul.list-group").append(tmpObj);
@@ -1089,9 +1110,9 @@ $(document).delegate(".add-svr .add-pdu-pos", "click", function (ev) {
 	ev.preventDefault();
 	var _this = this;
 	var tmpObj = $(['<div class="input-group pdu-pos-info">',
-					'<span class="input-group-addon svr-label">pdu:</span>',
+					'<span class="input-group-addon svr-label use-pdu-id">', config.usePduID,':</span>',
 					'<select class="form-control pdu-info"></select>',
-					'<span class="input-group-addon svr-label">pos:</span>',
+					'<span class="input-group-addon svr-label use-pdu-pos">', config.usePduPos,':</span>',
 					'<select class="form-control pdu-pos"></select>',
 				'</div>',
 				'<br />'].join(""));
@@ -1279,7 +1300,7 @@ $(document).delegate(".unaddsvr-list li", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.saveRackValue,
-		type: "post",
+		type: "get",
 		async: true,
 		data: {
 			id: id,
@@ -1322,7 +1343,7 @@ $(document).delegate(".save-rack-info", "click", function (ev) {
 	// pdu_use 界面化
 	$.ajax({
 		url: ajax_url.set_rack_prop,
-		type: "post",
+		type: "get",
 		async: true,
 		data: {
 			id: id,
@@ -1384,7 +1405,7 @@ $(document).delegate(".pdu-del", "click", function (ev) {
 		showMask();
 		$.ajax({
 			url: ajax_url.del_pdu_node,
-			type: "post",
+			type: "get",
 			async: true,
 			data: {
 				"id": pdu_id,
@@ -1468,7 +1489,7 @@ $(document).delegate(".save-rack-value", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.set_svr_prop,
-		type: "post",
+		type: "get",
 		async: true,
 		data: postData,
 		dataType: "json",
@@ -1612,7 +1633,7 @@ $(document).delegate(".add-svr .sure", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.add_svr_node,
-		type: "post",
+		type: "get",
 		async: true,
 		data: postData,
 		dataType: "json",
@@ -1679,7 +1700,7 @@ $(document).delegate("#exportDbBtn", "click", function (ev) {
 	showMask();
 	$.ajax({
 		url: ajax_url.download_excel,
-		type: "post",
+		type: "get",
 		success: function (response, status, request) {
 			hideMask();
 			var disp = request.getResponseHeader('Content-Disposition');
